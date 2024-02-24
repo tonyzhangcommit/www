@@ -1,0 +1,294 @@
+{"level":"dev.info","timestamp":"2024-01-30 19:29:25.887","logger":"userService","caller":"logService/main.go:20","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-02-19 19:31:56.535","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-19 19:31:56.536","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-19 19:31:56.536","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-19 19:32:42.129","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-19 19:39:26.701","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-19 19:45:19.132","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:19:40.938","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:26:59.127","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:07.913","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:30.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:30.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:30.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:30.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:30.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:31:30.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:32:19.556","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:32:54.449","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:33:08.967","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:23.329","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.850","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:39:40.851","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:40:02.936","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:40:02.936","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:40:02.936","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:40:02.936","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:40:02.936","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.181","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:27.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:31.001","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:31.792","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:32.331","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:32.465","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:32.598","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:32.803","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:32.937","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:33.070","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:33.190","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:33.319","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:33.657","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:33.824","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:34.089","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:34.346","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:34.457","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:34.571","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:34.699","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:34.840","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:35.101","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:35.274","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:35.376","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:35.497","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:35.927","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:36.060","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:36.204","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:36.677","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:36.829","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:36.977","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:37.115","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:37.265","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:37.423","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:43:37.577","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:50.411","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:54.256","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:54.870","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:55.492","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:55.642","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:56.028","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:56.318","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:56.455","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:56.719","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:56.905","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:57.074","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:57.215","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:57.371","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:57.733","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:57.875","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:58.001","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 10:48:58.108","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:47.750","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:48.617","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:53.403","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:53.941","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.101","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.234","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.375","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.501","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.653","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.764","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:13:54.884","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:51.023","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:51.676","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:51.758","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:51.912","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:52.054","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:52.169","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:14:52.300","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:30:26.006","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:30:30.218","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 11:30:30.725","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 15:35:40.173","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 15:35:59.749","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 15:36:02.780","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 15:36:27.021","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 15:36:42.207","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:09.547","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:17.426","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:17.942","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:18.068","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:18.197","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:18.502","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:18.604","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:19.233","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:19.380","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:19.541","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:19.656","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:19.794","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:20.970","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:21.086","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:37:21.203","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志"}
+{"level":"dev.info","timestamp":"2024-02-20 15:40:25.015","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 16:57:09.855","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 16:58:14.344","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 16:59:03.151","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 16:59:33.874","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 16:59:37.929","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:00:16.333","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:02:03.454","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:18:21.396","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:18:25.660","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:18:34.033","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:18:41.713","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:18:48.175","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:00.785","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:05.080","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:12.284","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:13.878","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:24.059","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:29.134","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:33.582","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:45.179","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:19:53.282","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:35:52.744","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:35:55.979","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:35:57.835","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:36:01.633","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:36:03.866","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:36:06.064","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:36:08.910","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:36:16.813","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:36:21.058","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:37:32.674","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:37:48.309","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:37:53.638","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:37:55.028","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:37:57.159","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:37:59.204","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:01.432","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:31.702","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:38.318","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:43.406","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:44.720","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:46.624","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:49.018","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:38:50.171","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:39:00.856","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:39:02.087","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 17:45:11.936","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一条测试日志！！！"}
+{"level":"dev.info","timestamp":"2024-02-20 19:30:38.454","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。"}
+{"level":"dev.info","timestamp":"2024-02-20 19:30:51.538","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:07.823","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:11.213","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:11.983","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:12.495","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:12.774","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:12.892","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.032","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.149","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.277","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.415","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.571","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.693","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.821","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:13.954","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:14.071","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:14.200","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:14.328","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:14.487","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:15.085","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:15.227","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:15.372","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-20 19:31:15.506","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"这是一个测试日志。。。 - 错误详情: 这里测试错误类型"}
+{"level":"dev.info","timestamp":"2024-02-23 15:20:53.634","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:51.670","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:51.779","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:51.779","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：200489"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:51.779","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：615735"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:56.216","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：351985"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:57.594","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：567063"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:58.567","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：342623"}
+{"level":"dev.info","timestamp":"2024-02-23 16:26:59.401","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：466284"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:00.338","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：898858"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:01.214","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：252874"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:41.863","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：395560"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:44.428","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：571656"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:52.136","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：373324"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:53.155","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：602536"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:53.878","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：572098"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:56.554","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：615317"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:57.405","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：682818"}
+{"level":"dev.info","timestamp":"2024-02-23 16:27:58.236","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：257126"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:01.707","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：935153"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:02.149","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：864342"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:02.835","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：942546"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:03.536","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：411273"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:04.238","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：530172"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:04.934","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：176064"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:05.923","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：065304"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:06.396","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：756732"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:07.269","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：420907"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:07.883","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：499985"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:08.251","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：250869"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:09.769","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：591928"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:10.724","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：299620"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:11.458","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：204553"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:12.486","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：450478"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:13.532","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：509793"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:15.627","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：149010"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:30.301","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:31.797","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：899502"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:33.114","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：020269"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:34.155","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：224830"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:35.119","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：096038"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:35.970","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：780104"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:36.709","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：611914"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:37.483","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：721576"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:38.222","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：146184"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:38.993","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：084035"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:39.983","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：704580"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:40.925","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：342697"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:41.722","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：015176"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:42.746","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：459717"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:43.555","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：955241"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:45.111","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：524297"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:46.049","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：951605"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:46.751","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：094557"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:47.488","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：480597"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:48.091","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：789095"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:48.803","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：496295"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:49.673","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：894018"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:50.296","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：619214"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:51.040","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：325598"}
+{"level":"dev.info","timestamp":"2024-02-23 16:28:51.862","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：861473"}
+{"level":"dev.info","timestamp":"2024-02-23 16:29:57.951","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 16:58:35.907","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 17:01:10.668","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 17:02:06.610","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 17:03:37.780","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-23 17:03:45.382","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：919184"}
+{"level":"dev.info","timestamp":"2024-02-23 19:42:19.670","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：415588"}
+{"level":"dev.info","timestamp":"2024-02-23 19:42:25.445","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：184437"}

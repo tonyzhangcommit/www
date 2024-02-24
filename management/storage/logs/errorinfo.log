@@ -1,0 +1,163 @@
+
+
+[31m2023/11/25 15:32:38 [Recovery] 2023/11/25 - 15:32:38 panic recovered:
+POST /api/login HTTP/1.0
+Host: 39.105.9.252
+Connection: close
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Connection: close
+Content-Length: 46
+Content-Type: application/json
+Origin: http://39.105.9.252:86
+Referer: http://39.105.9.252:86/management/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+X-Forwarded-For: 74.48.164.46
+X-Forwarded-Proto: http
+X-Real-Ip: 74.48.164.46
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:260 (0x44bfb5)
+C:/Program Files/Go/src/runtime/signal_unix.go:835 (0x44bf85)
+C:/Users/Administrator/go/pkg/mod/gorm.io/gorm@v1.25.2/gorm.go:396 (0x9b3358)
+C:/Users/Administrator/go/pkg/mod/gorm.io/gorm@v1.25.2/chainable_api.go:19 (0xb75e97)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/services/user.go:37 (0xb75e82)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/controllers/management/user.go:21 (0xb8028f)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5c1e6)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xb5c1c9)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5b270)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xb5aed8)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xb5aa1c)
+C:/Program Files/Go/src/net/http/server.go:2947 (0x83b16b)
+C:/Program Files/Go/src/net/http/server.go:1991 (0x836386)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1594 (0x466fc0)
+[0m
+
+
+[31m2023/11/25 15:33:06 [Recovery] 2023/11/25 - 15:33:06 panic recovered:
+POST /api/login HTTP/1.0
+Host: 39.105.9.252
+Connection: close
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: no-cache
+Connection: close
+Content-Length: 46
+Content-Type: application/json
+Origin: http://39.105.9.252:86
+Pragma: no-cache
+Referer: http://39.105.9.252:86/management/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+X-Forwarded-For: 74.48.164.46
+X-Forwarded-Proto: http
+X-Real-Ip: 74.48.164.46
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:260 (0x44bfb5)
+C:/Program Files/Go/src/runtime/signal_unix.go:835 (0x44bf85)
+C:/Users/Administrator/go/pkg/mod/gorm.io/gorm@v1.25.2/gorm.go:396 (0x9b3358)
+C:/Users/Administrator/go/pkg/mod/gorm.io/gorm@v1.25.2/chainable_api.go:19 (0xb75e97)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/services/user.go:37 (0xb75e82)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/controllers/management/user.go:21 (0xb8028f)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5c1e6)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xb5c1c9)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5b270)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xb5aed8)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xb5aa1c)
+C:/Program Files/Go/src/net/http/server.go:2947 (0x83b16b)
+C:/Program Files/Go/src/net/http/server.go:1991 (0x836386)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1594 (0x466fc0)
+[0m
+
+
+[31m2023/11/25 15:33:49 [Recovery] 2023/11/25 - 15:33:49 panic recovered:
+POST /api/login HTTP/1.0
+Host: 39.105.9.252
+Connection: close
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Cache-Control: no-cache
+Connection: close
+Content-Length: 46
+Content-Type: application/json
+Origin: http://39.105.9.252:86
+Pragma: no-cache
+Referer: http://39.105.9.252:86/management/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36
+X-Forwarded-For: 74.48.164.46
+X-Forwarded-Proto: http
+X-Real-Ip: 74.48.164.46
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:260 (0x44bfb5)
+C:/Program Files/Go/src/runtime/signal_unix.go:835 (0x44bf85)
+C:/Users/Administrator/go/pkg/mod/gorm.io/gorm@v1.25.2/gorm.go:396 (0x9b3358)
+C:/Users/Administrator/go/pkg/mod/gorm.io/gorm@v1.25.2/chainable_api.go:19 (0xb75e97)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/services/user.go:37 (0xb75e82)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/controllers/management/user.go:21 (0xb8028f)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5c1e6)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xb5c1c9)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5b270)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xb5aed8)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xb5aa1c)
+C:/Program Files/Go/src/net/http/server.go:2947 (0x83b16b)
+C:/Program Files/Go/src/net/http/server.go:1991 (0x836386)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1594 (0x466fc0)
+[0m
+
+
+[31m2024/01/10 17:10:33 [Recovery] 2024/01/10 - 17:10:33 panic recovered:
+POST /api/common/logout HTTP/1.0
+Host: 39.105.9.252
+Connection: close
+Accept: application/json, text/plain, */*
+Accept-Encoding: gzip, deflate
+Accept-Language: zh-CN,zh;q=0.9
+Authorization: *
+Connection: close
+Content-Length: 0
+Cookie: videoCookieKey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJSb2xlcyI6WyJzdXBlcmFkbWluIl0sIlVzZXJTdGF0dXMiOnRydWUsIlVzZXJOYW1lIjoic3VwZXJhZG1pbjAwMSIsIlVzZXJUZWwiOiIxODUxMDE1MDAwMSIsImV4cCI6MTcwNDg4ODYyMiwianRpIjoiMSIsImlzcyI6Im1hbmFnZSIsIm5iZiI6MTcwNDg3NjgyMn0.ro8_sFxImYBjwbDzlR30hBiad741ilKMrYuqfDMFIoI
+Origin: http://39.105.9.252:86
+Referer: http://39.105.9.252:86/management/
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+X-Forwarded-For: 221.194.171.230
+X-Forwarded-Proto: http
+X-Real-Ip: 221.194.171.230
+
+
+runtime error: invalid memory address or nil pointer dereference
+C:/Program Files/Go/src/runtime/panic.go:260 (0x44bfb5)
+C:/Program Files/Go/src/runtime/signal_unix.go:835 (0x44bf85)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/services/jwt.go:94 (0xb710cc)
+D:/feiyuzhang/goproject/golangproject/orderingSystem/videosystem/app/middleware/jwt.go:45 (0xb7d859)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5d0e1)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/recovery.go:102 (0xb5d0cc)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5c1e6)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/logger.go:240 (0xb5c1c9)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/context.go:174 (0xb5b270)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:620 (0xb5aed8)
+C:/Users/Administrator/go/pkg/mod/github.com/gin-gonic/gin@v1.9.1/gin.go:576 (0xb5aa1c)
+C:/Program Files/Go/src/net/http/server.go:2947 (0x83b16b)
+C:/Program Files/Go/src/net/http/server.go:1991 (0x836386)
+C:/Program Files/Go/src/runtime/asm_amd64.s:1594 (0x466fc0)
+[0m

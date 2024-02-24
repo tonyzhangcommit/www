@@ -1,0 +1,9 @@
+{"level":"dev.info","timestamp":"[2024-01-30 18:56:12.824]","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"[2024-01-30 18:56:51.380]","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 18:58:03.550","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 18:59:28.285","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 19:13:40.448","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 19:14:10.807","logger":"userService","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 19:19:40.685","logger":"userService","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 19:20:33.715","logger":"userService","caller":"logService/main.go:19","msg":"这是一条日志"}
+{"level":"dev.info","timestamp":"2024-01-30 19:21:28.797","logger":"userService","caller":"logService/main.go:19","msg":"这是一条日志"}

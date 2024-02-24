@@ -1,0 +1,14 @@
+[2023-11-25 15:12:08.550]	Dev.error	bootstrap/db.go:46	mysql connect failed, err:	{"err": "Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)"}
+[2023-11-25 15:12:08.618]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2023-11-25 15:32:27.511]	Dev.error	bootstrap/db.go:46	mysql connect failed, err:	{"err": "Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)"}
+[2023-11-25 15:32:27.579]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2023-11-25 15:35:44.315]	Dev.error	bootstrap/db.go:46	mysql connect failed, err:	{"err": "Error 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)"}
+[2023-11-25 15:35:44.383]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2023-11-25 15:40:00.930]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2023-11-25 15:51:14.730]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2024-01-10 17:06:02.842]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2024-01-10 17:06:46.173]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2024-01-10 17:10:09.484]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2024-01-11 10:46:59.708]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2024-01-11 10:47:31.498]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}
+[2024-01-11 10:48:21.172]	Dev.error	bootstrap/redis.go:19	Redis connect ping failed, err:	{"err": "dial tcp 127.0.0.1:6379: connect: connection refused"}

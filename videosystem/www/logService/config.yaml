@@ -1,0 +1,39 @@
+app:        # 服务基本设置
+  env: dev  
+  servicename: logService
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  vhost: /videosystemdev
+  user: adminroot
+  password: adminroot
+  userexchange: userServiceLog_topic   # 用户服务交换机
+  userinfoqueue: userinfoqueue  # 用户服务info队列名
+  usererrorqueue: usererrorqueue  # 用户服务error队列名
+usermanagerconfig:
+  serivcename: userService  # 服务名称
+  userexchange: userServiceLog_topic   # 服务交换机
+  userinfoqueue: userinfoqueue  # 用户服务info队列名
+  usererrorqueue: usererrorqueue  # 用户服务error队列名
+baselogconfig:  # 日志基本设置
+  root_dir: ./storage
+  show_line: true
+  max_backups: 3
+  max_size: 100
+  max_age: 30
+  compress: true
+  defaultErrorL: error
+localserverlog:
+  servicename: localService
+  root_dir: /Logservice
+  level: info
+  jsonformat: true
+  info: /logserviceInfo.log
+  error: /logserviceError.log
+userservicelog:
+  servicename: userService
+  root_dir: /UserService
+  level: info
+  jsonformat: true
+  info: /userserviceInfo.log
+  error: /userserviceError.log

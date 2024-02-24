@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mysql-node-1:
+    image: mysql
+    container_name: mysql01
+    environment:
+      MYSQL_ROOT_PASSWORD: adminroot         
+    ports:
+      - "3310:3306"                           # 将容器的3306端口映射到主机的3310端口
+    volumes:
+      - /www/videosystem/database/node-1/data/:/var/lib/mysql/                  # 持久化数据库数据
+      - /www/videosystem/database/node-1/config/my.cnf:/etc/mysql/my.cnf        # 持久化MySQL配置
+      - /www/videosystem/database/node-1/config/conf.d/:/etc/mysql/conf.d/      # 持久化MySQL配置
+    command: --default-authentication-plugin=caching_sha2_password              # 如果需要，可以添加额外的启动命令
+    restart: always
+  mysql-node-2:
+    image: mysql
+    container_name: mysql02
+    environment:
+      MYSQL_ROOT_PASSWORD: adminroot          
+    ports:
+      - "3311:3306"                           # 将容器的3306端口映射到主机的3310端口
+    volumes:
+      - /www/videosystem/database/node-2/data/:/var/lib/mysql/                  # 持久化数据库数据
+      - /www/videosystem/database/node-2/config/my.cnf:/etc/mysql/my.cnf        # 持久化MySQL配置
+      - /www/videosystem/database/node-2/config/conf.d/:/etc/mysql/conf.d/      # 持久化MySQL配置
+    command: --default-authentication-plugin=caching_sha2_password              # 如果需要，可以添加额外的启动命令
+    restart: always

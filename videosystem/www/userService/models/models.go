@@ -1,0 +1,93 @@
+/*
+这里是数据库表设计
+*/
+
+package models
+
+import (
+	"time"
+
+	"gorm.io/gorm"
+)
+
+// User 用户表
+type User struct {
+	gorm.Model
+	Username          string       `json:"username" gorm:"not null;column:username;comment:用户名"`
+	Password          string       `json:"-" gorm:"not null;column:password;comment:密码"`
+	PhoneNumber       string       `json:"phonenumber" gorm:"unique;not null;column:phonenumber;comment:手机号"`
+	Roles             []Role       `json:"-" gorm:"many2many:user_roles;"`
+	ExtraPermissions  []Permission `json:"-" gorm:"many2many:user_extra_permissions;"`
+	DeniedPermissions []Permission `json:"-" gorm:"many2many:user_denied_permissions;"`
+	ParentID          *uint        `gorm:"column:parentid;"`
+	Children          []User       `gorm:"foreignKey:ParentID"`
+	AgentCode         string       `gorm:"uniqueIndex;column:agentcode;default:NULL"`
+	ParentAgentCode   string       `json:"-" gorm:"column:parentagentcode;comment:父级识别码;not null"`
+	IsBanned          bool         `json:"isbanned" gorm:"not null;column:isbanned;default:false;comment:是否封禁"`
+}
+
+// Profile 用户资料表
+type Profile struct {
+	gorm.Model
+	UserID         uint
+	Address        string    `json:"address" gorm:"column:address;comment:地区"`
+	Sex            uint      `json:"sex" gorm:"column:sex;comment:性别"`
+	Identification string    `json:"idcard" gorm:"unique;column:idcard;comment:身份证号"`
+	Email          string    `json:"email" gorm:"unique;column:email;comment:邮箱"`
+	VIP            bool      `json:"vip" gorm:"default:false;column:isvip;comment:是否会员"`
+	TypeVip        string    `json:"typevip" gorm:"column:typevip;comment:会员类型"`
+	ExpVipDate     time.Time `json:"expvipdate" gorm:"column:expvipdate;comment:会员过期时间"`
+	Preferences    string    `json:"preferences" gorm:"column:preferences;comment:偏好"`
+}
+
+// 代理管理表
+type AgentManagement struct {
+	gorm.Model
+	AgentUserID uint `json:"agentuserID" gorm:"column:agentuserID;comment:代理ID"`
+	CanDevelop  bool `json:"candevelop" gorm:"column:candevelop;default:false;comment:能否发展自代理"`
+	IsBanned    bool `json:"isbanned" gorm:"column:isbanned;default:false;comment:是否封禁"`
+	ManagedBy   uint `json:"managedby" gorm:"column:managedby;comment:父级代理"`
+}
+
+type Role struct {
+	gorm.Model
+	RoleName    string       `json:"rolename" gorm:"unique;column:rolename;comment:角色名"`
+	Description string       `json:"desc" gorm:"column:desc;comment:描述信息"`
+	Users       []User       `gorm:"many2many:user_roles;"`
+	Permissions []Permission `gorm:"many2many:role_permissions;"`
+}
+
+// Permission 权限表
+type Permission struct {
+	gorm.Model
+	PermissionName string `json:"permissionname" gorm:"unique;column:permissionname;comment:权限名"`
+	Description    string `json:"desc" gorm:"column:desc;comment:描述信息"`
+}
+
+// VerificationCodeRecord 验证码记录表
+type VerificationCodeRecord struct {
+	gorm.Model
+	PhoneNumber  string
+	BusinessType string
+	Code         string
+	IsValid      bool
+}
+
+// SecurityInfo 安全信息表
+type SecurityInfo struct {
+	gorm.Model
+	UserID      uint
+	SessionID   string
+	IPAddress   string
+	Device      string
+	LastLoginAt time.Time
+	MFAEnabled  bool
+}
+
+// UserActivity 用户行为日志表
+type UserActivity struct {
+	gorm.Model
+	UserID  uint
+	Action  string
+	Details string // 可以用JSON格式存储详细信息
+}

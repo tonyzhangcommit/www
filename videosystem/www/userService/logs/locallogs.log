@@ -1,0 +1,29 @@
+{"level":"error","timestamp":"2024-02-06 17:09:40.113","caller":"bootstrap/rabbitmq.go:28","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 17:11:07.811","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:23:42.855","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:24:04.376","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:25:21.613","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:25:50.736","caller":"bootstrap/rabbitmq.go:26","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:26:16.192","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:26:57.344","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:27:46.331","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:29:06.386","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:29:35.863","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-06 19:30:12.569","caller":"bootstrap/rabbitmq.go:27","msg":"dial tcp 127.0.0.1:5671: connect: connection refused"}
+{"level":"error","timestamp":"2024-02-19 19:16:52.170","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:19:14.912","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:19:14.960","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:20:47.917","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:20:47.944","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:22:05.681","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:22:05.682","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:24:54.741","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:24:54.818","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:25:31.984","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:25:31.985","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:28:11.027","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:28:11.028","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:28:39.675","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:28:39.711","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-02-19 19:36:43.981","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
+{"level":"error","timestamp":"2024-02-19 19:36:44.004","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}

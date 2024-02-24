@@ -1,0 +1,95 @@
+userservice:
+  env: dev
+  port: 9999
+  appname: userService
+databases:
+  driver: mysql
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: Admin123.
+  dbname: videosystemdev
+  charset: utf8mb4
+  maxIdleConns: 20
+  maxOpenConns: 100
+redis:
+  host: 127.0.0.1
+  port: 6379
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  vhost: /videosystemdev
+  user: adminroot
+  password: adminroot
+  exchangename: userServiceLog_topic
+  userinfoqueue: userinfoqueue  # 用户服务info队列名
+  usererrorqueue: usererrorqueue  # 用户服务error队列名
+locallogs:
+  dir: ./logs
+  logfilename: /locallogs.log
+  max_backups: 3
+  max_size: 100
+  max_age: 30
+  isJson: true
+  compress: true
+  defaultLevel: info
+# 这里主要是为了初始化角色列表
+roles:
+  namelist:
+    - superAdmin
+    - admin
+    - regularUser
+    - monthlyVip
+    - quarterlyVip
+    - annualVip
+permission:
+  superAdmin:
+    - superManageUsers-管理（增加、删除、编辑）所有用户账户
+    - assignRoles-分配或更改用户角色
+    - addVideos-增加所有视频内容
+    - deleteVideos-删除所有视频内容
+    - editVideos-编辑所有视频内容
+    - viewAllVideos-查看所有视频内容，无论会员级别
+    - manageSystemSettings-修改系统设置和配置
+    - viewUserStatistics-查看所有用户的统计信息和活动
+    - managePermissions-管理和分配所有角色的权限
+    - manageFeedback-管理用户反馈
+    - manageReports-处理用户报告的内容
+    - manageAdvertisement-管理广告内容和展示策略
+    - viewAuditLogs-访问安全审计日志
+  admin:
+    - manageNonAdminUsers-管理非管理员用户账户（具体权限可能受限）
+    - manageNonAdminUsers-管理非管理员用户账户（具体权限可能受限）
+    - viewLimitedVideos-查看限定范围内的视频内容
+    - editLimitedVideos-编辑或删除限定范围内的视频内容（受限于条件）
+    - viewUserStatistics-查看普通用户的统计信息和活动
+    - respondToFeedback-响应用户反馈
+    - handleReports-处理用户报告
+  regularUser:
+    - viewFreeVideos-查看免费视频内容
+    - editProfile-编辑自己的用户资料
+    - postComments-在视频下发表评论
+    - rateVideos-给视频评分
+  monthlyVip:
+    - ViewFreeVideos-查看免费视频内容
+    - EditProfile-编辑自己的用户资料
+    - postComments-在视频下发表评论
+    - rateVideos-给视频评分
+    - viewMonthlyVIPVideos-查看专为月VIP会员准备的视频内容
+  quarterlyVip:
+    - ViewFreeVideos-查看免费视频内容
+    - EditProfile-编辑自己的用户资料
+    - postComments-在视频下发表评论
+    - rateVideos-给视频评分
+    - viewMonthlyVIPVideos-查看专为月VIP会员准备的视频内容
+    - ViewQuarterlyVIPVideos-查看专为季度VIP会员准备的视频内容
+    - DownloadVideos-下载
+  annualVip:
+    - ViewFreeVideos-查看免费视频内容
+    - EditProfile-编辑自己的用户资料
+    - postComments-在视频下发表评论
+    - rateVideos-给视频评分
+    - viewMonthlyVIPVideos-查看专为月VIP会员准备的视频内容
+    - ViewQuarterlyVIPVideos-查看专为季度VIP会员准备的视频内容
+    - DownloadVideos-下载
+    - AccessExclusiveContent-访问独家内容  

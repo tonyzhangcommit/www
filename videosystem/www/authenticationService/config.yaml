@@ -1,0 +1,31 @@
+app:  # 这里是服务发现配置
+  env: dev
+  port: 9999
+  app_name: authenticationService
+redis:
+  host: 127.0.0.1
+  port: 6379
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  vhost: /videosystemdev
+  user: adminroot
+  password: adminroot
+rabbitmqlog:
+  exchangename: authservice_topic
+  userinfoqueue: authinfoqueue  # 认证服务info队列名
+  usererrorqueue: autherrorqueue  # 认证服务error队列名
+locallogs:
+  dir: ./logs
+  logfilename: /locallogs.log
+  max_backups: 3
+  max_size: 100
+  max_age: 30
+  isJson: true
+  compress: true
+  defaultLevel: info
+# authentication:  # 认证相关配置
+# rateLimiting:    # 请求速率限制 -- DB & redis & config
+# requestPeaking:  # 请求峰值限制 -- MQ & config
+# errorHandling:   # 错误处理机制
+# userservice:

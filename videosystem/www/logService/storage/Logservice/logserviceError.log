@@ -1,0 +1,7 @@
+{"level":"dev.error","timestamp":"2024-01-30 19:28:50.964","logger":"localService","caller":"logService/main.go:18","msg":"这是一条error日志"}
+{"level":"dev.error","timestamp":"2024-01-30 19:29:25.887","logger":"localService","caller":"logService/main.go:18","msg":"这是一条error日志"}
+{"level":"dev.fatal","timestamp":"2024-02-19 17:58:52.177","logger":"localService","caller":"bootstrap/rabbitmq.go:65","msg":"Exception (404) Reason: \"NOT_FOUND - no queue 'userinfoqueue' in vhost '/videosystemdev'\""}
+{"level":"dev.error","timestamp":"2024-02-19 18:57:30.178","logger":"localService","caller":"bootstrap/rabbitmq.go:76","msg":"Exception (404) Reason: \"NOT_FOUND - no queue 'userinfoqueue' in vhost '/videosystemdev'\""}
+{"level":"dev.error","timestamp":"2024-02-19 18:57:30.178","logger":"localService","caller":"bootstrap/rabbitmq.go:86","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"dev.fatal","timestamp":"2024-02-19 18:57:30.178","logger":"localService","caller":"bootstrap/rabbitmq.go:99","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"dev.error","timestamp":"2024-02-20 10:42:43.119","logger":"localService","caller":"bootstrap/rabbitmq.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}

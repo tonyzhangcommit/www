@@ -1,0 +1,45 @@
+*******Env*******
+# 安装zap日志库
+go get -u go.uber.org/zap
+# 安装lumberjack 
+go get -u gopkg.in/natefinch/lumberjack.v2
+
+*******Docker*******
+# 进入docker 命令行命令
+docker exec -it container_name /bin/bash
+# 退出容器内部环境
+exit or Ctrl+D
+# 停止容器
+docker stop container_id_or_name
+*******rabbitMQ*******
+# 创建vhost
+rabbitmqctl add_vhost vhost_name eg:rabbitmqctl add_vhost /my_vhost
+# 创建用户
+rabbitmqctl add_user user_name
+# 赋予权限
+rabbitmqctl set_permissions -p vhost_name <user_name> ".*" ".*" ".*"   # 允许用户创建、读取和写入任何队列和交换机。.*是一个正则表达式
+# 删除用户
+rabbitmqctl add_user user_name
+# 指定用户给指定的vhost赋予权限
+rabbitmqctl set_permissions -p <vhost_name> <username> "<configure_regex>" "<write_regex>" "<read_regex>"
+
+# 以下是详细解释
+在使用`rabbitmqctl`创建或删除用户时，您不需要指定虚拟主机（vhost）名称。用户管理是在RabbitMQ实例级别进行的，而不是在虚拟主机级别。这意味着创建的用户可以访问RabbitMQ实例中的任何虚拟主机，前提是他们有足够的权限。
+
+然而，在用户创建之后，如果您需要限制用户对特定虚拟主机的访问，或者为用户在特定虚拟主机中设置权限，您需要使用`set_permissions`命令，并在该命令中指定虚拟主机名称。这里是设置权限的命令格式：
+
+```sh
+rabbitmqctl set_permissions -p <vhost_name> <username> "<configure_regex>" "<write_regex>" "<read_regex>"
+```
+
+- `<vhost_name>`: 您希望设置权限的虚拟主机的名称。
+- `<username>`: 用户名。
+- `"<configure_regex>"`, `"<write_regex>"`, `"<read_regex>"`: 这些是用来定义用户在指定虚拟主机中可以配置、写入和读取哪些资源的正则表达式。通常使用`.*`来表示允许所有操作。
+
+例如，如果您想允许用户`newuser`在名为`/my_vhost`的虚拟主机中进行所有操作，您可以使用如下命令：
+
+```sh
+rabbitmqctl set_permissions -p /my_vhost newuser ".*" ".*" ".*"
+```
+
+这样，`newuser`就有权限在`/my_vhost`虚拟主机中配置、写入和读取任何队列和交换机。如果需要限制权限，可以将`.*`替换为更具体的正则表达式。

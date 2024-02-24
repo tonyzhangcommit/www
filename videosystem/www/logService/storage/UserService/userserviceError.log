@@ -1,0 +1,46 @@
+{"level":"dev.error","timestamp":"2024-02-20 11:13:48.617","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:53.403","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:53.941","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.101","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.234","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.375","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.501","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.653","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.764","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:13:54.884","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:51.023","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:51.676","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:51.758","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:51.912","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:52.054","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:52.169","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:14:52.300","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:30:26.006","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:30:30.218","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 11:30:30.725","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"这是一条错误测试日志！！！"}
+{"level":"dev.error","timestamp":"2024-02-20 18:34:14.964","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-20 18:34:24.912","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-20 18:34:25.436","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-20 18:34:25.520","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-20 18:34:26.575","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-20 18:55:37.171","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"创建测试管理员失败"}
+{"level":"dev.error","timestamp":"2024-02-20 18:55:37.190","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"Error 1062 (23000): Duplicate entry '1' for key 'roles.PRIMARY'"}
+{"level":"dev.error","timestamp":"2024-02-20 18:56:24.024","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"创建测试管理员失败"}
+{"level":"dev.error","timestamp":"2024-02-20 18:56:24.153","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"Error 1062 (23000): Duplicate entry '1' for key 'roles.PRIMARY'"}
+{"level":"dev.error","timestamp":"2024-02-22 15:08:41.613","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"注册失败 - 错误详情: 注册失败，请联系管理员"}
+{"level":"dev.error","timestamp":"2024-02-22 15:10:14.944","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"注册失败 - 错误详情: Error 1062 (23000): Duplicate entry '1' for key 'users.parentid'"}
+{"level":"dev.error","timestamp":"2024-02-22 15:11:43.272","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"注册失败 - 错误详情: Error 1062 (23000): Duplicate entry '' for key 'users.agentcode'"}
+{"level":"dev.error","timestamp":"2024-02-22 15:28:29.582","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"注册失败 - 错误详情: Error 1062 (23000): Duplicate entry '' for key 'users.idx_users_agent_code'"}
+{"level":"dev.error","timestamp":"2024-02-22 15:46:17.178","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"录入用户行为失败 - 错误详情: Error 1146 (42S02): Table 'videosystemdev.user_activities' doesn't exist"}
+{"level":"dev.error","timestamp":"2024-02-22 15:46:21.283","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"注册失败 - 错误详情: Error 1062 (23000): Duplicate entry '' for key 'users.idx_users_agent_code'"}
+{"level":"dev.error","timestamp":"2024-02-22 15:47:15.825","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"注册失败 - 错误详情: Error 1062 (23000): Duplicate entry '' for key 'users.idx_users_agent_code'"}
+{"level":"dev.error","timestamp":"2024-02-22 15:57:37.411","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"录入用户行为失败 - 错误详情: Error 1146 (42S02): Table 'videosystemdev.user_activities' doesn't exist"}
+{"level":"dev.error","timestamp":"2024-02-22 15:57:41.578","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"录入用户行为失败 - 错误详情: Error 1146 (42S02): Table 'videosystemdev.user_activities' doesn't exist"}
+{"level":"dev.error","timestamp":"2024-02-23 15:18:51.458","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-23 19:26:10.867","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-23 19:37:14.663","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-23 19:42:18.206","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-23 19:42:19.670","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"初始化redis服务失败"}
+{"level":"dev.error","timestamp":"2024-02-23 19:42:25.444","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"初始化redis服务失败"}
+{"level":"dev.error","timestamp":"2024-02-23 19:42:37.808","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"初始化redis服务失败"}
+{"level":"dev.error","timestamp":"2024-02-23 19:42:41.106","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"初始化redis服务失败"}
