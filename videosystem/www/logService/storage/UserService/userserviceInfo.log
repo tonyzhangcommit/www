@@ -292,3 +292,17 @@
 {"level":"dev.info","timestamp":"2024-02-23 17:03:45.382","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：919184"}
 {"level":"dev.info","timestamp":"2024-02-23 19:42:19.670","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：415588"}
 {"level":"dev.info","timestamp":"2024-02-23 19:42:25.445","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：184437"}
+{"level":"dev.info","timestamp":"2024-02-26 11:56:45.383","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 14:51:59.913","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 15:03:47.128","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 15:04:14.091","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 15:06:11.506","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 15:24:59.572","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 15:38:40.992","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 15:59:51.939","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 18:50:28.224","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 18:56:04.697","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 18:57:02.227","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 19:14:15.572","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 19:16:00.956","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：550180"}
+{"level":"dev.info","timestamp":"2024-02-26 19:18:08.690","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}

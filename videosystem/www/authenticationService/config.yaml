@@ -1,17 +1,18 @@
 app:  # 这里是服务发现配置
   env: dev
   port: 9999
-  app_name: authenticationService
+  appname: authenticationService
 redis:
   host: 127.0.0.1
   port: 6379
+  db: 1
 rabbitmq:
   host: 127.0.0.1
   port: 5672
   vhost: /videosystemdev
   user: adminroot
   password: adminroot
-rabbitmqlog:
+rabbitmqlog:  # 这里表示日志相关的配置，后续可能会有请求相关的配置作为限流
   exchangename: authservice_topic
   userinfoqueue: authinfoqueue  # 认证服务info队列名
   usererrorqueue: autherrorqueue  # 认证服务error队列名
@@ -24,6 +25,18 @@ locallogs:
   isJson: true
   compress: true
   defaultLevel: info
+userserviceapi:
+  name: userService
+  timeout: 5
+  baseurl: http://127.0.0.1:19999
+  clientpath: /consumer      # 对外客户端分组路由名称
+  adminpath: /management     # 对外管理端分组路由名称
+  client:
+    login: /user/loginbypvc   # 用户服务实际路径
+    register: /user/register 
+    getvirifcode: /user/getvarifcode
+  admin: 
+    login: ""
 # authentication:  # 认证相关配置
 # rateLimiting:    # 请求速率限制 -- DB & redis & config
 # requestPeaking:  # 请求峰值限制 -- MQ & config

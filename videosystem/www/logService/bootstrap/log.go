@@ -21,7 +21,7 @@ func InitializeLocalLogger() {
 	bS := global.App.Config.BaseServiceLog
 	core := genCore(lS.JsonFormat, lS.Level, lS.RootDir, lS.Info, lS.Error, bS.MaxSize, bS.MaxAge, bS.MaxBackups)
 	logger := zap.New(core, zap.AddCaller()).Named(lS.ServiceName)
-	global.App.LogsServiceLogger = *logger
+	global.App.LogsServiceLogger = logger
 }
 
 /*
@@ -32,7 +32,18 @@ func InitializeUserServiceLogger() {
 	bS := global.App.Config.BaseServiceLog
 	core := genCore(uS.JsonFormat, uS.Level, uS.RootDir, uS.Info, uS.Error, bS.MaxSize, bS.MaxAge, bS.MaxBackups)
 	logger := zap.New(core, zap.AddCaller()).Named(uS.ServiceName)
-	global.App.UserServiceLogger = *logger
+	global.App.UserServiceLogger = logger
+}
+
+/*
+初始化认证微服务日志器
+*/
+func InitializeAuthServiceLogger() {
+	uS := global.App.Config.AuthServiceLog
+	bS := global.App.Config.BaseServiceLog
+	core := genCore(uS.JsonFormat, uS.Level, uS.RootDir, uS.Info, uS.Error, bS.MaxSize, bS.MaxAge, bS.MaxBackups)
+	logger := zap.New(core, zap.AddCaller()).Named(uS.ServiceName)
+	global.App.AuthServiceLogger = logger
 }
 
 /*
@@ -120,8 +131,8 @@ func getLevel(levelStr string) zapcore.Level {
 */
 
 func getFileWriteSyncer(filename string, maxsize int, maxage int, maxbackups int) zapcore.WriteSyncer {
-	fmt.Println("文件名",filename)
-	fmt.Println("文件路径",filepath.Dir(filename))
+	fmt.Println("文件名", filename)
+	fmt.Println("文件路径", filepath.Dir(filename))
 	utils.CreateDir(filepath.Dir(filename))
 	file := &lumberjack.Logger{
 		Filename:   filename,   // 文件名称和路径

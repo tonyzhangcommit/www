@@ -10,8 +10,9 @@ import (
 type Application struct {
 	Config            config.Config
 	Viper             *viper.Viper
-	UserServiceLogger zap.Logger
-	LogsServiceLogger zap.Logger
+	UserServiceLogger *zap.Logger
+	AuthServiceLogger *zap.Logger
+	LogsServiceLogger *zap.Logger
 }
 
 var App = new(Application)

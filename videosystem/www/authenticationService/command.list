@@ -10,3 +10,5 @@ go get -u github.com/go-redis/redis/v8
 go get github.com/rabbitmq/amqp091-go
 # 安装 zap
 go get -u go.uber.org/zap
+# 安装日志切割归档包
+go get -u gopkg.in/natefinch/lumberjack.v2

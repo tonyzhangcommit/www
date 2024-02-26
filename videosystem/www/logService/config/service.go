@@ -25,7 +25,17 @@ type LocalServiceLog struct {
 	Error       string `mapstructure:"error"`
 }
 
+// userlog本地配置
 type UserServiceLog struct {
+	ServiceName string `mapstructure:"servicename"`
+	RootDir     string `mapstructure:"root_dir"`
+	Level       string `mapstructure:"level"`
+	JsonFormat  bool   `mapstructure:"jsonformat"`
+	Info        string `mapstructure:"info"`
+	Error       string `mapstructure:"error"`
+}
+
+type AuthServiceLog struct {
 	ServiceName string `mapstructure:"servicename"`
 	RootDir     string `mapstructure:"root_dir"`
 	Level       string `mapstructure:"level"`

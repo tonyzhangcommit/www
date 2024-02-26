@@ -1,0 +1,12 @@
+{"level":"info","timestamp":"2024-02-26 18:00:22.340","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:49:30.951","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:51:10.191","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:52:40.434","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:56:58.726","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:57:30.095","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:58:36.976","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 18:59:23.424","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 19:01:56.811","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 19:09:47.823","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 19:19:08.562","caller":"bootstrap/database.go:26","msg":"info这里测试"}
+{"level":"info","timestamp":"2024-02-26 19:22:30.341","caller":"bootstrap/database.go:26","msg":"info这里测试"}

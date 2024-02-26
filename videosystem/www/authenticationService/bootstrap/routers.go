@@ -18,9 +18,10 @@ func setupRouter() *gin.Engine {
 	router := gin.Default()
 	// 这里是定义与用户管理，商品管理，订单，支付服务交互的路由组
 	apiGroup := router.Group("/api")
-	// 设置用户服务路由组
-	routers.SetUserServiceGroupRouter(apiGroup)
-
+	// 设置用户服务-client路由组
+	routers.SetUserServiceClientGroupRouter(apiGroup)
+	// 设置用户服务-admin路由组
+	routers.SetUserServiceManageGroupRouter(apiGroup)
 	return router
 }
 

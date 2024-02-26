@@ -4,5 +4,5 @@ package config
 type App struct {
 	Env     string `yaml:"env"`
 	Port    string `yaml:"port"`
-	AppName string `yaml:"app_name"`
+	AppName string `yaml:"appname"`
 }

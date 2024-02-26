@@ -1,6 +1,6 @@
 userservice:
   env: dev
-  port: 9999
+  port: 19999
   appname: userService
 databases:
   driver: mysql

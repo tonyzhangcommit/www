@@ -11,10 +11,15 @@ rabbitmq:
   userinfoqueue: userinfoqueue  # 用户服务info队列名
   usererrorqueue: usererrorqueue  # 用户服务error队列名
 usermanagerconfig:
-  serivcename: userService  # 服务名称
+  serivcename: authenticationService  # 服务名称
   userexchange: userServiceLog_topic   # 服务交换机
   userinfoqueue: userinfoqueue  # 用户服务info队列名
   usererrorqueue: usererrorqueue  # 用户服务error队列名
+authserverconfig:
+  serivcename: authenticationService  # 服务名称
+  authexchange: authservice_topic   # 服务交换机
+  authinfoqueue: authinfoqueue  # 用户服务info队列名
+  autherrorqueue: autherrorqueue  # 用户服务error队列名
 baselogconfig:  # 日志基本设置
   root_dir: ./storage
   show_line: true
@@ -30,10 +35,17 @@ localserverlog:
   jsonformat: true
   info: /logserviceInfo.log
   error: /logserviceError.log
-userservicelog:
+userservicelog: # 本地存储配置
   servicename: userService
   root_dir: /UserService
   level: info
   jsonformat: true
   info: /userserviceInfo.log
   error: /userserviceError.log
+authsvicelog:  # 本地存储配置
+  servicename: authenticationService
+  root_dir: /AuthService
+  level: info
+  jsonformat: true
+  info: /AuthserviceInfo.log
+  error: /AuthserviceError.log
