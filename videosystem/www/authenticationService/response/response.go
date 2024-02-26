@@ -45,7 +45,7 @@ func LocalErrorFail(c *gin.Context, msg string) {
 
 // 用户服务错误
 func UserserviceFail(c *gin.Context) {
-	FailExist(c,global.Errors.UserServiceError)
+	FailExist(c, global.Errors.UserServiceError)
 }
 
 // 权限错误

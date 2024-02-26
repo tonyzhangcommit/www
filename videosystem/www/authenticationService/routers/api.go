@@ -5,6 +5,7 @@ package routers
 */
 
 import (
+	"auth/global"
 	"auth/request"
 
 	"github.com/gin-gonic/gin"
@@ -12,16 +13,17 @@ import (
 
 // 用户管理服务-client路由组
 func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
-	clientGroup := router.Group("/client")
+	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath)
 	{
 		clientGroup.POST("/login", request.UserService.Login)
-		clientGroup.POST("/register")
+		clientGroup.POST("/getverifcode", request.UserService.GetVerifiCode)
+		clientGroup.POST("/register", request.UserService.Register)
 	}
 }
 
 // 用户管理服务-admin路由组
 func SetUserServiceManageGroupRouter(router *gin.RouterGroup) {
-	adminGroup := router.Group("/management")
+	adminGroup := router.Group(global.App.Config.UserServiceApi.AdminPath)
 	_ = adminGroup
 }
 

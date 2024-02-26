@@ -34,7 +34,7 @@ userserviceapi:
   client:
     login: /user/loginbypvc   # 用户服务实际路径
     register: /user/register 
-    getvirifcode: /user/getvarifcode
+    getverifcode: /user/getvarifcode
   admin: 
     login: ""
 # authentication:  # 认证相关配置

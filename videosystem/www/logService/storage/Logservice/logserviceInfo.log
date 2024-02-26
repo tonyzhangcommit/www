@@ -53,3 +53,7 @@
 {"level":"dev.info","timestamp":"2024-02-26 15:15:46.637","logger":"localService","caller":"bootstrap/rabbitmq.go:18","msg":"开始初始化rabbitMQ"}
 {"level":"dev.info","timestamp":"2024-02-26 15:20:15.934","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
 {"level":"dev.info","timestamp":"2024-02-26 15:24:48.680","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-02-26 23:02:11.595","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-02-26 23:34:25.611","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-02-26 23:34:30.731","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-02-26 23:43:37.402","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}

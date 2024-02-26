@@ -2,9 +2,7 @@ package request
 
 import (
 	"auth/global"
-	"auth/response"
-	"io"
-	"time"
+	"auth/utils"
 
 	"github.com/gin-gonic/gin"
 )
@@ -18,27 +16,21 @@ type uservice struct {
 
 var UserService = new(uservice)
 
-// var timeout = global.App.Config.UserServiceApi.Timeout
-
+// 登录
 func (UserService *uservice) Login(c *gin.Context) {
-	if c.Request.Body == nil {
-		response.IllegalRequestFail(c)
-		return
-	}
-	// 读取请求体
-	body, err := io.ReadAll(c.Request.Body)
-	if err != nil {
-		response.IllegalRequestFail(c)
-		return
-	}
-	// 创建请求客户端实例
-	requester := global.NewRequestClient(3 * time.Second)
-	responseBody, err := requester.DoRequest("POST", "http://127.0.0.1:19999/user/loginbypvc", map[string]string{"Content-Type": "application/json"}, body)
-	if err != nil {
-		// 处理转发过程中的错误
-		response.UserserviceFail(c)
-		return
-	}
-
-	response.Success(c, responseBody)
+	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Login)
+	BaseRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
 }
+
+// 获取验证码
+func (UserService *uservice) GetVerifiCode(c *gin.Context) {
+	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Getverifcode)
+	BaseRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+}
+
+// 注册
+func (UserService *uservice) Register(c *gin.Context) {
+	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Register)
+	BaseRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+}
+

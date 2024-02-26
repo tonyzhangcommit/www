@@ -306,3 +306,36 @@
 {"level":"dev.info","timestamp":"2024-02-26 19:14:15.572","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-02-26 19:16:00.956","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：550180"}
 {"level":"dev.info","timestamp":"2024-02-26 19:18:08.690","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 23:03:33.968","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 23:05:06.818","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 23:29:03.393","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：419184"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:07.094","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：622116"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:08.515","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：661968"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:13.656","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：721751"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:14.880","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：538898"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:15.575","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：983024"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:16.155","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：510545"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:16.552","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：841382"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:18.038","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：892958"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:18.440","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：064946"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:18.968","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：717852"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:19.293","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：775752"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:19.652","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：362900"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:19.985","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：204448"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:20.625","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：023045"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:21.007","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：303885"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:21.384","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：820612"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:21.736","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：787639"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:22.128","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：902256"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:22.528","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：607027"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:23.208","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：966728"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:23.633","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：227163"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:24.222","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：193799"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:24.671","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：519362"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:25.241","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：671065"}
+{"level":"dev.info","timestamp":"2024-02-26 23:33:25.580","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：569493"}
+{"level":"dev.info","timestamp":"2024-02-26 23:34:40.677","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 23:43:42.159","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-26 23:43:47.374","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：544166"}
+{"level":"dev.info","timestamp":"2024-02-26 23:44:27.441","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158903验证码：123731"}
+{"level":"dev.info","timestamp":"2024-02-26 23:44:50.843","logger":"userService","caller":"bootstrap/rabbitmq.go:42","msg":"18510158913验证码：726839"}
