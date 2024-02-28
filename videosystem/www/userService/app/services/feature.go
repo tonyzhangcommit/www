@@ -42,7 +42,6 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 	if err = global.App.DB.Where("rolename = ?", rolename).First(&role).Error; err != nil {
 		global.SendLogs("error", "注册失败，指定角色不存在（regularUser）", err)
 		err = errors.New("指定角色不存在")
-
 		return
 	}
 	// 判断用户在否存在，以手机号为验证唯一性标志
@@ -65,6 +64,7 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 		user.Password = utils.BcryptMake([]byte(form.Password))
 		user.PhoneNumber = form.Phonenumber
 		user.ParentAgentCode = manager.AgentCode
+		user.Roles = []models.Role{role}
 		if err = global.App.DB.Create(&user).Error; err != nil {
 			global.SendLogs("error", "注册失败", err)
 			err = errors.New("注册失败，请联系管理员")
@@ -87,6 +87,7 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 		user.Password = utils.BcryptMake([]byte(form.Password))
 		user.PhoneNumber = form.Phonenumber
 		user.ParentAgentCode = manager.AgentCode
+		user.Roles = []models.Role{role}
 		if err = global.App.DB.Create(&user).Error; err != nil {
 			global.SendLogs("error", "注册失败", err)
 			err = errors.New("注册失败，请联系管理员")
@@ -104,13 +105,13 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 }
 
 // 用户名-密码登录,暂时弃用，数据库设计中允许用户名重复
-func (Feature *feature) LoginByNP(form *request.LoginNP) (loginsucess response.LoginSuccess, err error) {
+func (Feature *feature) LoginByNP(form *request.LoginNP) (user response.LoginRes, err error) {
 
 	return
 }
 
 // 手机号-验证码 登录
-func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginsucess response.LoginSuccess, err error) {
+func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.LoginRes, err error) {
 	// 验证手机号
 	inputVCode := form.VerificationCode
 	realVCode := utils.GetVirifCode(form.Phonenumber)
@@ -118,7 +119,8 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginsucess response
 		err = errors.New("验证码错误")
 		return
 	}
-	result := global.App.DB.Where("phonenumber = ?", form.Phonenumber).First(&models.User{})
+	var user models.User
+	result := global.App.DB.Preload("Roles").Where("phonenumber = ?", form.Phonenumber).First(&user)
 	if result.Error != nil {
 		if errors.Is(result.Error, gorm.ErrRecordNotFound) {
 			err = errors.New("手机号未注册")
@@ -126,8 +128,19 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginsucess response
 			global.SendLogs("error", fmt.Sprintf("%s 登录失败", form.Phonenumber), err)
 			err = errors.New("未知错误，登录失败")
 		}
-	} else {
-		loginsucess.Jwt = "test jwt"
 	}
+	var roles []string
+	for _, user := range user.Roles {
+		roles = append(roles, user.RoleName)
+	}
+	loginRes.AgentCode = user.AgentCode
+	loginRes.CreatedAt = user.CreatedAt
+	loginRes.UpdatedAt = user.UpdatedAt
+	loginRes.Username = user.Username
+	loginRes.Roles = roles
+	loginRes.ParentID = *user.ParentID
+	loginRes.ID = user.ID
+	loginRes.Isbanned = user.IsBanned
+	loginRes.Phonenumber = user.PhoneNumber
 	return
 }

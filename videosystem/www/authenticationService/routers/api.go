@@ -7,12 +7,27 @@ package routers
 import (
 	"auth/global"
 	"auth/request"
+	"auth/utils"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 )
 
 // 用户管理服务-client路由组
 func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
+	router.GET("/test", func(ctx *gin.Context) {
+		secretKey, err := utils.GenerateSecretKey(32)
+		if err != nil {
+			ctx.JSON(http.StatusOK, gin.H{
+				"err": "error",
+			})
+		} else {
+			ctx.JSON(http.StatusOK, gin.H{
+				"key": secretKey,
+			})
+		}
+
+	})
 	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath)
 	{
 		clientGroup.POST("/login", request.UserService.Login)

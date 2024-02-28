@@ -6,5 +6,6 @@ type Configuration struct {
 	RabbitMQ       `mapstructure:"rabbitmq"`
 	RabbitMQLog    `mapstructure:"rabbitmqlog"`
 	LocalLogs      `mapstructure:"locallogs"`
+	Jwt            `mapstructure:"jwt"`
 	UserServiceApi `mapstructure:"userserviceapi"`
 }

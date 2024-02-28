@@ -3,6 +3,7 @@ package response
 import (
 	"auth/global"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -66,4 +67,23 @@ func FrequentRequestFail(c *gin.Context, msg string) {
 // 未知错误
 func UnknownErrorFail(c *gin.Context, msg string) {
 	Fail(c, global.Errors.UnknownError.ErrorCode, msg)
+}
+
+// 特定接口返回结构体
+type LoginResInfo struct {
+	ID          uint      `json:"id"`
+	CreatedAt   time.Time `json:"createdAt"`
+	UpdatedAt   time.Time `json:"updatedAt"`
+	ParentID    uint      `json:"parentID"`
+	Isbanned    bool      `json:"isbanned"`
+	Phonenumber string    `json:"phonenumber"`
+	AgentCode   string    `json:"agentcode"`
+	Roles       []string  `json:"roles"`
+	Username    string    `json:"username"`
+}
+
+type LoginRes struct {
+	ErrorCode int          `json:"errorCode"`
+	Data      LoginResInfo `json:"data"`
+	Message   string       `json:"msg"`
 }

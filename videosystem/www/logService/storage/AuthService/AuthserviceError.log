@@ -19,3 +19,7 @@
 {"level":"dev.error","timestamp":"2024-02-26 23:10:41.862","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:44","msg":"发送请求错误 - 错误详情: Post \"\": unsupported protocol scheme \"\""}
 {"level":"dev.error","timestamp":"2024-02-26 23:13:24.267","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:44","msg":"转发错误 - 错误详情: json: Unmarshal(nil *global.Response)"}
 {"level":"dev.error","timestamp":"2024-02-26 23:16:31.226","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:44","msg":"转发错误 - 错误详情: json: Unmarshal(nil)"}
+{"level":"dev.error","timestamp":"2024-02-27 18:10:23.778","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"登录返回数据格式错误"}
+{"level":"dev.error","timestamp":"2024-02-27 18:11:51.580","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"登录返回数据格式错误"}
+{"level":"dev.error","timestamp":"2024-02-27 18:13:28.041","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"登录返回数据格式错误"}
+{"level":"dev.error","timestamp":"2024-02-27 18:22:42.625","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"生成令牌出错 - 错误详情: key is of invalid type"}

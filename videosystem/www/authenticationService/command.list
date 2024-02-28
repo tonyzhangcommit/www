@@ -12,3 +12,5 @@ go get github.com/rabbitmq/amqp091-go
 go get -u go.uber.org/zap
 # 安装日志切割归档包
 go get -u gopkg.in/natefinch/lumberjack.v2
+# 安装jwt认证包
+go get -u github.com/dgrijalva/jwt-go

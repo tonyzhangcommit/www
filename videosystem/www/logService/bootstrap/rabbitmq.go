@@ -30,8 +30,9 @@ func InitRabbitMQ() {
 	if err != nil {
 		global.App.LogsServiceLogger.Error(err.Error())
 	}
-	go userService(ch)
-	go authService(ch)
+	go InitMQService(ch, global.App.Config.UserviceConfig.Userexchange, global.App.Config.UserviceConfig.Userinfoqueue, global.App.Config.UserviceConfig.Usererrorqueue, global.App.Config.UserviceConfig.UserServiceName, global.App.UserServiceLogger)
+	go InitMQService(ch, global.App.Config.AuthServiceConfig.Authexchange, global.App.Config.AuthServiceConfig.Authinfoqueue, global.App.Config.AuthServiceConfig.Autherrorqueue, global.App.Config.AuthServiceConfig.AuthServiceName, global.App.AuthServiceLogger)
+	// go authService(ch)
 }
 
 // 封装读取日志函数
@@ -48,184 +49,184 @@ func handleLogMessage(logger *zap.Logger, level string, messages <-chan amqp.Del
 	}
 }
 
-// 处理用户服务相关的日志
-func userService(ch *amqp.Channel) {
-	// 声明交换机
-	err := ch.ExchangeDeclare(
-		global.App.Config.UserviceConfig.Userexchange,
-		"topic",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Error(err.Error())
-		return
-	}
-	// Declare info and error queues
-	infoQueue, err := ch.QueueDeclare(
-		global.App.Config.UserviceConfig.Userinfoqueue, // name
-		true,  // durable
-		false, // delete when unused
-		false, // exclusive
-		false, // no-wait
-		nil,   // arguments
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
+// // 处理用户服务相关的日志
+// func userService(ch *amqp.Channel) {
+// 	// 声明交换机
+// 	err := ch.ExchangeDeclare(
+// 		global.App.Config.UserviceConfig.Userexchange,
+// 		"topic",
+// 		true,
+// 		false,
+// 		false,
+// 		false,
+// 		nil,
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Error(err.Error())
+// 		return
+// 	}
+// 	// Declare info and error queues
+// 	infoQueue, err := ch.QueueDeclare(
+// 		global.App.Config.UserviceConfig.Userinfoqueue, // name
+// 		true,  // durable
+// 		false, // delete when unused
+// 		false, // exclusive
+// 		false, // no-wait
+// 		nil,   // arguments
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
 
-	errorQueue, err := ch.QueueDeclare(
-		global.App.Config.UserviceConfig.Usererrorqueue, // name
-		true,  // durable
-		false, // delete when unused
-		false, // exclusive
-		false, // no-wait
-		nil,   // arguments
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
-	// 绑定info,error队列
-	if err := ch.QueueBind(
-		infoQueue.Name,
-		"info."+global.App.Config.UserviceConfig.UserServiceName,
-		global.App.Config.UserviceConfig.Userexchange,
-		false,
-		nil,
-	); err != nil {
-		global.App.LogsServiceLogger.Error(err.Error())
-	}
-	// 绑定info,error队列
-	if err := ch.QueueBind(
-		errorQueue.Name,
-		"error."+global.App.Config.UserviceConfig.UserServiceName,
-		global.App.Config.UserviceConfig.Userexchange,
-		false,
-		nil,
-	); err != nil {
-		global.App.LogsServiceLogger.Error(err.Error())
-	}
+// 	errorQueue, err := ch.QueueDeclare(
+// 		global.App.Config.UserviceConfig.Usererrorqueue, // name
+// 		true,  // durable
+// 		false, // delete when unused
+// 		false, // exclusive
+// 		false, // no-wait
+// 		nil,   // arguments
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
+// 	// 绑定info,error队列
+// 	if err := ch.QueueBind(
+// 		infoQueue.Name,
+// 		"info."+global.App.Config.UserviceConfig.UserServiceName,
+// 		global.App.Config.UserviceConfig.Userexchange,
+// 		false,
+// 		nil,
+// 	); err != nil {
+// 		global.App.LogsServiceLogger.Error(err.Error())
+// 	}
+// 	// 绑定info,error队列
+// 	if err := ch.QueueBind(
+// 		errorQueue.Name,
+// 		"error."+global.App.Config.UserviceConfig.UserServiceName,
+// 		global.App.Config.UserviceConfig.Userexchange,
+// 		false,
+// 		nil,
+// 	); err != nil {
+// 		global.App.LogsServiceLogger.Error(err.Error())
+// 	}
 
-	infoMsg, err := ch.Consume(
-		global.App.Config.UserviceConfig.Userinfoqueue,
-		"",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
-	errorMsg, err := ch.Consume(
-		global.App.Config.UserviceConfig.Usererrorqueue,
-		"",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
-	go handleLogMessage(global.App.UserServiceLogger, "info", infoMsg)
-	go handleLogMessage(global.App.UserServiceLogger, "error", errorMsg)
-	forever := make(chan bool)
-	<-forever
-}
+// 	infoMsg, err := ch.Consume(
+// 		global.App.Config.UserviceConfig.Userinfoqueue,
+// 		"",
+// 		true,
+// 		false,
+// 		false,
+// 		false,
+// 		nil,
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
+// 	errorMsg, err := ch.Consume(
+// 		global.App.Config.UserviceConfig.Usererrorqueue,
+// 		"",
+// 		true,
+// 		false,
+// 		false,
+// 		false,
+// 		nil,
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
+// 	go handleLogMessage(global.App.UserServiceLogger, "info", infoMsg)
+// 	go handleLogMessage(global.App.UserServiceLogger, "error", errorMsg)
+// 	forever := make(chan bool)
+// 	<-forever
+// }
 
-// 处理用户服务相关的日志
-func authService(ch *amqp.Channel) {
-	// 声明交换机
-	err := ch.ExchangeDeclare(
-		global.App.Config.AuthServiceConfig.Authexchange,
-		"topic",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Error(err.Error())
-		return
-	}
-	// Declare info and error queues
-	infoQueue, err := ch.QueueDeclare(
-		global.App.Config.AuthServiceConfig.Authinfoqueue,
-		true,  // durable
-		false, // delete when unused
-		false, // exclusive
-		false, // no-wait
-		nil,   // arguments
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
+// // 处理用户服务相关的日志
+// func authService(ch *amqp.Channel) {
+// 	// 声明交换机
+// 	err := ch.ExchangeDeclare(
+// 		global.App.Config.AuthServiceConfig.Authexchange,
+// 		"topic",
+// 		true,
+// 		false,
+// 		false,
+// 		false,
+// 		nil,
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Error(err.Error())
+// 		return
+// 	}
+// 	// Declare info and error queues
+// 	infoQueue, err := ch.QueueDeclare(
+// 		global.App.Config.AuthServiceConfig.Authinfoqueue,
+// 		true,  // durable
+// 		false, // delete when unused
+// 		false, // exclusive
+// 		false, // no-wait
+// 		nil,   // arguments
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
 
-	errorQueue, err := ch.QueueDeclare(
-		global.App.Config.AuthServiceConfig.Autherrorqueue,
-		true,  // durable
-		false, // delete when unused
-		false, // exclusive
-		false, // no-wait
-		nil,   // arguments
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
-	// 绑定info,error队列
-	if err := ch.QueueBind(
-		infoQueue.Name,
-		"info."+global.App.Config.AuthServiceConfig.AuthServiceName,
-		global.App.Config.AuthServiceConfig.Authexchange,
-		false,
-		nil,
-	); err != nil {
-		global.App.LogsServiceLogger.Error(err.Error())
-	}
-	// 绑定info,error队列
-	if err := ch.QueueBind(
-		errorQueue.Name,
-		"error."+global.App.Config.AuthServiceConfig.AuthServiceName,
-		global.App.Config.AuthServiceConfig.Authexchange,
-		false,
-		nil,
-	); err != nil {
-		global.App.LogsServiceLogger.Error(err.Error())
-	}
+// 	errorQueue, err := ch.QueueDeclare(
+// 		global.App.Config.AuthServiceConfig.Autherrorqueue,
+// 		true,  // durable
+// 		false, // delete when unused
+// 		false, // exclusive
+// 		false, // no-wait
+// 		nil,   // arguments
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
+// 	// 绑定info,error队列
+// 	if err := ch.QueueBind(
+// 		infoQueue.Name,
+// 		"info."+global.App.Config.AuthServiceConfig.AuthServiceName,
+// 		global.App.Config.AuthServiceConfig.Authexchange,
+// 		false,
+// 		nil,
+// 	); err != nil {
+// 		global.App.LogsServiceLogger.Error(err.Error())
+// 	}
+// 	// 绑定info,error队列
+// 	if err := ch.QueueBind(
+// 		errorQueue.Name,
+// 		"error."+global.App.Config.AuthServiceConfig.AuthServiceName,
+// 		global.App.Config.AuthServiceConfig.Authexchange,
+// 		false,
+// 		nil,
+// 	); err != nil {
+// 		global.App.LogsServiceLogger.Error(err.Error())
+// 	}
 
-	infoMsg, err := ch.Consume(
-		global.App.Config.AuthServiceConfig.Authinfoqueue,
-		"",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
-	errorMsg, err := ch.Consume(
-		global.App.Config.AuthServiceConfig.Autherrorqueue,
-		"",
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		global.App.LogsServiceLogger.Fatal(err.Error())
-	}
-	go handleLogMessage(global.App.AuthServiceLogger, "info", infoMsg)
-	go handleLogMessage(global.App.AuthServiceLogger, "error", errorMsg)
-	forever := make(chan bool)
-	<-forever
-}
+// 	infoMsg, err := ch.Consume(
+// 		global.App.Config.AuthServiceConfig.Authinfoqueue,
+// 		"",
+// 		true,
+// 		false,
+// 		false,
+// 		false,
+// 		nil,
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
+// 	errorMsg, err := ch.Consume(
+// 		global.App.Config.AuthServiceConfig.Autherrorqueue,
+// 		"",
+// 		true,
+// 		false,
+// 		false,
+// 		false,
+// 		nil,
+// 	)
+// 	if err != nil {
+// 		global.App.LogsServiceLogger.Fatal(err.Error())
+// 	}
+// 	go handleLogMessage(global.App.AuthServiceLogger, "info", infoMsg)
+// 	go handleLogMessage(global.App.AuthServiceLogger, "error", errorMsg)
+// 	forever := make(chan bool)
+// 	<-forever
+// }

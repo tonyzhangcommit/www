@@ -27,3 +27,16 @@
 {"level":"dev.info","timestamp":"2024-02-26 23:29:00.367","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-02-26 23:34:39.723","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-02-26 23:43:41.456","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:42","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 11:22:13.325","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 15:27:01.215","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 16:59:09.594","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 16:59:50.954","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:09:25.206","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:11:20.248","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:13:03.558","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:21:30.648","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:22:16.347","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:25:00.305","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:28:19.589","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:36:04.068","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-02-27 18:37:05.970","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}

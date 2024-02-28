@@ -37,6 +37,9 @@ userserviceapi:
     getverifcode: /user/getvarifcode
   admin: 
     login: ""
+jwt:
+  secretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
+  jwttil: 300
 # authentication:  # 认证相关配置
 # rateLimiting:    # 请求速率限制 -- DB & redis & config
 # requestPeaking:  # 请求峰值限制 -- MQ & config

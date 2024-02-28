@@ -16,7 +16,7 @@ type User struct {
 	Username          string       `json:"username" gorm:"not null;column:username;comment:用户名"`
 	Password          string       `json:"-" gorm:"not null;column:password;comment:密码"`
 	PhoneNumber       string       `json:"phonenumber" gorm:"unique;not null;column:phonenumber;comment:手机号"`
-	Roles             []Role       `json:"-" gorm:"many2many:user_roles;"`
+	Roles             []Role       `json:"roles" gorm:"many2many:user_roles;"`
 	ExtraPermissions  []Permission `json:"-" gorm:"many2many:user_extra_permissions;"`
 	DeniedPermissions []Permission `json:"-" gorm:"many2many:user_denied_permissions;"`
 	ParentID          *uint        `gorm:"column:parentid;"`
@@ -53,8 +53,8 @@ type Role struct {
 	gorm.Model
 	RoleName    string       `json:"rolename" gorm:"unique;column:rolename;comment:角色名"`
 	Description string       `json:"desc" gorm:"column:desc;comment:描述信息"`
-	Users       []User       `gorm:"many2many:user_roles;"`
-	Permissions []Permission `gorm:"many2many:role_permissions;"`
+	Users       []User       `json:"-" gorm:"many2many:user_roles;"`
+	Permissions []Permission `json:"-" gorm:"many2many:role_permissions;"`
 }
 
 // Permission 权限表

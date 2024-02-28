@@ -50,10 +50,10 @@ func LoginByPVC(c *gin.Context) {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return
 	}
-	if loginS, err := services.Feature.LoginByPVC(&form); err != nil {
+	if user, err := services.Feature.LoginByPVC(&form); err != nil {
 		response.BusinessFail(c, err.Error())
 	} else {
-		response.Success(c, loginS)
+		response.Success(c, user)
 	}
 }
 
