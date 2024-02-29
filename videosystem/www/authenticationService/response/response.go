@@ -69,6 +69,11 @@ func UnknownErrorFail(c *gin.Context, msg string) {
 	Fail(c, global.Errors.UnknownError.ErrorCode, msg)
 }
 
+// Token 错误
+func JwtTokenErrorFail(c *gin.Context, msg string) {
+	Fail(c, global.Errors.JWTToknError.ErrorCode, msg)
+}
+
 // 特定接口返回结构体
 type LoginResInfo struct {
 	ID          uint      `json:"id"`

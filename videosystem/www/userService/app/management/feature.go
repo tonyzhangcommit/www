@@ -46,6 +46,7 @@ func LoginByNP(c *gin.Context) {
 // 登录 手机号-验证码
 func LoginByPVC(c *gin.Context) {
 	var form request.LoginPVC
+
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return

@@ -47,3 +47,6 @@
 {"level":"dev.error","timestamp":"2024-02-26 11:54:46.206","logger":"userService","caller":"bootstrap/rabbitmq.go:44","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-02-27 11:09:16.603","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-02-27 17:54:13.836","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"从redis获取验证码报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-28 14:52:39.692","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"保存验证码到redis报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-28 14:52:46.959","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"保存验证码到redis报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-02-28 14:52:47.737","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"保存验证码到redis报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}

@@ -6,6 +6,7 @@ package routers
 
 import (
 	"auth/global"
+	"auth/middleware"
 	"auth/request"
 	"auth/utils"
 	"net/http"
@@ -26,12 +27,12 @@ func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
 				"key": secretKey,
 			})
 		}
-
 	})
-	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath)
+	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath).Use(middleware.ServiceLimit("Client", 100, 150, 200))
 	{
+		//
 		clientGroup.POST("/login", request.UserService.Login)
-		clientGroup.POST("/getverifcode", request.UserService.GetVerifiCode)
+		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(6), request.UserService.GetVerifiCode)
 		clientGroup.POST("/register", request.UserService.Register)
 	}
 }

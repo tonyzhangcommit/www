@@ -16,6 +16,7 @@ type CustomErrors struct {
 	IllegalRequest    CustomError // 非法请求
 	FrequentRequest   CustomError // 频繁访问
 	UnknownError      CustomError // 未知错误
+	JWTToknError      CustomError // 鉴权错误
 }
 
 var Errors = CustomErrors{
@@ -25,4 +26,5 @@ var Errors = CustomErrors{
 	IllegalRequest:    CustomError{53000, "非法请求"},
 	FrequentRequest:   CustomError{54000, "访问过于频繁，请稍后再试"},
 	UnknownError:      CustomError{55000, "未知错误"},
+	JWTToknError:      CustomError{56000, "Token 验证失败"},
 }
