@@ -32,14 +32,17 @@ func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
 	{
 		//
 		clientGroup.POST("/login", request.UserService.Login)
+		clientGroup.POST("/logout", request.UserService.Login)
 		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(6), request.UserService.GetVerifiCode)
 		clientGroup.POST("/register", request.UserService.Register)
+		clientGroup.GET("/getuserinfo", request.UserService.GetUserinfo)
+		clientGroup.POST("/inproveinfo", request.UserService.InproveInfo)
 	}
 }
 
 // 用户管理服务-admin路由组
 func SetUserServiceManageGroupRouter(router *gin.RouterGroup) {
-	adminGroup := router.Group(global.App.Config.UserServiceApi.AdminPath)
+	adminGroup := router.Group(global.App.Config.UserServiceApi.AdminPath).Use(middleware.ServiceLimit("userManager", 20, 20, 300))
 	_ = adminGroup
 }
 

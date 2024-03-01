@@ -20,6 +20,7 @@ func InitializeValidator() {
 		_ = v.RegisterValidation("password", utils.ValidatePassword)
 		_ = v.RegisterValidation("agentcode", utils.ValidateAgentCode)
 		_ = v.RegisterValidation("username", utils.ValidateUserName)
+		_ = v.RegisterValidation("idcard", utils.ValidateIDCard)
 		v.RegisterTagNameFunc(func(field reflect.StructField) string {
 			name := strings.SplitN(field.Tag.Get("json"), ",", 2)[0]
 			if name == "-" {

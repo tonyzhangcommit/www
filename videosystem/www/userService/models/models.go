@@ -5,7 +5,9 @@
 package models
 
 import (
+	"fmt"
 	"time"
+	"userservice/global"
 
 	"gorm.io/gorm"
 )
@@ -13,30 +15,54 @@ import (
 // User 用户表
 type User struct {
 	gorm.Model
-	Username          string       `json:"username" gorm:"not null;column:username;comment:用户名"`
+	Username          string       `json:"username" gorm:"index;not null;unique;column:username;comment:用户名"`
 	Password          string       `json:"-" gorm:"not null;column:password;comment:密码"`
-	PhoneNumber       string       `json:"phonenumber" gorm:"unique;not null;column:phonenumber;comment:手机号"`
+	PhoneNumber       string       `json:"phonenumber" gorm:"index;unique;not null;column:phonenumber;comment:手机号"`
 	Roles             []Role       `json:"roles" gorm:"many2many:user_roles;"`
 	ExtraPermissions  []Permission `json:"-" gorm:"many2many:user_extra_permissions;"`
 	DeniedPermissions []Permission `json:"-" gorm:"many2many:user_denied_permissions;"`
 	ParentID          *uint        `gorm:"column:parentid;"`
 	Children          []User       `gorm:"foreignKey:ParentID"`
 	AgentCode         string       `gorm:"uniqueIndex;column:agentcode;default:NULL"`
-	ParentAgentCode   string       `json:"-" gorm:"column:parentagentcode;comment:父级识别码;not null"`
+	ParentAgentCode   string       `json:"parentagentcode" gorm:"column:parentagentcode;comment:父级识别码;not null"`
 	IsBanned          bool         `json:"isbanned" gorm:"not null;column:isbanned;default:false;comment:是否封禁"`
+	Profile           Profile      `json:"-" gorm:"foreignKey:UserID"`
+}
+
+func (u *User) AfterCreate(tx *gorm.DB) (err error) {
+	profile := Profile{UserID: u.ID}
+	err = tx.Model(&Profile{}).Create(&profile).Error
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (u *User) AfterDelete(tx *gorm.DB) (err error) {
+	global.SendLogs("info", fmt.Sprintf("%s %d", "删除用户", u.ID))
+
+	if err := tx.Where("user_id = ?", u.ID).Delete(&Profile{}).Error; err != nil {
+		// 如果有错误发生，返回错误将回滚事务
+		return err
+	}
+
+	// 返回nil表示成功
+	return nil
 }
 
 // Profile 用户资料表
 type Profile struct {
-	gorm.Model
+	ID             uint `gorm:"primarykey"`
+	CreatedAt      time.Time
+	UpdatedAt      time.Time
 	UserID         uint
 	Address        string    `json:"address" gorm:"column:address;comment:地区"`
 	Sex            uint      `json:"sex" gorm:"column:sex;comment:性别"`
-	Identification string    `json:"idcard" gorm:"unique;column:idcard;comment:身份证号"`
-	Email          string    `json:"email" gorm:"unique;column:email;comment:邮箱"`
+	Identification string    `json:"idcard" gorm:"uniqueIndex;column:idcard;comment:身份证号;default:NULL"`
+	Email          string    `json:"email" gorm:"uniqueIndex;column:email;comment:邮箱;default:NULL"`
 	VIP            bool      `json:"vip" gorm:"default:false;column:isvip;comment:是否会员"`
 	TypeVip        string    `json:"typevip" gorm:"column:typevip;comment:会员类型"`
-	ExpVipDate     time.Time `json:"expvipdate" gorm:"column:expvipdate;comment:会员过期时间"`
+	ExpVipDate     time.Time `json:"expvipdate" gorm:"autoCreateTime;column:expvipdate;comment:会员过期时间"`
 	Preferences    string    `json:"preferences" gorm:"column:preferences;comment:偏好"`
 }
 
@@ -66,11 +92,11 @@ type Permission struct {
 
 // VerificationCodeRecord 验证码记录表
 type VerificationCodeRecord struct {
-	gorm.Model
-	PhoneNumber  string
-	BusinessType string
-	Code         string
-	IsValid      bool
+	ID           uint `gorm:"primarykey"`
+	CreatedAt    time.Time
+	PhoneNumber  string `json:"phonenumber" gorm:"unique;column:phonenumber;comment:手机号"`
+	BusinessType string `json:"businesstype" gorm:"column:businesstype;comment:业务类型"`
+	Code         string `json:"code" gorm:"columncode:;comment:验证码"`
 }
 
 // SecurityInfo 安全信息表

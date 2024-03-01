@@ -68,7 +68,7 @@ func InitMysql() *gorm.DB {
 
 func initializeTables(db *gorm.DB) {
 	err := db.AutoMigrate(
-		&models.User{}, &models.Profile{}, &models.AgentManagement{}, &models.Role{}, &models.Permission{}, &models.UserActivity{},
+		&models.User{}, &models.Profile{}, &models.AgentManagement{}, &models.Role{}, &models.Permission{}, &models.UserActivity{}, &models.VerificationCodeRecord{},
 	)
 	if err != nil {
 		panic(fmt.Sprintf("初始化数据库表失败，err:%v", err))

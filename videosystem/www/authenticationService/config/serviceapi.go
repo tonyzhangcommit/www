@@ -12,10 +12,13 @@ type UserServiceApi struct {
 }
 
 // 客户端接口配置
+
 type Userclient struct {
 	Login        string `mapstructure:"login"`
 	Register     string `mapstructure:"register"`
 	Getverifcode string `mapstructure:"getverifcode"`
+	GetuserInfo  string `mapstructure:"getuserinfo"`
+	InproveInfo  string `mapstructure:"inproveinfo"`
 }
 
 // 管理端接口配置

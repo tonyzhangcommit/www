@@ -88,11 +88,23 @@ func (UserService *uservice) Login(c *gin.Context) {
 // 获取验证码
 func (UserService *uservice) GetVerifiCode(c *gin.Context) {
 	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Getverifcode)
-	BaseRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+	PostRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
 }
 
 // 注册
 func (UserService *uservice) Register(c *gin.Context) {
 	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Register)
-	BaseRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+	PostRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+}
+
+// 获取个人信息
+func (UserService *uservice) GetUserinfo(c *gin.Context) {
+	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.GetuserInfo)
+	GetRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+}
+
+// 注册
+func (UserService *uservice) InproveInfo(c *gin.Context) {
+	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.InproveInfo)
+	PostRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
 }

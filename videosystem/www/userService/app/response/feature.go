@@ -3,7 +3,7 @@ package response
 import "time"
 
 /*
-	保存非常规格式返回值格式
+	保存非常规返回值格式
 */
 
 type LoginRes struct {
@@ -17,3 +17,21 @@ type LoginRes struct {
 	Roles       []string  `json:"roles"`
 	Username    string    `json:"username"`
 }
+
+type UserInfo struct {
+	Username        string    `json:"username"`
+	PhoneNumber     string    `json:"phonenumber"`
+	Address         string    `json:"address"`
+	Identification  string    `json:"idcard"`
+	Email           string    `json:"email"`
+	VIP             bool      `json:"vip"`
+	TypeVip         string    `json:"typevip"`
+	ExpVipDate      time.Time `json:"expvipdate"`
+	Preferences     string    `json:"preferences"`
+	Sex             uint      `json:"sex"`
+	Roles           []string  `json:"roles"`
+	AgentCode       string    `json:"agentcode"`
+	ParentAgentCode string    `json:"parentagentcode"`
+	IsBanned        bool      `json:"isbanned"`
+}
+

@@ -16,7 +16,7 @@ func CleanupLimiters() {
 			global.SendLogs("info", "定时任务执行检测iplimiter")
 			limiterInfo := value.(*middleware.Limiterinfo)
 			fmt.Println(limiterInfo)
-			if now.Sub(limiterInfo.LastUsed) > 6*time.Hour {
+			if now.Sub(limiterInfo.LastUsed) > 2*time.Hour {
 				middleware.IpLimiter.Delete(key)
 				global.SendLogs("info", "定时任务执行删除iplimiter")
 			}

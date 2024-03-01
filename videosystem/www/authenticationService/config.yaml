@@ -35,6 +35,8 @@ userserviceapi:
     login: /user/loginbypvc   # 用户服务实际路径
     register: /user/register 
     getverifcode: /user/getvarifcode
+    getuserinfo: /user/getuserinfo
+    inproveinfo: /user/inproveinfo
   admin: 
     login: ""
 jwt:

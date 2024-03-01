@@ -4604,3 +4604,8 @@
 {"level":"dev.error","timestamp":"2024-02-29 19:14:00.538","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"IP 221.194.171.228访问频繁终止服务"}
 {"level":"dev.error","timestamp":"2024-02-29 19:14:00.596","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"IP 221.194.171.228访问频繁终止服务"}
 {"level":"dev.error","timestamp":"2024-02-29 19:14:00.790","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"IP 221.194.171.228访问频繁终止服务"}
+{"level":"dev.error","timestamp":"2024-03-01 12:33:43.980","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"发送请求错误 - 错误详情: Post \"http://127.0.0.1:19999/user/register\": dial tcp 127.0.0.1:19999: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-01 12:33:44.000","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: Post \"http://127.0.0.1:19999/user/register\": dial tcp 127.0.0.1:19999: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-01 14:07:00.672","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: invalid character 'p' after top-level value"}
+{"level":"dev.error","timestamp":"2024-03-01 14:07:11.954","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: invalid character 'p' after top-level value"}
+{"level":"dev.error","timestamp":"2024-03-01 14:08:13.537","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: invalid character 'p' after top-level value"}

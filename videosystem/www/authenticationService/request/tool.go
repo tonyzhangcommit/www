@@ -3,7 +3,9 @@ package request
 import (
 	"auth/global"
 	"auth/response"
+	"auth/utils"
 	"errors"
+	"fmt"
 	"io"
 	"time"
 
@@ -18,14 +20,15 @@ func GetRequestBody(c *gin.Context) (body []byte, err error) {
 	}
 	// 读取请求体
 	body, err = io.ReadAll(c.Request.Body)
+	fmt.Println("body is ", body)
 	if err != nil {
 		return
 	}
 	return
 }
 
-// 封装基础请求函数
-func BaseRequest(c *gin.Context, timeout int, remoteurl string) {
+// 封装POST请求函数
+func PostRequest(c *gin.Context, timeout int, remoteurl string) {
 	body, err := GetRequestBody(c)
 	if err != nil {
 		response.IllegalRequestFail(c)
@@ -34,6 +37,22 @@ func BaseRequest(c *gin.Context, timeout int, remoteurl string) {
 	// 创建请求客户端实例
 	requester := global.NewRequestClient(time.Duration(timeout) * time.Second)
 	responseBody, err := requester.DoRequest("POST", remoteurl, map[string]string{"Content-Type": "application/json"}, body)
+	if err != nil {
+		// 处理转发过程中的错误
+		response.UserserviceFail(c)
+		go global.SendLogs("error", "转发错误", err)
+		return
+	}
+	response.Success(c, responseBody)
+}
+
+// 封装GET请求
+func GetRequest(c *gin.Context, timeout int, remoteurl string) {
+	queryParams := c.Request.URL.Query().Encode()
+	remoteurl = utils.JoinStrings(remoteurl, "?", queryParams)
+	// 创建请求客户端实例
+	requester := global.NewRequestClient(time.Duration(timeout) * time.Second)
+	responseBody, err := requester.DoRequest("GET", remoteurl, map[string]string{}, []byte{})
 	if err != nil {
 		// 处理转发过程中的错误
 		response.UserserviceFail(c)

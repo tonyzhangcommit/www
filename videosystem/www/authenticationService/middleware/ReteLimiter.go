@@ -58,7 +58,7 @@ func extractIPParts(ipAddr string) string {
 
 	if ip.To4() != nil { // IPv4
 		parts := strings.Split(ip.String(), ".")
-		if len(parts) >= 2 {
+		if len(parts) >= 3 {
 			return fmt.Sprintf("%s.%s", parts[0], parts[1])
 		}
 	} else { // IPv6

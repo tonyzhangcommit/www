@@ -56,13 +56,37 @@ func (Loginpvc LoginPVC) GetMessages() ValidatorMessages {
 	}
 }
 
+// 获取个人信息
+type GetPersonInfo struct {
+	Phonenumber string `form:"phonenum" json:"phonenum" binding:"mobile"`
+	Name        string `form:"name" json:"name" binding:"username"`
+}
+
+func (getpersoninfo GetPersonInfo) GetMessages() ValidatorMessages {
+	return ValidatorMessages{
+		"name.username":   "用户名格式错误，长度应该在2-16位，不包含特殊字符",
+		"phonenum.mobile": "手机号格式错误",
+	}
+}
+
 // 编辑个人信息
+// dev 暂时不用 binding:"idcard"
 type InproveInfo struct {
 	UserID         uint   `form:"uid" json:"uid" binding:"required"`
 	Address        string `form:"address" json:"address" `
-	Sex            uint   `form:"sex" json:"sex" validate:"oneof=0 1"`
-	Identification string `form:"identification" json:"identification" `
-	Email          string `form:"email" json:"email" `
+	Sex            uint   `form:"sex" json:"sex"`
+	Identification string `form:"identification" json:"identification"`
+	Email          string `form:"email" json:"email"`
+	Preferences    string `form:"Preferences" json:"Preferences" `
+}
+
+func (inproveinfo InproveInfo) GetMessages() ValidatorMessages {
+	return ValidatorMessages{
+		"uid.required": "用户id不能为空",
+		// "uid.alphanum":          "id格式错误",
+		"identification.idcard": "身份证格式错误",
+		"email.email":           "邮件格式错误",
+	}
 }
 
 // 获取验证码

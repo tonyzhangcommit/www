@@ -16,8 +16,7 @@ import (
 	业务逻辑实现,为了区分不同的功能模块，这里新定义一个空结构体
 */
 
-type feature struct {
-}
+type feature struct{}
 
 var Feature = new(feature)
 
@@ -47,6 +46,10 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 	// 判断用户在否存在，以手机号为验证唯一性标志
 	if err = global.App.DB.Where("phonenumber = ?", form.Phonenumber).First(&models.User{}).Error; err == nil {
 		err = errors.New("手机号已注册")
+		return
+	}
+	if err = global.App.DB.Where("username = ?", form.Name).First(&models.User{}).Error; err == nil {
+		err = errors.New("用户名已注册")
 		return
 	}
 	// 判断是否存在邀请码
@@ -142,5 +145,74 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.Lo
 	loginRes.ID = user.ID
 	loginRes.Isbanned = user.IsBanned
 	loginRes.Phonenumber = user.PhoneNumber
+	return
+}
+
+// 获取个人信息，请求参数为手机号或者用户名（目的是防止get请求被猜测）
+func (Feature *feature) GetPersonInfo(form *request.GetPersonInfo) (userinfo response.UserInfo, err error) {
+	if form.Name == "" && form.Phonenumber == "" {
+		err = errors.New("缺少参数")
+		return
+	}
+	var user = models.User{}
+	if form.Name != "" {
+		err = global.App.DB.Preload("Roles").Preload("Profile").Where("username=?", form.Name).First(&user).Error
+	} else {
+		err = global.App.DB.Preload("Roles").Preload("Profile").Where("phonenumber=?", form.Phonenumber).First(&user).Error
+	}
+	if err != nil {
+		err = errors.New("用户不存在")
+		return
+	}
+
+	var roles = []string{}
+	for _, item := range user.Roles {
+		roles = append(roles, item.RoleName)
+	}
+	userinfo.Username = user.Username
+	userinfo.PhoneNumber = user.PhoneNumber
+	userinfo.Address = user.Profile.Address
+	userinfo.Identification = user.Profile.Identification
+	userinfo.Email = user.Profile.Email
+	userinfo.VIP = user.Profile.VIP
+	userinfo.TypeVip = user.Profile.TypeVip
+	userinfo.ExpVipDate = user.Profile.ExpVipDate
+	userinfo.Preferences = user.Profile.Preferences
+	userinfo.Sex = user.Profile.Sex
+	userinfo.Roles = roles
+	userinfo.AgentCode = user.AgentCode
+	userinfo.ParentAgentCode = user.ParentAgentCode
+	userinfo.IsBanned = user.IsBanned
+	return
+}
+
+// 完善个人信息
+func (Feature *feature) InprovePersonInfo(form *request.InproveInfo) (err error) {
+	fmt.Println(form)
+	if err = global.App.DB.First(&models.User{}, form.UserID).Error; err != nil {
+		err = errors.New("用户不存在")
+		return
+	}
+	var userprofile = models.Profile{}
+	if err = global.App.DB.Where("user_id=?", form.UserID).First(&userprofile).Error; err != nil {
+		global.SendLogs("error", "查询用户信息报错：mysql 报错：", err)
+		err = errors.New("内部错误！")
+		return
+	}
+	userprofile.Address = form.Address
+	userprofile.Sex = form.Sex
+	userprofile.Identification = form.Identification
+	userprofile.Email = form.Email
+	userprofile.Preferences = form.Preferences
+	if err = global.App.DB.Save(&userprofile).Error; err != nil {
+		global.SendLogs("error", "更新用户信息报错：mysql 报错：", err)
+		err = errors.New("内部错误！")
+		return
+	}
+	return
+}
+
+// 退出登录
+func (Feature *feature) Logout(form *request.GetPersonInfo) (err error) {
 	return
 }

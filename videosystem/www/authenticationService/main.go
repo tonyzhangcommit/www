@@ -14,7 +14,7 @@ func main() {
 	bootstrap.InitializeRabbitMQ()
 	// 初始化缓存
 	bootstrap.InitializeRedis()
-	// 开启定时任务
+	// 开启定时任务-清理不必要的limiter
 	go timingtask.CleanupLimiters()
 	// 初始化用户管理服务
 	bootstrap.RunServer()

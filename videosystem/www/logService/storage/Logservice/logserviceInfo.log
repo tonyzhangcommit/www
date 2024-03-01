@@ -64,3 +64,15 @@
 {"level":"dev.info","timestamp":"2024-02-28 11:30:33.968","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
 {"level":"dev.info","timestamp":"2024-02-29 10:57:48.714","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
 {"level":"dev.info","timestamp":"2024-02-29 14:44:23.405","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 10:14:14.825","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 10:49:19.527","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 12:26:59.579","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 17:22:24.795","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 17:24:49.201","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 18:45:10.654","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 18:47:26.362","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 18:50:18.370","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 18:52:53.473","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 19:10:45.733","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 19:12:20.596","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-01 19:18:00.699","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}

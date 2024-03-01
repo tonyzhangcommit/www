@@ -50,3 +50,14 @@
 {"level":"dev.error","timestamp":"2024-02-28 14:52:39.692","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"保存验证码到redis报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-02-28 14:52:46.959","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"保存验证码到redis报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-02-28 14:52:47.737","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"保存验证码到redis报错 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-01 17:47:16.774","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"获取用户详情错误，mysql 报错： - 错误详情: record not found"}
+{"level":"dev.error","timestamp":"2024-03-01 17:49:11.671","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"获取用户详情错误，mysql 报错： - 错误详情: record not found"}
+{"level":"dev.error","timestamp":"2024-03-01 17:49:15.425","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"获取用户详情错误，mysql 报错： - 错误详情: record not found"}
+{"level":"dev.error","timestamp":"2024-03-01 17:49:16.266","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"获取用户详情错误，mysql 报错： - 错误详情: record not found"}
+{"level":"dev.error","timestamp":"2024-03-01 17:49:18.322","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"获取用户详情错误，mysql 报错： - 错误详情: record not found"}
+{"level":"dev.error","timestamp":"2024-03-01 18:45:11.001","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"获取用户详情错误，mysql 报错： - 错误详情: record not found"}
+{"level":"dev.error","timestamp":"2024-03-01 19:10:55.349","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"创建测试管理员失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'expvipdate' at row 1"}
+{"level":"dev.error","timestamp":"2024-03-01 19:13:59.352","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"注册失败 - 错误详情: Error 1062 (23000): Duplicate entry '' for key 'profiles.idcard'"}
+{"level":"dev.error","timestamp":"2024-03-01 19:28:16.777","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"更新用户信息报错：mysql 报错： - 错误详情: Error 1062 (23000): Duplicate entry '410721199504023538' for key 'profiles.idx_profiles_identification'"}
+{"level":"dev.error","timestamp":"2024-03-01 19:30:10.935","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"更新用户信息报错：mysql 报错： - 错误详情: Error 1062 (23000): Duplicate entry '410721199504023538' for key 'profiles.idx_profiles_identification'"}
+{"level":"dev.error","timestamp":"2024-03-01 19:30:20.285","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"更新用户信息报错：mysql 报错： - 错误详情: Error 1062 (23000): Duplicate entry '775273490@qq.com' for key 'profiles.idx_profiles_email'"}

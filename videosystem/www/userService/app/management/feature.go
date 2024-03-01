@@ -1,6 +1,7 @@
 package management
 
 import (
+	"fmt"
 	"time"
 	"userservice/app/request"
 	"userservice/app/response"
@@ -58,13 +59,48 @@ func LoginByPVC(c *gin.Context) {
 	}
 }
 
-// 编辑个人信息
-func InprovePersonInfo() {
+// 获取个人信息
+func GetPersonInfo(c *gin.Context) {
+	var form request.GetPersonInfo
+	if err := c.ShouldBindQuery(&form); err != nil {
+		fmt.Println("错误详情", err)
+		response.ValidateFail(c, request.GetErrorMsg(form, err))
+		return
+	}
+	if userinfo, err := services.Feature.GetPersonInfo(&form); err != nil {
+		response.BusinessFail(c, err.Error())
+	} else {
+		response.Success(c, userinfo)
+	}
+}
 
+// 编辑个人信息
+func InprovePersonInfo(c *gin.Context) {
+	var form request.InproveInfo
+	if err := c.ShouldBindJSON(&form); err != nil {
+		fmt.Println("参数验证错误", err)
+		response.ValidateFail(c, request.GetErrorMsg(form, err))
+		return
+	}
+	if err := services.Feature.InprovePersonInfo(&form); err != nil {
+		response.BusinessFail(c, "更新失败")
+	} else {
+		response.Success(c, "编辑/完善资料成功")
+	}
 }
 
 // 退出登录
-func Logout() {
+func Logout(c *gin.Context) {
+
+}
+
+// 更新（忘记）密码
+func UpdatePwd(c *gin.Context) {
+
+}
+
+// 开通会员,分为开通会员和升级会员
+func GetVip(c *gin.Context) {
 
 }
 
