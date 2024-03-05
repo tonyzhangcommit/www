@@ -151,3 +151,11 @@
 {"level":"dev.info","timestamp":"2024-03-01 19:10:59.434","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-01 19:12:43.525","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-01 19:18:20.872","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-04 12:26:18.666","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-04 12:56:18.666","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"定时任务执行检测iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-04 13:26:18.667","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"定时任务执行检测iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-04 13:56:18.667","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"定时任务执行检测iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-04 14:26:18.668","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"定时任务执行检测iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-04 14:56:18.668","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"定时任务执行检测iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-04 14:56:18.668","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"定时任务执行删除iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-05 15:58:55.497","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}

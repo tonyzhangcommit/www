@@ -56,6 +56,7 @@ zapCore 核心三组件 encoder LevelEnabler WriteSyncer
 */
 func genCore(isJson bool, levelStr string, rootdir string, infon string, errn string, maxsize int, maxage int, maxbackups int) zapcore.Core {
 	encoder := getEncoder(isJson, global.App.Config.ServiceInfo.Env)
+	consoleEncoder := getEncoder(false, global.App.Config.ServiceInfo.Env)
 	// 定义级别,baseErrorLevel 默认错误等级,InfoLevel 表示日志等级
 	errorLevel := getLevel(global.App.Config.BaseServiceLog.DefaultErrorL)
 	infoLevel := getLevel(levelStr)
@@ -68,12 +69,16 @@ func genCore(isJson bool, levelStr string, rootdir string, infon string, errn st
 	infofileWS := getFileWriteSyncer(info_file_name, maxsize, maxage, maxbackups)
 	errfileWS := getFileWriteSyncer(error_file_name, maxsize, maxage, maxbackups)
 
-	infoCore := zapcore.NewCore(encoder, zapcore.NewMultiWriteSyncer(infofileWS, consoleWS), zap.LevelEnablerFunc(func(l zapcore.Level) bool {
+	infoWriteCore := zapcore.NewCore(encoder, infofileWS, zap.LevelEnablerFunc(func(l zapcore.Level) bool {
 		return l < errorLevel && l >= infoLevel
 	}))
-	errCore := zapcore.NewCore(encoder, zapcore.NewMultiWriteSyncer(errfileWS, consoleWS), errorLevel)
+	infoConsoleCore := zapcore.NewCore(consoleEncoder, consoleWS, zap.LevelEnablerFunc(func(l zapcore.Level) bool {
+		return l < errorLevel && l >= infoLevel
+	}))
+	errWriteCore := zapcore.NewCore(encoder, zapcore.NewMultiWriteSyncer(errfileWS, consoleWS), errorLevel)
+	errConsoleCore := zapcore.NewCore(consoleEncoder, zapcore.NewMultiWriteSyncer(errfileWS, consoleWS), errorLevel)
 
-	core := zapcore.NewTee(infoCore, errCore)
+	core := zapcore.NewTee(infoWriteCore, infoConsoleCore, errWriteCore, errConsoleCore)
 	return core
 }
 

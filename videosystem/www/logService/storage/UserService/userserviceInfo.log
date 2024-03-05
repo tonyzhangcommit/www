@@ -859,3 +859,5 @@
 {"level":"dev.info","timestamp":"2024-03-01 19:30:10.443","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-01 19:30:50.051","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"18510158905验证码：458515"}
 {"level":"dev.info","timestamp":"2024-03-01 19:32:36.650","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-04 12:26:01.421","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-05 15:58:47.465","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}

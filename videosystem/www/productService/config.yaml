@@ -1,0 +1,35 @@
+app:
+  env: dev
+  port: 18999
+  appname: Service
+databases:
+  driver: mysql
+  host: 127.0.0.1
+  port: 3306
+  username: root
+  password: Admin123.
+  dbname: videosystemdev
+  charset: utf8mb4
+  maxIdleConns: 20
+  maxOpenConns: 100
+redis:
+  host: 127.0.0.1
+  port: 6379
+rabbitmq:
+  host: 127.0.0.1
+  port: 5672
+  vhost: /videosystemdev
+  user: adminroot
+  password: adminroot
+  exchangename: ServiceLog_topic
+  infoqueue: userinfoqueue  # 用户服务info队列名
+  errorqueue: usererrorqueue  # 用户服务error队列名
+locallogs:
+  dir: ./logs
+  logfilename: /locallogs.log
+  max_backups: 3
+  max_size: 100
+  max_age: 30
+  isJson: true
+  compress: true
+  defaultLevel: info

@@ -75,8 +75,8 @@ type InproveInfo struct {
 	UserID         uint   `form:"uid" json:"uid" binding:"required"`
 	Address        string `form:"address" json:"address" `
 	Sex            uint   `form:"sex" json:"sex"`
-	Identification string `form:"identification" json:"identification"`
-	Email          string `form:"email" json:"email"`
+	Identification string `form:"identification" json:"identification" binding:"idcard"`
+	Email          string `form:"email" json:"email" binding:"customemail"`
 	Preferences    string `form:"Preferences" json:"Preferences" `
 }
 

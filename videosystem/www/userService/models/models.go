@@ -5,9 +5,7 @@
 package models
 
 import (
-	"fmt"
 	"time"
-	"userservice/global"
 
 	"gorm.io/gorm"
 )
@@ -26,7 +24,7 @@ type User struct {
 	AgentCode         string       `gorm:"uniqueIndex;column:agentcode;default:NULL"`
 	ParentAgentCode   string       `json:"parentagentcode" gorm:"column:parentagentcode;comment:父级识别码;not null"`
 	IsBanned          bool         `json:"isbanned" gorm:"not null;column:isbanned;default:false;comment:是否封禁"`
-	Profile           Profile      `json:"-" gorm:"foreignKey:UserID"`
+	Profile           Profile      `json:"-" gorm:"foreignKey:UserID;constraint:OnUpdate:CASCADE,OnDelete:CASCADE;"`
 }
 
 func (u *User) AfterCreate(tx *gorm.DB) (err error) {
@@ -35,18 +33,6 @@ func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 	if err != nil {
 		return err
 	}
-	return nil
-}
-
-func (u *User) AfterDelete(tx *gorm.DB) (err error) {
-	global.SendLogs("info", fmt.Sprintf("%s %d", "删除用户", u.ID))
-
-	if err := tx.Where("user_id = ?", u.ID).Delete(&Profile{}).Error; err != nil {
-		// 如果有错误发生，返回错误将回滚事务
-		return err
-	}
-
-	// 返回nil表示成功
 	return nil
 }
 

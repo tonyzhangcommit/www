@@ -1,0 +1,20 @@
+# 安装gin
+go get -u github.com/gin-gonic/gin
+# 安装viper配置管理工具
+go get github.com/spf13/viper
+# 安装gorm
+go get -u gorm.io/gorm
+# 安装mysql驱动
+go get -u gorm.io/driver/mysql 
+# 安装redis驱动
+go get -u github.com/go-redis/redis/v8
+# 安装rabbitMQ 客户端
+go get github.com/rabbitmq/amqp091-go
+# 清除mod文件中的未导入的依赖项
+go mod tidy
+# 配置gin框架热加载
+go install github.com/cosmtrek/air@latest
+# 安装成功后需要更改下.bashrc，配置下环境变量  eg: alias air='/root/go/bin/air'
+# 安装validator包
+go get github.com/go-playground/validator/v10
+
