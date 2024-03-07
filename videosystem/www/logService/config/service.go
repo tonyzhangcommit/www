@@ -43,3 +43,21 @@ type AuthServiceLog struct {
 	Info        string `mapstructure:"info"`
 	Error       string `mapstructure:"error"`
 }
+
+type ProductServiceLog struct {
+	ServiceName string `mapstructure:"servicename"`
+	RootDir     string `mapstructure:"root_dir"`
+	Level       string `mapstructure:"level"`
+	JsonFormat  bool   `mapstructure:"jsonformat"`
+	Info        string `mapstructure:"info"`
+	Error       string `mapstructure:"error"`
+}
+
+type OrderServiceLog struct {
+	ServiceName string `mapstructure:"servicename"`
+	RootDir     string `mapstructure:"root_dir"`
+	Level       string `mapstructure:"level"`
+	JsonFormat  bool   `mapstructure:"jsonformat"`
+	Info        string `mapstructure:"info"`
+	Error       string `mapstructure:"error"`
+}

@@ -1,6 +1,6 @@
 package config
 
-type RabbitConfigServer struct {
+type RabbitMQ struct {
 	Host     string `mapstructure:"host"`
 	Port     string `mapstructure:"port"`
 	Vhost    string `mapstructure:"vhost"`
@@ -16,6 +16,20 @@ type UserServiceConfig struct {
 }
 
 type AuthServiceConfig struct {
+	AuthServiceName string `mapstructure:"serivcename"`
+	Authexchange    string `mapstructure:"authexchange"`
+	Authinfoqueue   string `mapstructure:"authinfoqueue"`
+	Autherrorqueue  string `mapstructure:"autherrorqueue"`
+}
+
+type ProductServiceConfig struct {
+	AuthServiceName string `mapstructure:"serivcename"`
+	Authexchange    string `mapstructure:"authexchange"`
+	Authinfoqueue   string `mapstructure:"authinfoqueue"`
+	Autherrorqueue  string `mapstructure:"autherrorqueue"`
+}
+
+type OrderServiceConfig struct {
 	AuthServiceName string `mapstructure:"serivcename"`
 	Authexchange    string `mapstructure:"authexchange"`
 	Authinfoqueue   string `mapstructure:"authinfoqueue"`

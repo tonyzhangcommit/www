@@ -11,7 +11,7 @@ rabbitmq:
   userinfoqueue: userinfoqueue  # 用户服务info队列名
   usererrorqueue: usererrorqueue  # 用户服务error队列名
 usermanagerconfig:
-  serivcename: authenticationService  # 服务名称
+  serivcename: userService  # 服务名称
   userexchange: userServiceLog_topic   # 服务交换机
   userinfoqueue: userinfoqueue  # 用户服务info队列名
   usererrorqueue: usererrorqueue  # 用户服务error队列名
@@ -20,6 +20,16 @@ authserverconfig:
   authexchange: authservice_topic   # 服务交换机
   authinfoqueue: authinfoqueue  # 用户服务info队列名
   autherrorqueue: autherrorqueue  # 用户服务error队列名
+productserverconfig:
+  serivcename: productService  # 服务名称
+  authexchange: productservice_topic   # 服务交换机
+  authinfoqueue: productinfoqueue  # 服务info队列名
+  autherrorqueue: producterrorqueue  # 服务error队列名
+orderserverconfig:
+  serivcename: orderService  # 服务名称
+  authexchange: orderservice_topic   # 服务交换机
+  authinfoqueue: orderinfoqueue  # 服务info队列名
+  autherrorqueue: ordererrorqueue  # 服务error队列名
 baselogconfig:  # 日志基本设置
   root_dir: ./storage
   show_line: true
@@ -49,3 +59,17 @@ authsvicelog:  # 本地存储配置
   jsonformat: true
   info: /AuthserviceInfo.log
   error: /AuthserviceError.log
+productservicelog:  # 本地存储配置
+  servicename: productService
+  root_dir: /ProductService
+  level: info
+  jsonformat: true
+  info: /ProductserviceInfo.log
+  error: /ProductserviceError.log
+orderservicelog:  # 本地存储配置
+  servicename: orderService
+  root_dir: /OrderService
+  level: info
+  jsonformat: true
+  info: /OrderserviceInfo.log
+  error: /OrderserviceError.log

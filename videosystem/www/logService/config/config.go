@@ -5,12 +5,16 @@ package config
 */
 
 type Config struct {
-	ServiceInfo       ServiceInfo        `mapstructure:"app"`
-	RabbitMQ          RabbitConfigServer `mapstructure:"rabbitmq"`
-	BaseServiceLog    BaseServiceLog     `mapstructure:"baselogconfig"`
-	LocalServiceLog   LocalServiceLog    `mapstructure:"localserverlog"`
-	UserServiceLog    UserServiceLog     `mapstructure:"userservicelog"`
-	UserviceConfig    UserServiceConfig  `mapstructure:"usermanagerconfig"`
-	AuthServiceLog    AuthServiceLog     `mapstructure:"authsvicelog"`
-	AuthServiceConfig AuthServiceConfig  `mapstructure:"authserverconfig"`
+	ServiceInfo          `mapstructure:"app"`
+	RabbitMQ             `mapstructure:"rabbitmq"`
+	BaseServiceLog       `mapstructure:"baselogconfig"`
+	LocalServiceLog      `mapstructure:"localserverlog"`
+	UserServiceLog       `mapstructure:"userservicelog"`
+	UserServiceConfig    `mapstructure:"usermanagerconfig"`
+	AuthServiceLog       `mapstructure:"authsvicelog"`
+	AuthServiceConfig    `mapstructure:"authserverconfig"`
+	ProductServiceLog    `mapstructure:"productservicelog"`
+	ProductServiceConfig `mapstructure:"productserverconfig"`
+	OrderServiceLog      `mapstructure:"orderservicelog"`
+	OrderServiceConfig   `mapstructure:"orderserverconfig"`
 }

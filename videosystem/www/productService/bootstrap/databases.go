@@ -4,7 +4,9 @@ import (
 	"context"
 	"fmt"
 	"strconv"
+	"time"
 	"userservice/global"
+	"userservice/models"
 
 	"github.com/go-redis/redis/v8"
 	"gorm.io/driver/mysql"
@@ -56,12 +58,20 @@ func InitMysql() *gorm.DB {
 		DB.SetMaxIdleConns(dbConfig.MaxIdleConns)
 		DB.SetMaxOpenConns(dbConfig.MaxOpenConns)
 		initializeTables(db)
+		// 初始化视频类型
+		initVideoType(db)
+		// 初始化会员表
+		initMembership(db)
+		// 初始化秒杀活动
+		createFlashSaleEvent(db)
+		// 关联秒杀商品
+
 		return db
 	}
 }
 
 func initializeTables(db *gorm.DB) {
-	err := db.AutoMigrate()
+	err := db.AutoMigrate(&models.VideoType{}, &models.Video{}, &models.Membership{}, &models.FlashSaleEvent{}, &models.FlashSaleEvent{}, &models.FlashSaleEventProduct{})
 	if err != nil {
 		panic(fmt.Sprintf("初始化数据库表失败，err:%v", err))
 	}
@@ -81,4 +91,94 @@ func InitializeRedis() {
 		global.SendLogs("info", "redis 初始化成功")
 		global.App.Redis = rdb
 	}
+}
+
+func initVideoType(db *gorm.DB) {
+	vT := make(map[string]string)
+	vT["电影"] = "电影"
+	vT["电视剧"] = "电视剧"
+	vT["动漫"] = "动漫"
+	if err := db.Where("name = ?", "电影").First(&models.VideoType{}).Error; err != nil {
+		for k, v := range vT {
+			if err := db.Create(&models.VideoType{Name: k, Description: v}).Error; err != nil {
+				global.SendLogs("error", "初始化视频类型失败", err)
+				return
+			}
+		}
+	}
+}
+
+func initMembership(db *gorm.DB) {
+	type menber struct {
+		Name     string
+		Price    float64
+		Duration int
+	}
+	type memberlist []menber
+	m1 := menber{
+		"月会员",
+		30.0,
+		31,
+	}
+	m2 := menber{
+		"季会员",
+		100.0,
+		93,
+	}
+	m3 := menber{
+		"年会员",
+		300.0,
+		365,
+	}
+	var ml memberlist
+	ml = append(ml, m1, m2, m3)
+	var count int64
+	db.Table("membership").Count(&count)
+	if count == 0 {
+		for _, v := range ml {
+			if err := db.Create(&models.Membership{Name: v.Name, Price: v.Price, Duration: v.Duration}).Error; err != nil {
+				global.SendLogs("error", "初始化会员失败", err)
+				return
+			}
+		}
+	}
+
+}
+
+// 定义一个秒杀活动
+func createFlashSaleEvent(db *gorm.DB) {
+	var mber models.Membership
+	if err := db.Where("name = ?", "月会员").First(&mber).Error; err != nil {
+		global.SendLogs("error", "没有产品信息", err)
+		return
+	}
+	totalcount := 10000
+	userlimit := 1
+	starttime := time.Now()
+	endtime := starttime.Add(time.Hour * 24)
+	flashevent := models.FlashSaleEvent{
+		Name:      "测试秒杀活动",
+		Condition: "月会员",
+		StartTime: starttime,
+		EndTime:   endtime,
+	}
+	if err := db.Create(&flashevent).Error; err != nil {
+		global.SendLogs("error", "创建秒杀活动失败", err)
+		return
+	}
+	global.SendLogs("info", "创建秒杀活动成功")
+	// 添加商品和活动关联信息
+	if err := db.Create(&models.FlashSaleEventProduct{
+		EventID:           flashevent.ID,
+		ProductID:         mber.ID,
+		OriginalPrice:     mber.Price,
+		FlashSalePrice:    mber.Price * 0.8,
+		Quantity:          totalcount,
+		RemainingQuantity: totalcount,
+		LimitPerUser:      userlimit,
+	}).Error; err != nil {
+		global.SendLogs("error", "创建秒杀活动失败", err)
+		return
+	}
+	global.SendLogs("info", "绑定商品成功")
 }

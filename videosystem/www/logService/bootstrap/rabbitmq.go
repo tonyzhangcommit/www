@@ -30,8 +30,10 @@ func InitRabbitMQ() {
 	if err != nil {
 		global.App.LogsServiceLogger.Error(err.Error())
 	}
-	go InitMQService(ch, global.App.Config.UserviceConfig.Userexchange, global.App.Config.UserviceConfig.Userinfoqueue, global.App.Config.UserviceConfig.Usererrorqueue, global.App.Config.UserviceConfig.UserServiceName, global.App.UserServiceLogger)
+	go InitMQService(ch, global.App.Config.UserServiceConfig.Userexchange, global.App.Config.UserServiceConfig.Userinfoqueue, global.App.Config.UserServiceConfig.Usererrorqueue, global.App.Config.UserServiceConfig.UserServiceName, global.App.UserServiceLogger)
 	go InitMQService(ch, global.App.Config.AuthServiceConfig.Authexchange, global.App.Config.AuthServiceConfig.Authinfoqueue, global.App.Config.AuthServiceConfig.Autherrorqueue, global.App.Config.AuthServiceConfig.AuthServiceName, global.App.AuthServiceLogger)
+	go InitMQService(ch, global.App.Config.ProductServiceConfig.Authexchange, global.App.Config.ProductServiceConfig.Authinfoqueue, global.App.Config.ProductServiceConfig.Autherrorqueue, global.App.Config.ProductServiceConfig.AuthServiceName, global.App.ProductLogger)
+	go InitMQService(ch, global.App.Config.OrderServiceConfig.Authexchange, global.App.Config.OrderServiceConfig.Authinfoqueue, global.App.Config.OrderServiceConfig.Autherrorqueue, global.App.Config.OrderServiceConfig.AuthServiceName, global.App.OrderLogger)
 	// go authService(ch)
 }
 

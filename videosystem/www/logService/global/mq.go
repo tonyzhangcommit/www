@@ -12,6 +12,8 @@ type Application struct {
 	Viper             *viper.Viper
 	UserServiceLogger *zap.Logger
 	AuthServiceLogger *zap.Logger
+	ProductLogger     *zap.Logger
+	OrderLogger       *zap.Logger
 	LogsServiceLogger *zap.Logger
 }
 

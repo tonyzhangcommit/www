@@ -50,7 +50,7 @@ func InitMQService(ch *amqp.Channel, exchange, infoqueue, errorqueue, servicenam
 	// 绑定info,error队列
 	if err := ch.QueueBind(
 		infoQueue.Name,
-		"info."+global.App.Config.UserviceConfig.UserServiceName,
+		"info."+servicename,
 		exchange,
 		false,
 		nil,
@@ -60,7 +60,7 @@ func InitMQService(ch *amqp.Channel, exchange, infoqueue, errorqueue, servicenam
 	// 绑定info,error队列
 	if err := ch.QueueBind(
 		errorQueue.Name,
-		"error."+global.App.Config.UserviceConfig.UserServiceName,
+		"error."+servicename,
 		exchange,
 		false,
 		nil,

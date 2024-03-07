@@ -1,7 +1,7 @@
 app:
   env: dev
   port: 18999
-  appname: Service
+  appname: productService
 databases:
   driver: mysql
   host: 127.0.0.1
@@ -21,9 +21,9 @@ rabbitmq:
   vhost: /videosystemdev
   user: adminroot
   password: adminroot
-  exchangename: ServiceLog_topic
-  infoqueue: userinfoqueue  # 用户服务info队列名
-  errorqueue: usererrorqueue  # 用户服务error队列名
+  exchangename: productservice_topic
+  infoqueue: productinfoqueue  # 服务info队列名
+  errorqueue: producterrorqueue  # 服务error队列名
 locallogs:
   dir: ./logs
   logfilename: /locallogs.log

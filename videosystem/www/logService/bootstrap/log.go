@@ -47,6 +47,28 @@ func InitializeAuthServiceLogger() {
 }
 
 /*
+初始化商品微服务日志器
+*/
+func InitializeProductLogger() {
+	uS := global.App.Config.ProductServiceLog
+	bS := global.App.Config.BaseServiceLog
+	core := genCore(uS.JsonFormat, uS.Level, uS.RootDir, uS.Info, uS.Error, bS.MaxSize, bS.MaxAge, bS.MaxBackups)
+	logger := zap.New(core, zap.AddCaller()).Named(uS.ServiceName)
+	global.App.ProductLogger = logger
+}
+
+/*
+初始化订单微服务日志器
+*/
+func InitializeOrderLogger() {
+	uS := global.App.Config.OrderServiceLog
+	bS := global.App.Config.BaseServiceLog
+	core := genCore(uS.JsonFormat, uS.Level, uS.RootDir, uS.Info, uS.Error, bS.MaxSize, bS.MaxAge, bS.MaxBackups)
+	logger := zap.New(core, zap.AddCaller()).Named(uS.ServiceName)
+	global.App.OrderLogger = logger
+}
+
+/*
 定制zapCore方法
 zapCore 核心三组件 encoder LevelEnabler WriteSyncer
 请注意，`DPanic`、`Panic`和`Fatal`级别的日志记录在功能上有所不同：
@@ -75,8 +97,8 @@ func genCore(isJson bool, levelStr string, rootdir string, infon string, errn st
 	infoConsoleCore := zapcore.NewCore(consoleEncoder, consoleWS, zap.LevelEnablerFunc(func(l zapcore.Level) bool {
 		return l < errorLevel && l >= infoLevel
 	}))
-	errWriteCore := zapcore.NewCore(encoder, zapcore.NewMultiWriteSyncer(errfileWS, consoleWS), errorLevel)
-	errConsoleCore := zapcore.NewCore(consoleEncoder, zapcore.NewMultiWriteSyncer(errfileWS, consoleWS), errorLevel)
+	errWriteCore := zapcore.NewCore(encoder, errfileWS, errorLevel)
+	errConsoleCore := zapcore.NewCore(consoleEncoder, consoleWS, errorLevel)
 
 	core := zapcore.NewTee(infoWriteCore, infoConsoleCore, errWriteCore, errConsoleCore)
 	return core
