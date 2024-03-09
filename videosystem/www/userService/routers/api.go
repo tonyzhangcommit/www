@@ -25,3 +25,8 @@ func SetManageGroupRouter(router *gin.RouterGroup) {
 		global.SendLogs("info", "这是一个测试日志。。。")
 	})
 }
+
+// 秒杀活动
+func SetFlashGroupRouter(router *gin.RouterGroup) {
+	router.POST("/getuvip", management.GetVipType)
+}

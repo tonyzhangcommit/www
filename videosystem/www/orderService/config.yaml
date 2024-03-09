@@ -1,7 +1,7 @@
 app:
   env: dev
-  port: 18999
-  appname: Service
+  port: 17999
+  appname: orderService
 databases:
   driver: mysql
   host: 127.0.0.1
@@ -18,12 +18,12 @@ redis:
 rabbitmq:
   host: 127.0.0.1
   port: 5672
-  vhost: /videosystemdev
+  vhost: /ordersystemdev
   user: adminroot
   password: adminroot
   exchangename: ServiceLog_topic
-  infoqueue: userinfoqueue  # 用户服务info队列名
-  errorqueue: usererrorqueue  # 用户服务error队列名
+  infoqueue: orderinfoqueue  # 用户服务info队列名
+  errorqueue: ordererrorqueue  # 用户服务error队列名
 locallogs:
   dir: ./logs
   logfilename: /locallogs.log

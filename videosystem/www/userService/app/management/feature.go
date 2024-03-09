@@ -100,9 +100,11 @@ func UpdatePwd(c *gin.Context) {
 }
 
 // 开通会员,分为开通会员和升级会员
-func GetVip(c *gin.Context) {
+func OpenVip(c *gin.Context) {
 
 }
+
+
 
 // 发送验证码
 func GetVirificationCode(c *gin.Context) {

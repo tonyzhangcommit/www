@@ -100,3 +100,14 @@ func (getvirifcode GetVirifCode) GetMessages() ValidatorMessages {
 		"phonenum.mobile":   "手机号格式错误",
 	}
 }
+
+// 获取用户有效角色
+type GetVipType struct {
+	Uid uint `form:"uid" json:"uid" binding:"required"`
+}
+
+func (u GetVipType) GetMessages() ValidatorMessages {
+	return ValidatorMessages{
+		"uid.required": "用户id不能为空",
+	}
+}

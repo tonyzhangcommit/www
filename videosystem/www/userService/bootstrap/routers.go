@@ -19,9 +19,13 @@ func setupRouter() *gin.Engine {
 	// 这里定义管理端和客户端两个路由组
 	userGroup := router.Group("/user")
 	adminGroup := router.Group("/manage")
+	flasshGroup := router.Group("/flash")
 	// 设置用户服务路由组
 	routers.SetClientGroupRouter(userGroup)
+	// 管理端
 	routers.SetManageGroupRouter(adminGroup)
+	// 秒杀活动
+	routers.SetFlashGroupRouter(flasshGroup)
 
 	return router
 }

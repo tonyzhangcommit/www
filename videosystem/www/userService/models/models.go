@@ -29,6 +29,9 @@ type User struct {
 
 func (u *User) AfterCreate(tx *gorm.DB) (err error) {
 	profile := Profile{UserID: u.ID}
+	if u.Username != "desupadmin" {
+		profile.TypeVip = "regularUser"
+	}
 	err = tx.Model(&Profile{}).Create(&profile).Error
 	if err != nil {
 		return err

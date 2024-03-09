@@ -35,3 +35,6 @@ type UserInfo struct {
 	IsBanned        bool      `json:"isbanned"`
 }
 
+type UserRoles struct {
+	Roles []string `json:"roles"`
+}
