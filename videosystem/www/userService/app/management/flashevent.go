@@ -25,3 +25,13 @@ func GetVipType(c *gin.Context) {
 		response.Success(c, viptuype)
 	}
 }
+
+// 用户信息预热
+func PreHeat(c *gin.Context) {
+	// Get请求，没有参数
+	if err := services.FE.PreHeat(); err != nil {
+		response.BusinessFail(c, err.Error())
+	} else {
+		response.Success(c, "OK")
+	}
+}

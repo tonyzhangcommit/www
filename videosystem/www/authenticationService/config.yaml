@@ -31,14 +31,22 @@ userserviceapi:
   baseurl: http://127.0.0.1:19999
   clientpath: /consumer      # 对外客户端分组路由名称
   adminpath: /management     # 对外管理端分组路由名称
+  flashpath: /flashevent     # 对外秒杀活动分组路由名称
   client:
     login: /user/loginbypvc   # 用户服务实际路径
     register: /user/register 
     getverifcode: /user/getvarifcode
     getuserinfo: /user/getuserinfo
     inproveinfo: /user/inproveinfo
+    getuvip: /flash/getuvip
   admin: 
     login: ""
+    preheat: /flash/preheat
+productserviceapi:
+  name: 
+orderserviceapi:
+  name: 
+  
 jwt:
   secretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
   jwttil: 300

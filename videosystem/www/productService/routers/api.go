@@ -1,11 +1,18 @@
 package routers
 
 import (
+	"userservice/app/management"
+
 	"github.com/gin-gonic/gin"
 )
 
-// 这里主要分为两个部分：管理端/客户端
-// 管理端路由组为/manage,客户端为/client
-func SetClientGroupRouter(router *gin.RouterGroup) {
+// 商品管理API分组
+func SetProductGroupRouter(router *gin.RouterGroup) {
+	router.POST("/")
+}
 
+// 商品秒杀活动API分组信息
+func SetFlashPEGroupRouter(router *gin.RouterGroup) {
+	router.POST("/getflasheventp", management.GetFEventProduct) // 前端展示
+	router.POST("/getfeinfo", management.GetFEventProduct)      // 秒杀活动过滤
 }

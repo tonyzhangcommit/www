@@ -1,6 +1,7 @@
 package bootstrap
 
 import (
+	"fmt"
 	"logservice/global"
 
 	amqp "github.com/rabbitmq/amqp091-go"
@@ -65,6 +66,7 @@ func InitMQService(ch *amqp.Channel, exchange, infoqueue, errorqueue, servicenam
 		false,
 		nil,
 	); err != nil {
+		fmt.Println(servicename)
 		global.App.LogsServiceLogger.Error(err.Error())
 	}
 

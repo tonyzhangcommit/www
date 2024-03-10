@@ -28,5 +28,8 @@ func SetManageGroupRouter(router *gin.RouterGroup) {
 
 // 秒杀活动
 func SetFlashGroupRouter(router *gin.RouterGroup) {
+	// 获取用户会员类型
 	router.POST("/getuvip", management.GetVipType)
+	// 预热用户会员信息
+	router.GET("/preheat", management.PreHeat)
 }

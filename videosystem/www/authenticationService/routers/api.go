@@ -30,7 +30,6 @@ func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
 	})
 	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath).Use(middleware.ServiceLimit("Client", 100, 150, 200))
 	{
-		//
 		clientGroup.POST("/login", request.UserService.Login)
 		clientGroup.POST("/logout", request.UserService.Login)
 		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(6), request.UserService.GetVerifiCode)
@@ -46,6 +45,21 @@ func SetUserServiceManageGroupRouter(router *gin.RouterGroup) {
 	_ = adminGroup
 }
 
-// 用户管理服务-admin路由组
-
 // 商品管理服务api管理
+func SetProductServiceManageGroupRouter(router *gin.RouterGroup) {}
+
+// 设置订单服务api路由组
+func SetOrderServiceManageGroupRouter(router *gin.RouterGroup) {}
+
+// 秒杀活动API
+func SetFlashEventServiceManageGroupRouter(router *gin.RouterGroup) {
+	flashGroup := router.Group(global.App.Config.UserServiceApi.FlashEventPath)
+	{
+		// 这个接口需要验证管理员登录验证
+		flashGroup.GET("/preuserheat", request.FlashEvent.PreheatUserInfo)
+		flashGroup.GET("/preproductheat", request.FlashEvent.PreheatProductInfo)
+		// 下单
+		flashGroup.POST("/placeorder", request.FlashEvent.PlaceOrder)
+	}
+
+}

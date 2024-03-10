@@ -22,6 +22,12 @@ func setupRouter() *gin.Engine {
 	routers.SetUserServiceClientGroupRouter(apiGroup)
 	// 设置用户服务-admin路由组
 	routers.SetUserServiceManageGroupRouter(apiGroup)
+	// 设置商品管理服务api路由组
+	routers.SetProductServiceManageGroupRouter(apiGroup)
+	// 设置订单服务api路由组
+	routers.SetOrderServiceManageGroupRouter(apiGroup)
+	// 设置秒杀活动api路由组
+	routers.SetFlashEventServiceManageGroupRouter(apiGroup)
 	return router
 }
 

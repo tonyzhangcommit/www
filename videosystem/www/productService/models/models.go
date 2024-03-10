@@ -53,7 +53,7 @@ func (m Membership) TableName() string {
 // 秒杀商品表
 type FlashSaleEventProduct struct {
 	ID                uint      `json:"-"  gorm:"primaryKey"`
-	EventID           uint      `json:"-" gorm:"not null"`
+	EventID           uint      `json:"-"  gorm:"not null"`
 	ProductID         uint      `json:"-"  gorm:"not null"` // 外键，关联到Product表
 	OriginalPrice     float64   `json:"-"  gorm:"not null"` // 原价
 	FlashSalePrice    float64   `json:"-"  gorm:"not null"` // 秒杀价
