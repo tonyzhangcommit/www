@@ -3,6 +3,7 @@ package request
 import (
 	"auth/global"
 	"auth/utils"
+	"fmt"
 
 	"github.com/gin-gonic/gin"
 )
@@ -23,9 +24,17 @@ func (f *flashevent) GetUserLevelInfo(c *gin.Context) {
 	PostRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
 }
 
-// 商品信息预热
+// 活动信息预热
 func (f *flashevent) PreheatProductInfo(c *gin.Context) {
+	remoteurl := utils.JoinStrings(global.App.Config.ProductServiceApi.BaseUrl, global.App.Config.ProductServiceApi.FlashGetFEinfo)
+	fmt.Println(remoteurl)
+	PostRequest(c, global.App.Config.ProductServiceApi.Timeout, remoteurl)
+}
 
+// 秒杀活动&商品展示
+func (f *flashevent) PreheatEventProductShow(c *gin.Context) {
+	remoteurl := utils.JoinStrings(global.App.Config.ProductServiceApi.BaseUrl, global.App.Config.ProductServiceApi.FlashGetEventP)
+	PostRequest(c, global.App.Config.ProductServiceApi.Timeout, remoteurl)
 }
 
 // 下单

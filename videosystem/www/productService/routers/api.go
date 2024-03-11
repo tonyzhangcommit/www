@@ -14,5 +14,5 @@ func SetProductGroupRouter(router *gin.RouterGroup) {
 // 商品秒杀活动API分组信息
 func SetFlashPEGroupRouter(router *gin.RouterGroup) {
 	router.POST("/getflasheventp", management.GetFEventProduct) // 前端展示
-	router.POST("/getfeinfo", management.GetFEventProduct)      // 秒杀活动过滤
+	router.POST("/getfeinfo", management.GetFlashInfo)          // 秒杀活动过滤
 }

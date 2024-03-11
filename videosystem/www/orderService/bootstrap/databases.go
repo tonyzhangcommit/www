@@ -71,7 +71,7 @@ func InitializeRedis() {
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     global.App.Config.Redis.Host + ":" + global.App.Config.Redis.Port,
 		Password: "", // 密码，没有则留空
-		DB:       0,  // 使用默认DB
+		DB:       2,  // 使用默认DB
 	})
 	// 测试redis
 	_, err := rdb.Ping(context.Background()).Result()

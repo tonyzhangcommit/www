@@ -27,7 +27,7 @@ locallogs:
   defaultLevel: info
 userserviceapi:
   name: userService
-  timeout: 5
+  timeout: 3
   baseurl: http://127.0.0.1:19999
   clientpath: /consumer      # 对外客户端分组路由名称
   adminpath: /management     # 对外管理端分组路由名称
@@ -44,12 +44,14 @@ userserviceapi:
     preheat: /flash/preheat
 productserviceapi:
   name: productService
+  timeout: 5
   baseurl: http://127.0.0.1:18999
   flashgetfeinfo: /productflash/getfeinfo
   flashgeteventp: /productflash/getflasheventp
 orderserviceapi:
   name: orderService
-  
+  timeout: 5
+  baseurl: http://127.0.0.1:18999
 jwt:
   secretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
   jwttil: 300

@@ -28,7 +28,7 @@ func (f *flashEvent) GetFEventProduct(form *request.GetFlashEventProduct) (fpinf
 		models.FlashSaleEventProduct
 	}
 	// 查询指定数据
-	res := global.App.DB.Table("flash_sale_event_products").Select("flash_sale_event_products.*, flash_sale_events.*").Joins("join flash_sale_events on flash_sale_events.id = flash_sale_event_products.event_id").Where("flash_sale_event_products.event_id = ? AND flash_sale_event_products.product_id = ?", form.EventId, form.ProductId).First(&result)
+	res := global.App.DB.Table("flasheventproduct").Select("flasheventproduct.*, flashsaleevent.*").Joins("join flashsaleevent on flashsaleevent.id = flasheventproduct.eventid").Where("flasheventproduct.eventid = ? AND flasheventproduct.productid = ?", form.EventId, form.ProductId).First(&result)
 	if errors.Is(res.Error, gorm.ErrRecordNotFound) {
 		err = errors.New("活动不存在")
 		return
@@ -62,7 +62,6 @@ func (f *flashEvent) GetFEventProduct(form *request.GetFlashEventProduct) (fpinf
 func (f *flashEvent) GetFEventInfo(form *request.GetFlashEvent) (finfo response.FlashEvent, err error) {
 	key := "flash:base:info:" + strconv.Itoa(int(form.EventId))
 	if val, errredis := global.App.Redis.Get(context.Background(), key).Result(); errredis != nil {
-		global.SendLogs("error", "redis 查询商品活动基本信息报错", errredis)
 		var event = models.FlashSaleEvent{}
 		if err = global.App.DB.First(&event, form.EventId).Error; err != nil {
 			global.SendLogs("error", "mysql 查询活动报错", err)

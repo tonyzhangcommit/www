@@ -872,3 +872,6 @@
 {"level":"dev.info","timestamp":"2024-03-11 18:04:07.129","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-11 18:07:23.661","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-11 18:10:06.804","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 18:12:53.052","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 19:23:05.361","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 19:30:00.250","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}

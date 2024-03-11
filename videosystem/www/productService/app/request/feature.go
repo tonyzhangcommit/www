@@ -15,7 +15,7 @@ type GetFlashEventProduct struct {
 func (g GetFlashEventProduct) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
 		"eventid.required":   "活动ID不能为空",
-		"productid.required": "活动ID不能为空",
+		"productid.required": "商品ID不能为空",
 	}
 }
 

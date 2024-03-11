@@ -28,3 +28,16 @@ type Useradmin struct {
 	Login   string `mapstructure:"login"`
 	Preheat string `mapstructure:"preheat"`
 }
+
+// 商品管理服务接口配置
+type ProductServiceApi struct {
+	Name           string `mapstructure:"name"`
+	BaseUrl        string `mapstructure:"baseurl"`
+	Timeout        int    `mapstructure:"timeout"`
+	FlashGetFEinfo string `mapstructure:"flashgetfeinfo"`
+	FlashGetEventP string `mapstructure:"flashgeteventp"`
+}
+
+// 订单管理服务接口配置
+type OrderServiceApi struct {
+}

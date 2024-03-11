@@ -58,5 +58,6 @@ func (r *RequestClient) DoRequest(method, url string, headers map[string]string,
 	}
 	// 序列化结构体
 	err = json.Unmarshal(responseBody, &response)
+	
 	return
 }

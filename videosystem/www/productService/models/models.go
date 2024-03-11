@@ -16,7 +16,7 @@ import "time"
 type VideoType struct {
 	ID          uint      `json:"-" gorm:"primaryKey"`
 	Name        string    `json:"-" gorm:"column:name;type:varchar(100);not null"`
-	Description string    `json:"-" gorm:"type:text"`
+	Description string    `json:"-" gorm:"column:description;type:text"`
 	CreatedAt   time.Time `json:"-"`
 	UpdatedAt   time.Time `json:"-"`
 }
@@ -24,13 +24,13 @@ type VideoType struct {
 // 视频详情
 type Video struct {
 	ID          uint      `json:"-" gorm:"primaryKey"`
-	Title       string    `json:"-" gorm:"type:varchar(255);not null"`
+	Title       string    `json:"-" gorm:"column:title;type:varchar(255);not null"`
 	TypeID      uint      `json:"-" gorm:"not null"`
 	VideoType   VideoType `json:"-" gorm:"foreignKey:TypeID"`
-	CoverURL    string    `json:"-" gorm:"type:varchar(255);not null"`
-	PlayURL     string    `json:"-" gorm:"type:varchar(255);not null"`
-	Description string    `json:"-" gorm:"type:text"`
-	AccessLevel string    `json:"-" gorm:"type:varchar(50);not null"`
+	CoverURL    string    `json:"-" gorm:"column:coverurl;type:varchar(255);not null"`
+	PlayURL     string    `json:"-" gorm:"column:playurl;type:varchar(255);not null"`
+	Description string    `json:"-" gorm:"column:description;type:text"`
+	AccessLevel string    `json:"-" gorm:"column:accessLevel;type:varchar(50);not null"`
 	CreatedAt   time.Time `json:"-"`
 	UpdatedAt   time.Time `json:"-"`
 }
@@ -38,10 +38,10 @@ type Video struct {
 // 会员表
 type Membership struct {
 	ID          uint    `json:"-"  gorm:"primaryKey"`
-	Name        string  `json:"-"  gorm:"type:varchar(100);not null"`
-	Price       float64 `json:"-"  gorm:"not null"`
-	Duration    int     `json:"-"  gorm:"not null"`
-	Description string  `json:"-"  gorm:"type:text"`
+	Name        string  `json:"-"  gorm:"column:name;type:varchar(100);not null"`
+	Price       float64 `json:"-"  gorm:"column:price;not null"`
+	Duration    int     `json:"-"  gorm:"column:duration;not null"`
+	Description string  `json:"-"  gorm:"column:description;type:text"`
 	CreatedAt   time.Time
 	UpdatedAt   time.Time
 }
@@ -53,24 +53,32 @@ func (m Membership) TableName() string {
 // 秒杀商品表
 type FlashSaleEventProduct struct {
 	ID                uint      `json:"-"  gorm:"primaryKey"`
-	EventID           uint      `json:"-"  gorm:"not null"`
-	ProductID         uint      `json:"-"  gorm:"not null"` // 外键，关联到Product表
-	OriginalPrice     float64   `json:"-"  gorm:"not null"` // 原价
-	FlashSalePrice    float64   `json:"-"  gorm:"not null"` // 秒杀价
-	Quantity          int       `json:"-"  gorm:"not null"` // 秒杀商品总量
-	RemainingQuantity int       `json:"-"  gorm:"not null"` // 剩余秒杀商品数量
-	LimitPerUser      int       `json:"-"  gorm:"not null"` // 每用户限购数量
+	EventID           uint      `json:"-"  gorm:"column:eventid;not null"`
+	ProductID         uint      `json:"-"  gorm:"column:productid;not null"`         // 外键，关联到Product表
+	OriginalPrice     float64   `json:"-"  gorm:"column:originalprice;not null"`     // 原价
+	FlashSalePrice    float64   `json:"-"  gorm:"column:flashsaleprice;not null"`    // 秒杀价
+	Quantity          int       `json:"-"  gorm:"column:quantity;not null"`          // 秒杀商品总量
+	RemainingQuantity int       `json:"-"  gorm:"column:remainingquantity;not null"` // 剩余秒杀商品数量
+	LimitPerUser      int       `json:"-"  gorm:"column:limitperuser;not null"`      // 每用户限购数量
 	CreatedAt         time.Time // 创建时间
 	UpdatedAt         time.Time // 更新时间
+}
+
+func (f FlashSaleEventProduct) TableName() string {
+	return "flasheventproduct"
 }
 
 // 秒杀活动表
 type FlashSaleEvent struct {
 	ID        uint      `json:"-"  gorm:"primaryKey"`
-	Name      string    // 活动名称
-	Condition string    // 活动门槛
-	StartTime time.Time `json:"-"  gorm:"not null"` // 活动开始时间
-	EndTime   time.Time `json:"-"  gorm:"not null"` // 活动结束时间
+	Name      string    `json:"-"  gorm:"column:name;not null"`      // 活动名称
+	Condition string    `json:"-"  gorm:"column:condition;not null"` // 活动门槛
+	StartTime time.Time `json:"-"  gorm:"column:starttime;not null"` // 活动开始时间
+	EndTime   time.Time `json:"-"  gorm:"column:endtime;not null"`   // 活动结束时间
 	CreatedAt time.Time // 创建时间
 	UpdatedAt time.Time // 更新时间
+}
+
+func (f FlashSaleEvent) TableName() string {
+	return "flashsaleevent"
 }
