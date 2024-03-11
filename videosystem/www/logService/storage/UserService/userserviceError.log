@@ -61,3 +61,12 @@
 {"level":"dev.error","timestamp":"2024-03-01 19:28:16.777","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"更新用户信息报错：mysql 报错： - 错误详情: Error 1062 (23000): Duplicate entry '410721199504023538' for key 'profiles.idx_profiles_identification'"}
 {"level":"dev.error","timestamp":"2024-03-01 19:30:10.935","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"更新用户信息报错：mysql 报错： - 错误详情: Error 1062 (23000): Duplicate entry '410721199504023538' for key 'profiles.idx_profiles_identification'"}
 {"level":"dev.error","timestamp":"2024-03-01 19:30:20.285","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"更新用户信息报错：mysql 报错： - 错误详情: Error 1062 (23000): Duplicate entry '775273490@qq.com' for key 'profiles.idx_profiles_email'"}
+{"level":"dev.error","timestamp":"2024-03-11 16:53:42.014","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-11 17:08:57.543","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:24.151","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:26.122","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:27.123","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:28.146","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:29.087","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:29.888","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-11 17:09:30.800","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}

@@ -4609,3 +4609,6 @@
 {"level":"dev.error","timestamp":"2024-03-01 14:07:00.672","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: invalid character 'p' after top-level value"}
 {"level":"dev.error","timestamp":"2024-03-01 14:07:11.954","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: invalid character 'p' after top-level value"}
 {"level":"dev.error","timestamp":"2024-03-01 14:08:13.537","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:45","msg":"转发错误 - 错误详情: invalid character 'p' after top-level value"}
+{"level":"dev.error","timestamp":"2024-03-11 16:53:46.765","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-11 18:01:55.051","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:47","msg":"发送请求错误 - 错误详情: Get \"http://127.0.0.1:19999/flash/preheat?\": dial tcp 127.0.0.1:19999: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-11 18:01:55.271","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:47","msg":"转发错误 - 错误详情: Get \"http://127.0.0.1:19999/flash/preheat?\": dial tcp 127.0.0.1:19999: connect: connection refused"}

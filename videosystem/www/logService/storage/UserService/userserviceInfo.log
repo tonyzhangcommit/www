@@ -862,3 +862,13 @@
 {"level":"dev.info","timestamp":"2024-03-04 12:26:01.421","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-05 15:58:47.465","logger":"userService","caller":"bootstrap/rabbitmq.go:43","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-09 23:55:01.375","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 16:54:30.286","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 17:08:24.642","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 17:45:08.609","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 17:57:18.830","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 17:58:06.225","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 17:59:19.085","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 18:01:56.131","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 18:04:07.129","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 18:07:23.661","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-11 18:10:06.804","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}

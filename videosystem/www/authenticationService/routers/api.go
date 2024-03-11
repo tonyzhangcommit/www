@@ -57,6 +57,8 @@ func SetFlashEventServiceManageGroupRouter(router *gin.RouterGroup) {
 	{
 		// 这个接口需要验证管理员登录验证
 		flashGroup.GET("/preuserheat", request.FlashEvent.PreheatUserInfo)
+		flashGroup.POST("/getuserlevelinfo", request.FlashEvent.GetUserLevelInfo)
+		// 商品信息预热
 		flashGroup.GET("/preproductheat", request.FlashEvent.PreheatProductInfo)
 		// 下单
 		flashGroup.POST("/placeorder", request.FlashEvent.PlaceOrder)

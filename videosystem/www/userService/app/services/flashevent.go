@@ -3,6 +3,7 @@ package services
 import (
 	"context"
 	"errors"
+	"fmt"
 	"strconv"
 	"time"
 	"userservice/app/request"
@@ -48,17 +49,23 @@ func (f *flashEvent) GetVipType(form *request.GetVipType) (vtype string, err err
 
 // 活动信息预热
 func (f *flashEvent) PreHeat() (err error) {
-	var users []models.User
+	type userid struct {
+		ID      uint   `gorm:"column:id"`
+		TypeVip string `gorm:"column:typevip"`
+	}
+	var users []userid
 	now := time.Now()
-
-	res := global.App.DB.Joins("Profile").Where("profiles.expvipdate > ?", now).Find(&users)
+	res := global.App.DB.Debug().Table("users").Select("users.id", "profiles.typevip").Joins("left join profiles on profiles.user_id = users.id").Where("profiles.expvipdate > ? AND users.isbanned = ?", now, false).Scan(&users)
 	if res.Error != nil {
 		global.SendLogs("error", "mysql获取有效会员信息失败", err)
 		err = errors.New("未知错误")
 	} else {
+		fmt.Println("------------->")
+		fmt.Println(users)
+		fmt.Println("------------->")
 		for _, item := range users {
 			key := "flash:UserID:" + strconv.FormatUint(uint64(item.ID), 10)
-			value := item.Profile.TypeVip
+			value := item.TypeVip
 			dur := time.Hour * 24
 			err = global.App.Redis.Set(context.Background(), key, value, dur).Err()
 			if err != nil {
