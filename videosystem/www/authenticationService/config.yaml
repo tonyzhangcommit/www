@@ -51,7 +51,8 @@ productserviceapi:
 orderserviceapi:
   name: orderService
   timeout: 5
-  baseurl: http://127.0.0.1:18999
+  baseurl: http://127.0.0.1:17999
+  takefalshorder: /orderservice/takeflashorder
 jwt:
   secretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
   jwttil: 300

@@ -40,4 +40,8 @@ type ProductServiceApi struct {
 
 // 订单管理服务接口配置
 type OrderServiceApi struct {
+	Name           string `mapstructure:"name"`
+	BaseUrl        string `mapstructure:"baseurl"`
+	Timeout        int    `mapstructure:"timeout"`
+	TakeFalshOrder string `mapstructure:"takefalshorder"`
 }

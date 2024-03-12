@@ -18,12 +18,12 @@ redis:
 rabbitmq:
   host: 127.0.0.1
   port: 5672
-  vhost: /ordersystemdev
+  vhost: /videosystemdev
   user: adminroot
   password: adminroot
-  exchangename: ServiceLog_topic
-  infoqueue: orderinfoqueue  # 用户服务info队列名
-  errorqueue: ordererrorqueue  # 用户服务error队列名
+  exchangename: orderservice_topic
+  infoqueue: orderinfoqueue  # 服务info队列名
+  errorqueue: ordererrorqueue  # 服务error队列名
 locallogs:
   dir: ./logs
   logfilename: /locallogs.log

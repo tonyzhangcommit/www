@@ -1,0 +1,11 @@
+{"level":"error","timestamp":"2024-03-12 00:22:43.497","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:26:12.484","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:29:36.660","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:30:41.835","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:30:55.250","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:31:47.495","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:32:40.033","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:32:53.318","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:33:21.120","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:38:05.107","caller":"bootstrap/rabbitmq.go:26","msg":"Exception (403) Reason: \"no access to this vhost\""}
+{"level":"error","timestamp":"2024-03-12 23:46:31.892","caller":"bootstrap/rabbitmq.go:28","msg":"Exception (403) Reason: \"no access to this vhost\""}

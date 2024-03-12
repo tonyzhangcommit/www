@@ -12,7 +12,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// 获取请求体
+// 获取请求体，仅适用POST请求
 func GetRequestBody(c *gin.Context) (body []byte, err error) {
 	if c.Request.Body == nil {
 		err = errors.New("非法请求")

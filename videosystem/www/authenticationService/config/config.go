@@ -9,4 +9,5 @@ type Configuration struct {
 	Jwt               `mapstructure:"jwt"`
 	UserServiceApi    `mapstructure:"userserviceapi"`
 	ProductServiceApi `mapstructure:"productserviceapi"`
+	OrderServiceApi   `mapstructure:"orderserviceapi"`
 }

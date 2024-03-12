@@ -17,8 +17,8 @@ import (
 func setupRouter() *gin.Engine {
 	router := gin.Default()
 	// 这里定义管理端和客户端两个路由组
-	commonGroup := router.Group("/api")
-	routers.SetClientGroupRouter(commonGroup)
+	commonGroup := router.Group("/orderservice")
+	routers.SetOrderGroupRouter(commonGroup)
 
 	return router
 }

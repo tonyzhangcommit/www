@@ -55,16 +55,15 @@ func SetOrderServiceManageGroupRouter(router *gin.RouterGroup) {}
 func SetFlashEventServiceManageGroupRouter(router *gin.RouterGroup) {
 	flashGroup := router.Group(global.App.Config.UserServiceApi.FlashEventPath)
 	{
-		// 这个接口需要验证管理员登录验证
+		// 这个接口需要验证管理员登录验证(预热用户信息)
 		flashGroup.GET("/preuserheat", request.FlashEvent.PreheatUserInfo)
-		// 测试
+		// 测试获取用户会员信息
 		flashGroup.POST("/getuserlevelinfo", request.FlashEvent.GetUserLevelInfo)
 		// 活动信息预热&获取活动信息
 		flashGroup.POST("/perheatproduct", request.FlashEvent.PreheatProductInfo)
 		// 活动&商品展示
 		flashGroup.POST("/flashepinfo", request.FlashEvent.PreheatEventProductShow)
 		// 下单
-		flashGroup.POST("/placeorder", request.FlashEvent.PlaceOrder)
+		flashGroup.POST("/takeorder", request.FlashEvent.PlaceOrder)
 	}
-
 }

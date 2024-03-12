@@ -70,3 +70,4 @@
 {"level":"dev.error","timestamp":"2024-03-11 17:09:29.087","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
 {"level":"dev.error","timestamp":"2024-03-11 17:09:29.888","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
 {"level":"dev.error","timestamp":"2024-03-11 17:09:30.800","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"mysql获取有效会员信息失败"}
+{"level":"dev.error","timestamp":"2024-03-12 00:21:40.270","logger":"userService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}

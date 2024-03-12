@@ -16,3 +16,10 @@ type Application struct {
 }
 
 var App = new(Application)
+
+var UserVIPM = map[string]uint{
+	"普通用户": 1,
+	"月会员":  2,
+	"季会员":  3,
+	"年会员":  4,
+}

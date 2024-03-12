@@ -11,6 +11,7 @@ type CustomError struct {
 
 type CustomErrors struct {
 	LocalServiceError CustomError // 认证服务发生错误
+	VarifyError       CustomError // 参数错误
 	UserServiceError  CustomError // 用户管理服务发生错误
 	PermissionError   CustomError // 权限错误
 	IllegalRequest    CustomError // 非法请求
@@ -21,6 +22,7 @@ type CustomErrors struct {
 
 var Errors = CustomErrors{
 	LocalServiceError: CustomError{50000, "内部服务错误"},
+	VarifyError:       CustomError{57000, "参数错误"},
 	UserServiceError:  CustomError{51000, "远程服务错误"},
 	PermissionError:   CustomError{52000, "没有权限访问"},
 	IllegalRequest:    CustomError{53000, "非法请求"},
