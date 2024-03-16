@@ -1,0 +1,2 @@
+{"level":"dev.info","timestamp":"2024-03-13 14:51:32.490","logger":"orderService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-13 21:58:04.651","logger":"orderService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}

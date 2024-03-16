@@ -17,4 +17,7 @@ go install github.com/cosmtrek/air@latest
 # 安装成功后需要更改下.bashrc，配置下环境变量  eg: alias air='/root/go/bin/air'
 # 安装validator包
 go get github.com/go-playground/validator/v10
-
+# 安装websocket库
+go get -u github.com/gorilla/websocket
+# 安装jwt认证包
+go get -u github.com/dgrijalva/jwt-go

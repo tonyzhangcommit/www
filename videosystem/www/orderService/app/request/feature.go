@@ -6,10 +6,10 @@ package request
 
 // 秒杀活动下单
 type TakeFlashOrder struct {
-	EventID   uint `json:"eventid" binding:"require"`
-	ProductID uint `json:"peoductid" binding:"require"`
-	UserID    uint `json:"userid" binding:"require"`
-	Count     int  `json:"count" binding:"require"`
+	EventID   uint `json:"eventid" binding:"required"`
+	ProductID uint `json:"peoductid" binding:"required"`
+	UserID    uint `json:"userid" binding:"required"`
+	Count     int  `json:"count" binding:"required"`
 }
 
 func (t TakeFlashOrder) GetMessages() ValidatorMessages {
@@ -23,9 +23,9 @@ func (t TakeFlashOrder) GetMessages() ValidatorMessages {
 
 // 普通下单
 type TakeRegularOrder struct {
-	ProductsID []uint `json:"productsid" binding:"require"`
-	UserID     uint   `json:"userid" binding:"require"`
-	Count      int    `json:"count" binding:"require"`
+	ProductsID []uint `json:"productsid" binding:"required"`
+	UserID     uint   `json:"userid" binding:"required"`
+	Count      int    `json:"count" binding:"required"`
 }
 
 // 修改订单 。。。

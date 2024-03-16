@@ -15,6 +15,6 @@ type CustomErrors struct {
 }
 
 var Errors = CustomErrors{
-	BusinessError: CustomError{40000, "内部错误"},
-	ValidateError: CustomError{42000, "参数错误"},
+	BusinessError: CustomError{40010, "内部错误"},
+	ValidateError: CustomError{42010, "参数错误"},
 }

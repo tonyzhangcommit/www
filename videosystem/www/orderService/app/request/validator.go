@@ -34,3 +34,4 @@ func GetErrorMsg(request interface{}, err error) string {
 	}
 	return "参数错误"
 }
+

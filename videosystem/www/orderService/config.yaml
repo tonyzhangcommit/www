@@ -33,3 +33,11 @@ locallogs:
   isJson: true
   compress: true
   defaultLevel: info
+websocket:
+  maxdur: 180
+  handshaketimeout: 5
+  enablecompression: true
+  jwtsecretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
+
+  
+  

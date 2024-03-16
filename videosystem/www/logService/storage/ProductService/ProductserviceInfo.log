@@ -47,3 +47,22 @@
 {"level":"dev.info","timestamp":"2024-03-13 00:00:25.426","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
 {"level":"dev.info","timestamp":"2024-03-13 00:00:25.426","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
 {"level":"dev.info","timestamp":"2024-03-13 00:00:25.426","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-13 00:15:16.942","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-13 00:15:16.963","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-13 00:15:16.991","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-13 14:49:41.786","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-13 14:49:41.806","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-13 14:51:29.780","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-13 14:51:29.784","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-13 14:51:29.785","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-13 21:56:58.654","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-13 21:56:58.664","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-13 21:58:02.047","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-13 21:58:02.051","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-13 21:58:02.051","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-14 14:51:23.487","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-14 14:51:23.488","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-14 14:51:23.488","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-16 10:52:19.749","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-16 10:52:19.753","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-16 10:52:19.753","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}

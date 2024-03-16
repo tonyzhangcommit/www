@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"strconv"
 	"userservice/app/request"
 	"userservice/app/response"
@@ -72,13 +73,14 @@ func (f *flashEvent) GetFEventInfo(form *request.GetFlashEvent) (finfo response.
 		finfo.Condition = event.Condition
 		finfo.StartTime = event.StartTime
 		finfo.EndTime = event.EndTime
-		if eventJSON, err := json.Marshal(event); err != nil {
+		if eventJSON, err := json.Marshal(finfo); err != nil {
 			global.SendLogs("error", "序列化活动基本信息报错", err)
 		} else {
 			if errsredis := global.App.Redis.Set(context.Background(), key, eventJSON, 0).Err(); errsredis != nil {
 				global.SendLogs("error", "redis 设置商品活动基本信息报错", errredis)
 			}
 		}
+		fmt.Println("首次获取")
 	} else {
 		err = json.Unmarshal([]byte(val), &finfo)
 		if err != nil {

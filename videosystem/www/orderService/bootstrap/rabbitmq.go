@@ -34,3 +34,15 @@ func InitializeRabbitMQ() {
 	global.RabbitMQ.Channel = ch
 	global.RabbitMQ.Exchange = global.App.Config.RabbitMQ.ExchangeName
 }
+
+/*
+	定义秒杀服务相关队列和绑定相关交换机
+	订单请求MQ
+	处理结果MQ
+	生成订单MQ
+	死信MQ
+	执行流程：
+	请求->订单请求MQ-------->
+*/
+
+

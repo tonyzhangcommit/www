@@ -36,7 +36,13 @@ func (f *flashEvent) GetVipType(form *request.GetVipType) (vtype string, err err
 			if time.Now().Before(user.Profile.ExpVipDate) {
 				vtype = user.Profile.TypeVip
 			} else {
-				vtype = "regularUser"
+				vtype = "普通用户"
+			}
+			dur := time.Hour * 24
+			err = global.App.Redis.Set(context.Background(), key, vtype, dur).Err()
+			if err != nil {
+				global.SendLogs("error", "redis保存用户信息失败", err)
+				err = errors.New("未知错误")
 			}
 			return
 		}

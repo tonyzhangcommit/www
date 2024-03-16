@@ -6,4 +6,5 @@ type Configuration struct {
 	Redis     `mapstructure:"redis"`
 	RabbitMQ  `mapstructure:"rabbitmq"`
 	LocalLogs `mapstructure:"locallogs"`
+	WebSocket `mapstructure:"websocket"`
 }

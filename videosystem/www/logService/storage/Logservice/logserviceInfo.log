@@ -116,3 +116,14 @@
 {"level":"dev.info","timestamp":"2024-03-12 23:54:05.695","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
 {"level":"dev.info","timestamp":"2024-03-13 00:00:19.166","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
 {"level":"dev.info","timestamp":"2024-03-13 00:00:25.410","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-13 14:42:56.042","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-13 14:48:09.351","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-13 14:48:13.073","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-13 14:49:07.156","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-13 21:56:58.644","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-14 14:46:47.394","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-14 14:51:23.303","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-15 14:49:17.253","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-15 14:49:20.500","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-16 10:51:29.961","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}
+{"level":"dev.info","timestamp":"2024-03-16 10:51:54.979","logger":"localService","caller":"bootstrap/rabbitmq.go:17","msg":"开始初始化rabbitMQ"}

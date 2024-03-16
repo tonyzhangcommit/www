@@ -49,6 +49,7 @@ func (f *flashevent) PreheatEventProductShow(c *gin.Context) {
 func (f *flashevent) PlaceOrder(c *gin.Context) {
 	// 首先对参数做基本验证,验证之前需要保存请求体
 	body, errofreadbody := io.ReadAll(c.Request.Body)
+
 	if errofreadbody != nil {
 		response.IllegalRequestFail(c)
 		return
@@ -61,6 +62,9 @@ func (f *flashevent) PlaceOrder(c *gin.Context) {
 		response.VarifyErrorFail(c, GetErrorMsg(form, errvarify))
 		return
 	}
+	// 将请求参数重新放到请求中
+	c.Request.Body = io.NopCloser(bytes.NewBuffer(body))
+
 	// 获取用户信息&活动信息
 	userremoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Getuvip)
 	eventremoteurl := utils.JoinStrings(global.App.Config.ProductServiceApi.BaseUrl, global.App.Config.ProductServiceApi.FlashGetFEinfo)
@@ -82,7 +86,7 @@ func (f *flashevent) PlaceOrder(c *gin.Context) {
 	wg.Wait()
 
 	// 首次判断请求是否合法
-	if err := checkIslawful(userRes, eventRes, userResError, eventResError); err != nil {
+	if err := checkIslawful(userRes, eventRes, &form, userResError, eventResError); err != nil {
 		response.PermissionFail(c, err.Error())
 	} else {
 		remoteurl := utils.JoinStrings(global.App.Config.OrderServiceApi.BaseUrl, global.App.Config.OrderServiceApi.TakeFalshOrder)
@@ -180,7 +184,7 @@ func getBaseEvent(remoteurl string, eventid uint) (res response.FlashEventRes, e
 }
 
 // 判断当前请求是否合法，主要过滤部分不合理请求，将符合要求的请求转发至订单服务中
-func checkIslawful(userres response.UserVipType, eventres response.FlashEventRes, userErr, eventErr error) (err error) {
+func checkIslawful(userres response.UserVipType, eventres response.FlashEventRes, form *TakeFlashOrder, userErr, eventErr error) (err error) {
 	if userErr != nil || eventErr != nil {
 		err = userErr
 		return
@@ -191,7 +195,7 @@ func checkIslawful(userres response.UserVipType, eventres response.FlashEventRes
 		err = errors.New("活动未开始")
 	} else if now.After(eventres.Data.EndTime) {
 		err = errors.New("活动已结束")
-	} else if global.UserVIPM[userres.Vtype] < global.UserVIPM[eventres.Data.Name] {
+	} else if global.UserVIPM[userres.Vtype] < global.UserVIPM[eventres.Data.Condition] {
 		err = errors.New("非常抱歉，您没有该活动参与权限！")
 	} else {
 		err = nil
