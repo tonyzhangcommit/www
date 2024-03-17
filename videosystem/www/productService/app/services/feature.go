@@ -4,12 +4,13 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
-	"fmt"
 	"strconv"
+	"time"
 	"userservice/app/request"
 	"userservice/app/response"
 	"userservice/global"
 	"userservice/models"
+	"userservice/utils"
 
 	"gorm.io/gorm"
 )
@@ -56,6 +57,34 @@ func (f *flashEvent) GetFEventProduct(form *request.GetFlashEventProduct) (fpinf
 	fpinfo.StartTime = result.FlashSaleEvent.StartTime
 	fpinfo.EndTime = result.FlashSaleEvent.EndTime
 	fpinfo.CreatedAt = result.FlashSaleEvent.CreatedAt
+	// 将数量信息缓存至redis(特别注意，这里是缓存剩余量)
+	keyRemainingquantity := utils.JoinStrings("flashID:", strconv.Itoa(int(form.EventId)), "pid", strconv.Itoa(int(form.ProductId)), ":remainingquantity")
+	if _, errredis := global.App.Redis.Get(context.Background(), keyRemainingquantity).Result(); errredis != nil {
+		if errsredis := global.App.Redis.Set(context.Background(), keyRemainingquantity, strconv.Itoa(result.FlashSaleEventProduct.RemainingQuantity), 48*time.Hour).Err(); errsredis != nil {
+			global.SendLogs("error", "redis 设置商品活动数量报错", errredis)
+		}
+	}
+	// // 商品名称
+	keyFlashProductName := utils.JoinStrings("flashID:", strconv.Itoa(int(form.EventId)), "pid", strconv.Itoa(int(form.ProductId)), ":", "pname")
+	if _, errredis := global.App.Redis.Get(context.Background(), keyFlashProductName).Result(); errredis != nil {
+		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductName, product.Name, 48*time.Hour).Err(); errsredis != nil {
+			global.SendLogs("error", "redis 设置秒杀活动商品名称报错", errredis)
+		}
+	}
+	// 商品原始价格
+	keyFlashProductOriginPrice := utils.JoinStrings("flashID:", strconv.Itoa(int(form.EventId)), "pid", strconv.Itoa(int(form.ProductId)), ":", "originprice")
+	if _, errredis := global.App.Redis.Get(context.Background(), keyFlashProductOriginPrice).Result(); errredis != nil {
+		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductOriginPrice, result.FlashSaleEventProduct.OriginalPrice, 48*time.Hour).Err(); errsredis != nil {
+			global.SendLogs("error", "redis 设置秒杀活动商品原始价格报错", errredis)
+		}
+	}
+	// 商品打折后价格
+	keyFlashProductFsaleprice := utils.JoinStrings("flashID:", strconv.Itoa(int(form.EventId)), "pid", strconv.Itoa(int(form.ProductId)), ":", "flashprice")
+	if _, errredis := global.App.Redis.Get(context.Background(), keyFlashProductFsaleprice).Result(); errredis != nil {
+		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductFsaleprice, result.FlashSaleEventProduct.FlashSalePrice, 48*time.Hour).Err(); errsredis != nil {
+			global.SendLogs("error", "redis 设置秒杀活动商品秒杀价格报错", errredis)
+		}
+	}
 	return
 }
 
@@ -64,13 +93,20 @@ func (f *flashEvent) GetFEventInfo(form *request.GetFlashEvent) (finfo response.
 	key := "flash:base:info:" + strconv.Itoa(int(form.EventId))
 	if val, errredis := global.App.Redis.Get(context.Background(), key).Result(); errredis != nil {
 		var event = models.FlashSaleEvent{}
+		var eventproduct = models.FlashSaleEventProduct{}
 		if err = global.App.DB.First(&event, form.EventId).Error; err != nil {
 			global.SendLogs("error", "mysql 查询活动报错", err)
 			err = errors.New("内部错误")
 			return
 		}
+		if err = global.App.DB.Where("eventid = ?", form.EventId).First(&eventproduct).Error; err != nil {
+			global.SendLogs("error", "mysql 查询活动-商品表报错", err)
+			err = errors.New("内部错误")
+			return
+		}
 		finfo.Name = event.Name
 		finfo.Condition = event.Condition
+		finfo.Count = eventproduct.LimitPerUser
 		finfo.StartTime = event.StartTime
 		finfo.EndTime = event.EndTime
 		if eventJSON, err := json.Marshal(finfo); err != nil {
@@ -80,7 +116,6 @@ func (f *flashEvent) GetFEventInfo(form *request.GetFlashEvent) (finfo response.
 				global.SendLogs("error", "redis 设置商品活动基本信息报错", errredis)
 			}
 		}
-		fmt.Println("首次获取")
 	} else {
 		err = json.Unmarshal([]byte(val), &finfo)
 		if err != nil {

@@ -66,3 +66,6 @@
 {"level":"dev.info","timestamp":"2024-03-16 10:52:19.749","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"创建秒杀活动成功"}
 {"level":"dev.info","timestamp":"2024-03-16 10:52:19.753","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"绑定商品成功"}
 {"level":"dev.info","timestamp":"2024-03-16 10:52:19.753","logger":"productService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-16 19:42:04.627","logger":"productService","caller":"bootstrap/rabbitmq.go:48","msg":"创建秒杀活动成功"}
+{"level":"dev.info","timestamp":"2024-03-16 19:42:04.687","logger":"productService","caller":"bootstrap/rabbitmq.go:48","msg":"绑定商品成功"}
+{"level":"dev.info","timestamp":"2024-03-16 19:42:04.688","logger":"productService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}

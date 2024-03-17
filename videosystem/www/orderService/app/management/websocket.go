@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"time"
 	"userservice/app/response"
+	"userservice/app/services"
 	"userservice/global"
 
 	"github.com/dgrijalva/jwt-go"
@@ -93,12 +94,17 @@ var upgrader = websocket.Upgrader{
 
 // 视图函数
 func WebsocketHandler(c *gin.Context) {
+	userID := c.Query("userid")
 	ws, err := upgrader.Upgrade(c.Writer, c.Request, nil)
 	if err != nil {
 		response.BusinessFail(c, "订单查询失败，稍后请在”我的-订单“查询订单")
 		return
 	}
 	defer ws.Close()
-	// 这里从处理结果消息队列中获取指定的消息并发送，发送成功后终止
-	// 并且有超时操作
+	services.WebSocketclients[userID] = ws
+	// 保持连接
+	for {
+
+	}
+
 }

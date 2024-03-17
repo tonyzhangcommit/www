@@ -60,7 +60,7 @@ func (f *flashEvent) PreHeat() (err error) {
 	}
 	var users []userid
 	now := time.Now()
-	res := global.App.DB.Debug().Table("users").Select("users.id", "profiles.typevip").Joins("left join profiles on profiles.user_id = users.id").Where("profiles.expvipdate > ? AND users.isbanned = ?", now, false).Scan(&users)
+	res := global.App.DB.Table("users").Select("users.id", "profiles.typevip").Joins("left join profiles on profiles.user_id = users.id").Where("profiles.expvipdate > ? AND users.isbanned = ?", now, false).Scan(&users)
 	if res.Error != nil {
 		global.SendLogs("error", "mysql获取有效会员信息失败", err)
 		err = errors.New("未知错误")

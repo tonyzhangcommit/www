@@ -21,3 +21,5 @@ go get github.com/go-playground/validator/v10
 go get -u github.com/gorilla/websocket
 # 安装jwt认证包
 go get -u github.com/dgrijalva/jwt-go
+# 安装uuid 生成包
+go get -u -v github.com/google/uuid

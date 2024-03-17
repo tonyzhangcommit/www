@@ -5,10 +5,12 @@ import (
 	"auth/response"
 	"auth/utils"
 	"bytes"
+	"context"
 	"encoding/json"
 	"errors"
 	"io"
 	"net/http"
+	"strconv"
 	"sync"
 	"time"
 
@@ -111,7 +113,7 @@ func getUserLevel(remoteurl string, userid uint) (res response.UserVipType, err 
 	// 创建请求
 	req, err := http.NewRequest("POST", remoteurl, bytes.NewBuffer(jsondata))
 	if err != nil {
-		go global.SendLogs("error", "获取用户会员级别-创建请求错误", err)
+		global.SendLogs("error", "获取用户会员级别-创建请求错误", err)
 		return
 	}
 	// 设置请求头
@@ -120,20 +122,20 @@ func getUserLevel(remoteurl string, userid uint) (res response.UserVipType, err 
 	// 发出请求
 	resp, err := requester.Client.Do(req)
 	if err != nil {
-		go global.SendLogs("error", "获取用户会员级别-发送请求错误", err)
+		global.SendLogs("error", "获取用户会员级别-发送请求错误", err)
 		return
 	}
 	// 读取请求体
 	defer resp.Body.Close()
 	responseBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		go global.SendLogs("error", "获取用户会员级别-读取response错误", err)
+		global.SendLogs("error", "获取用户会员级别-读取response错误", err)
 		return
 	}
 	// 序列化至指定结构体
 	err = json.Unmarshal(responseBody, &res)
 	if err != nil {
-		go global.SendLogs("error", "获取用户会员级别-解析response错误", err)
+		global.SendLogs("error", "获取用户会员级别-解析response错误", err)
 		return
 	}
 	return
@@ -155,7 +157,7 @@ func getBaseEvent(remoteurl string, eventid uint) (res response.FlashEventRes, e
 	// 创建请求
 	req, err := http.NewRequest("POST", remoteurl, bytes.NewBuffer(jsondata))
 	if err != nil {
-		go global.SendLogs("error", "请求秒杀活动基本信息-创建请求错误", err)
+		global.SendLogs("error", "请求秒杀活动基本信息-创建请求错误", err)
 		return
 	}
 	// 设置请求头
@@ -164,20 +166,20 @@ func getBaseEvent(remoteurl string, eventid uint) (res response.FlashEventRes, e
 	// 发出请求
 	resp, err := requester.Client.Do(req)
 	if err != nil {
-		go global.SendLogs("error", "请求秒杀活动基本信息-发送请求错误", err)
+		global.SendLogs("error", "请求秒杀活动基本信息-发送请求错误", err)
 		return
 	}
 	// 读取请求体
 	defer resp.Body.Close()
 	responseBody, err := io.ReadAll(resp.Body)
 	if err != nil {
-		go global.SendLogs("error", "请求秒杀活动基本信息-读取response错误", err)
+		global.SendLogs("error", "请求秒杀活动基本信息-读取response错误", err)
 		return
 	}
 	// 序列化至指定结构体
 	err = json.Unmarshal(responseBody, &res)
 	if err != nil {
-		go global.SendLogs("error", "请求秒杀活动基本信息-解析response错误", err)
+		global.SendLogs("error", "请求秒杀活动基本信息-解析response错误", err)
 		return
 	}
 	return
@@ -191,14 +193,25 @@ func checkIslawful(userres response.UserVipType, eventres response.FlashEventRes
 	}
 	now := time.Now()
 	// 判断活动状态（未开始 进行中 已结束）
-	if now.Before(eventres.Data.StartTime) {
+	key := "flashevent:limituserreq:" + strconv.Itoa(int(form.UserID))
+	val := "1"
+	dur := time.Hour * 5
+	result, err := global.App.Redis.SetNX(context.Background(), key, val, dur).Result()
+	if err != nil {
+		global.SendLogs("error", "秒杀活动限制用户请求次数错误", err)
+		err = errors.New("内部错误")
+		return
+	}
+	if !result {
+		err = errors.New("您已参加过活动了呦~~~")
+	} else if now.Before(eventres.Data.StartTime) {
 		err = errors.New("活动未开始")
 	} else if now.After(eventres.Data.EndTime) {
 		err = errors.New("活动已结束")
 	} else if global.UserVIPM[userres.Vtype] < global.UserVIPM[eventres.Data.Condition] {
 		err = errors.New("非常抱歉，您没有该活动参与权限！")
-	} else {
-		err = nil
+	} else if form.Count != int(eventres.Data.Count) {
+		err = errors.New("参数错误，非法请求") // 这里后续可以将用户信息加入黑名单
 	}
 	return
 }

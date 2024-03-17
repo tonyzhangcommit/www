@@ -12,7 +12,7 @@ type Order struct {
 	OrderType     string  `gorm:"column:ordertype;type:varchar(100);not null"` // 订单类型
 	Status        string  `gorm:"column:status;type:varchar(100);not null"`
 	PaymentStatus string  `gorm:"column:paymentstatus;type:varchar(100);not null"`
-	PayWay        string  `gorm:"column:PayWay;type:varchar(20);not null"`
+	PayWay        string  `gorm:"column:payway;type:varchar(20);not null"`
 	TotalAmount   float64 `gorm:"column:totalamount;not null"`
 	CreatedAt     time.Time
 	UpdatedAt     time.Time

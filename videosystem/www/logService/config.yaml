@@ -30,6 +30,10 @@ orderserverconfig:
   authexchange: orderservice_topic   # 服务交换机
   authinfoqueue: orderinfoqueue  # 服务info队列名
   autherrorqueue: ordererrorqueue  # 服务error队列名
+dealexchangeconfig:
+  deadexchange: dealexchange_topic   # 死信队列交换机
+  dealdefalutqueue: dealqueue        # 默认绑定死信交换机的队列
+  routingkey: dlx.routing.default    # 默认队列绑定默认路由键
 baselogconfig:  # 日志基本设置
   root_dir: ./storage
   show_line: true

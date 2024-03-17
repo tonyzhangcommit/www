@@ -33,16 +33,113 @@ func InitializeRabbitMQ() {
 	}
 	global.RabbitMQ.Channel = ch
 	global.RabbitMQ.Exchange = global.App.Config.RabbitMQ.ExchangeName
+	// 初始化秒杀活动reqMQ
+	genFlashEventReqMQ(ch)
+	// 初始化秒杀活动reqBackupMQ
+	genFlashEventReqBackupMQ(ch)
+	// 定义订单请求处理结果MQ
+	genFlashEventResMQ(ch)
 }
 
 /*
 	定义秒杀服务相关队列和绑定相关交换机
 	订单请求MQ
 	处理结果MQ
-	生成订单MQ
 	死信MQ
-	执行流程：
-	请求->订单请求MQ-------->
 */
 
+// 定义订单请求削峰MQ
+func genFlashEventReqMQ(ch *amqp.Channel) {
+	args := amqp.Table{
+		"x-message-ttl": 6000000,     // 消息存活时间 (ms)
+		"x-max-length":  150000,      // 队列最大长度
+		"x-overflow":    "drop-head", // 队列溢出行为
+	}
+	queue, err := ch.QueueDeclare(
+		global.App.Config.RabbitMQ.FlashEventReqQueue,
+		true,  // 持久化
+		false, // 非排他性
+		false, // 自动删除
+		false, // 不等待
+		args,
+	)
+	if err != nil {
+		global.SendLogs("error", "创建秒杀订单消息队列失败", err)
+		return
+	}
+	// 绑定交换机
+	if err := ch.QueueBind(
+		queue.Name,
+		"flashevent.req.row",
+		global.App.Config.RabbitMQ.ExchangeName,
+		false,
+		nil,
+	); err != nil {
+		global.SendLogs("error", "绑定秒杀队列req失败", err)
+		return
+	}
+}
 
+// 定义订单请求削峰MQ(备份队列)
+func genFlashEventReqBackupMQ(ch *amqp.Channel) {
+	args := amqp.Table{
+		"x-message-ttl": 6000000,     // 消息存活时间 (ms)
+		"x-max-length":  100000,      // 队列最大长度
+		"x-overflow":    "drop-head", // 队列溢出行为
+	}
+	queue, err := ch.QueueDeclare(
+		global.App.Config.RabbitMQ.FlashEventReqBackupQueue,
+		true,  // 持久化
+		false, // 非排他性
+		false, // 自动删除
+		false, // 不等待
+		args,
+	)
+	if err != nil {
+		global.SendLogs("error", "创建秒杀订单消息备用队列失败", err)
+		return
+	}
+	// 绑定交换机
+	if err := ch.QueueBind(
+		queue.Name,
+		"flashevent.req.backup",
+		global.App.Config.RabbitMQ.ExchangeName,
+		false,
+		nil,
+	); err != nil {
+		global.SendLogs("error", "绑定秒杀队列req backup失败", err)
+		return
+	}
+}
+
+// 定义订单请求处理结果MQ
+func genFlashEventResMQ(ch *amqp.Channel) {
+	args := amqp.Table{
+		"x-message-ttl": 12000000,    // 消息存活时间 (ms)
+		"x-max-length":  300000,      // 队列最大长度
+		"x-overflow":    "drop-head", // 队列溢出行为
+	}
+	queue, err := ch.QueueDeclare(
+		global.App.Config.RabbitMQ.FlashEventResQueue,
+		true,  // 持久化
+		false, // 非排他性
+		false, // 自动删除
+		false, // 不等待
+		args,
+	)
+	if err != nil {
+		global.SendLogs("error", "创建秒杀订单res消息队列失败", err)
+		return
+	}
+	// 绑定交换机
+	if err := ch.QueueBind(
+		queue.Name,
+		"flashevent.res.row",
+		global.App.Config.RabbitMQ.ExchangeName,
+		false,
+		nil,
+	); err != nil {
+		global.SendLogs("error", "绑定秒杀队列res失败", err)
+		return
+	}
+}

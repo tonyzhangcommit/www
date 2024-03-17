@@ -22,8 +22,15 @@ rabbitmq:
   user: adminroot
   password: adminroot
   exchangename: orderservice_topic
-  infoqueue: orderinfoqueue  # 服务info队列名
-  errorqueue: ordererrorqueue  # 服务error队列名
+  infoqueue: orderinfoqueue  # 订单服务日志服务info队列名
+  errorqueue: ordererrorqueue  # 订单日志服务error队列名
+  flasheventreqqueue: flasheventreqqueue  # 订单服务-秒杀-请求保存队列名
+  flasheventreqbackupqueue: flasheventreqbackupqueue  # 订单服务-秒杀-请求保存备份队列名
+  flasheventresqueue: flasheventresqueue  # 订单服务-秒杀-结果保存队列名
+dealexchangeconfig:  # 这里是手动将消息发送到死信队列的配置，按需使用
+  deadexchange: dealexchange_topic   # 死信队列交换机
+  dealdefalutqueue: dealqueue        # 默认绑定死信交换机的队列
+  routingkey: dlx.routing.default    # 默认队列绑定默认路由键
 locallogs:
   dir: ./logs
   logfilename: /locallogs.log
@@ -38,6 +45,3 @@ websocket:
   handshaketimeout: 5
   enablecompression: true
   jwtsecretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
-
-  
-  

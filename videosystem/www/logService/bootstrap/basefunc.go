@@ -1,7 +1,6 @@
 package bootstrap
 
 import (
-	"fmt"
 	"logservice/global"
 
 	amqp "github.com/rabbitmq/amqp091-go"
@@ -66,7 +65,6 @@ func InitMQService(ch *amqp.Channel, exchange, infoqueue, errorqueue, servicenam
 		false,
 		nil,
 	); err != nil {
-		fmt.Println(servicename)
 		global.App.LogsServiceLogger.Error(err.Error())
 	}
 
@@ -98,4 +96,55 @@ func InitMQService(ch *amqp.Channel, exchange, infoqueue, errorqueue, servicenam
 	go handleLogMessage(logger, "error", errorMsg)
 	forever := make(chan bool)
 	<-forever
+}
+
+// 初始化死信交换机和绑定死信队列
+func InitDeadExchange(ch *amqp.Channel, exchange, queuename, routingkey string) {
+	// 声明交换机
+	err := ch.ExchangeDeclare(
+		exchange,
+		"topic",
+		true,
+		false,
+		false,
+		false,
+		nil,
+	)
+	if err != nil {
+		global.App.LogsServiceLogger.Fatal(err.Error())
+		return
+	}
+	// 声明队列
+	args := amqp.Table{
+		"x-dead-letter-exchange":    exchange,
+		"x-message-ttl":             36000000,    // 消息存活时间 (ms)
+		"x-max-length":              10000,       // 队列最大长度
+		"x-max-length-bytes":        5000000,     // 队列最大占用空间 (byte)
+		"x-overflow":                "drop-head", // 队列溢出行为
+		"x-dead-letter-routing-key": routingkey,  // 死信路由键
+	}
+
+	queue, err := ch.QueueDeclare(
+		queuename, // 队列名称
+		true,      // 持久化
+		false,     // 非排他性
+		false,     // 自动删除
+		false,     // 不等待
+		args,      // 详细参数
+	)
+	if err != nil {
+		global.App.LogsServiceLogger.Fatal(err.Error())
+	}
+	// 将死信队列绑定到死信交换机
+	err = ch.QueueBind(
+		queue.Name, // 死信队列名称
+		routingkey, // 死信路由键
+		exchange,   // 死信交换机名称
+		false,
+		nil,
+	)
+	if err != nil {
+		global.App.LogsServiceLogger.Fatal(err.Error())
+	}
+
 }

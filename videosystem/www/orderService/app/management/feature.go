@@ -19,13 +19,12 @@ func TakeFlashOrder(c *gin.Context) {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return
 	}
-	order, err := services.TakeFlashOrder(&form)
+	res, err := services.TakeFlashOrder(&form)
 	if err != nil {
 		response.BusinessFail(c, err.Error())
 	} else {
-		response.Success(c, order)
+		response.Success(c, res)
 	}
-
 }
 
 // 普通下单

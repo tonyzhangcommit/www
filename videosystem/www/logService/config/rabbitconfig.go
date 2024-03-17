@@ -35,3 +35,10 @@ type OrderServiceConfig struct {
 	Authinfoqueue   string `mapstructure:"authinfoqueue"`
 	Autherrorqueue  string `mapstructure:"autherrorqueue"`
 }
+
+type DealExchangeConfig struct {
+	DeadExchange string `mapstructure:"deadexchange"`
+	Dealqueue    string `mapstructure:"dealqueue"`
+	RoutingKey   string `mapstructure:"routingkey"`
+}
+

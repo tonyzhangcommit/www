@@ -17,4 +17,5 @@ type Config struct {
 	ProductServiceConfig `mapstructure:"productserverconfig"`
 	OrderServiceLog      `mapstructure:"orderservicelog"`
 	OrderServiceConfig   `mapstructure:"orderserverconfig"`
+	DealExchangeConfig   `mapstructure:"dealexchangeconfig"`
 }

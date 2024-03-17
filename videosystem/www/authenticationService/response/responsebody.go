@@ -37,6 +37,7 @@ type UserVipType struct {
 type FlashEvent struct {
 	Name      string    `json:"name"`
 	Condition string    `json:"condition"`
+	Count     int       `json:"count"`
 	StartTime time.Time `json:"starttime"`
 	EndTime   time.Time `json:"endtime"`
 }
