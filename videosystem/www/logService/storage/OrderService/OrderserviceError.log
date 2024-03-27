@@ -1,2 +1,6 @@
 {"level":"dev.error","timestamp":"2024-03-13 14:50:14.768","logger":"orderService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-03-13 21:56:58.654","logger":"orderService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-26 19:06:32.307","logger":"orderService","caller":"bootstrap/rabbitmq.go:50","msg":"秒杀活动生成订单--序列化结构体失败，userID: - 错误详情: unexpected end of JSON input"}
+{"level":"dev.error","timestamp":"2024-03-26 19:06:32.972","logger":"orderService","caller":"bootstrap/rabbitmq.go:50","msg":"秒杀活动生成订单--序列化结构体失败，userID: - 错误详情: unexpected end of JSON input"}
+{"level":"dev.error","timestamp":"2024-03-26 19:06:33.083","logger":"orderService","caller":"bootstrap/rabbitmq.go:50","msg":"秒杀活动生成订单--序列化结构体失败，userID: - 错误详情: unexpected end of JSON input"}
+{"level":"dev.error","timestamp":"2024-03-26 19:06:33.307","logger":"orderService","caller":"bootstrap/rabbitmq.go:50","msg":"秒杀活动生成订单--序列化结构体失败，userID: - 错误详情: unexpected end of JSON input"}

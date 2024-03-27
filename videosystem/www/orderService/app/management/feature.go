@@ -1,6 +1,7 @@
 package management
 
 import (
+	"fmt"
 	"userservice/app/request"
 	"userservice/app/response"
 	"userservice/app/services"
@@ -25,6 +26,14 @@ func TakeFlashOrder(c *gin.Context) {
 	} else {
 		response.Success(c, res)
 	}
+}
+
+func Test(c *gin.Context) {
+	fmt.Println(services.WebSocketclients)
+	go services.WebsocketSendMessage("3", "处理您的请求时出现问题，请检查订单详情或联系客服。")
+	c.JSON(200, gin.H{
+		"message": "pong",
+	})
 }
 
 // 普通下单

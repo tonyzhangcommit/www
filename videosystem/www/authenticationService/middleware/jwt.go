@@ -17,7 +17,7 @@ func JWTAUTH(GuardName string) gin.HandlerFunc {
 		// 从请求头中获取jwt token
 		tokenStr := ctx.Request.Header.Get("Authorization")
 		if tokenStr == "" {
-			response.JwtTokenErrorFail(ctx, "请登录后再试")
+			response.JwtTokenErrorFail(ctx, "登录已过期，请重新登录")
 			ctx.Abort()
 			return
 		}
@@ -27,13 +27,13 @@ func JWTAUTH(GuardName string) gin.HandlerFunc {
 			return []byte(global.App.Config.Jwt.Secretkey), nil
 		})
 		if err != nil {
-			response.JwtTokenErrorFail(ctx, "请登录后再试")
+			response.JwtTokenErrorFail(ctx, "登录已过期，请重新登录")
 			ctx.Abort()
 			return
 		}
 		claims := token.Claims.(*response.CustomClaims)
 		if claims.Issuer != GuardName {
-			response.JwtTokenErrorFail(ctx, "请登录后再试")
+			response.JwtTokenErrorFail(ctx, "登录已过期，请重新登录")
 			ctx.Abort()
 			return
 		}

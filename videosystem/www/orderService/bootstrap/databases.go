@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strconv"
 	"userservice/global"
+	"userservice/models"
 
 	"github.com/go-redis/redis/v8"
 	"gorm.io/driver/mysql"
@@ -61,7 +62,7 @@ func InitMysql() *gorm.DB {
 }
 
 func initializeTables(db *gorm.DB) {
-	err := db.AutoMigrate()
+	err := db.AutoMigrate(&models.Order{}, &models.OrderItem{})
 	if err != nil {
 		panic(fmt.Sprintf("初始化数据库表失败，err:%v", err))
 	}
@@ -71,7 +72,7 @@ func InitializeRedis() {
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     global.App.Config.Redis.Host + ":" + global.App.Config.Redis.Port,
 		Password: "", // 密码，没有则留空
-		DB:       2,  // 使用默认DB
+		DB:       0,  // 使用默认DB
 	})
 	// 测试redis
 	_, err := rdb.Ping(context.Background()).Result()

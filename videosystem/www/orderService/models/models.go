@@ -14,13 +14,13 @@ type Order struct {
 	PaymentStatus string  `gorm:"column:paymentstatus;type:varchar(100);not null"`
 	PayWay        string  `gorm:"column:payway;type:varchar(20);not null"`
 	TotalAmount   float64 `gorm:"column:totalamount;not null"`
-	CreatedAt     time.Time
-	UpdatedAt     time.Time
+	CreatedAt     time.Time 
+	UpdatedAt     time.Time 
 	OrderItems    []OrderItem `gorm:"foreignKey:OrderID"`
 }
 
 func (Order) TableName() string {
-	return "order"
+	return "orders"
 }
 
 type OrderItem struct {

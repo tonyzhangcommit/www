@@ -1,6 +1,7 @@
 package main
 
 import (
+	"userservice/app/services"
 	"userservice/bootstrap"
 )
 
@@ -14,6 +15,9 @@ func main() {
 	// 初始化 database & cache
 	bootstrap.InitializeDatabase()
 	bootstrap.InitializeRedis()
+	// 启动生成订单消费者
+	go services.FlashEventCustomer(2)
+	go services.FlashEventsnapupresCustomer()
 	// 启动微服务
 	bootstrap.RunServer()
 }

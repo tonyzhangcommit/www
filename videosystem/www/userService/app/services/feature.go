@@ -25,10 +25,13 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 	// 验证手机号
 	inputVCode := form.VarifiCode
 	realVCode := utils.GetVirifCode(form.Phonenumber)
-	if inputVCode != realVCode {
-		err = errors.New("验证码错误")
-		return
-	}
+	// 暂时去除验证码验证功能
+	_ = inputVCode
+	_ = realVCode
+	// if inputVCode != realVCode {
+	// 	err = errors.New("验证码错误")
+	// 	return
+	// }
 	// 选定角色
 	rolenameslice := global.App.Config.Roles.NameList
 	rolename := ""
@@ -123,14 +126,15 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.Lo
 		return
 	}
 	var user models.User
-	result := global.App.DB.Preload("Roles").Where("phonenumber = ?", form.Phonenumber).First(&user)
-	if result.Error != nil {
-		if errors.Is(result.Error, gorm.ErrRecordNotFound) {
+	err = global.App.DB.Preload("Roles").Where("phonenumber = ?", form.Phonenumber).First(&user).Error
+	if err != nil {
+		if errors.Is(err, gorm.ErrRecordNotFound) {
 			err = errors.New("手机号未注册")
 		} else {
 			global.SendLogs("error", fmt.Sprintf("%s 登录失败", form.Phonenumber), err)
 			err = errors.New("未知错误，登录失败")
 		}
+		return
 	}
 	var roles []string
 	for _, user := range user.Roles {

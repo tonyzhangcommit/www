@@ -155,6 +155,7 @@ func APIGetVerifCodeLimit(count int64) gin.HandlerFunc {
 		// 参数检测
 		var form virifcode
 		if err := ctx.ShouldBindBodyWith(&form, binding.JSON); err != nil {
+
 			response.IllegalRequestFail(ctx)
 			ctx.Abort()
 			return

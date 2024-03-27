@@ -32,7 +32,8 @@ func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
 	{
 		clientGroup.POST("/login", request.UserService.Login)
 		clientGroup.POST("/logout", request.UserService.Login)
-		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(6), request.UserService.GetVerifiCode)
+		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(60), request.UserService.GetVerifiCode)
+		// clientGroup.POST("/getverifcode", request.UserService.GetVerifiCode)
 		clientGroup.POST("/register", request.UserService.Register)
 		clientGroup.GET("/getuserinfo", request.UserService.GetUserinfo)
 		clientGroup.POST("/inproveinfo", request.UserService.InproveInfo)
@@ -64,6 +65,6 @@ func SetFlashEventServiceManageGroupRouter(router *gin.RouterGroup) {
 		// 活动&商品展示
 		flashGroup.POST("/flashepinfo", request.FlashEvent.PreheatEventProductShow)
 		// 下单
-		flashGroup.POST("/takeorder", request.FlashEvent.PlaceOrder)
+		flashGroup.POST("/takeorder", middleware.JWTAUTH("app"), request.FlashEvent.PlaceOrder)
 	}
 }

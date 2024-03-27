@@ -74,14 +74,14 @@ func (f *flashEvent) GetFEventProduct(form *request.GetFlashEventProduct) (fpinf
 	// 商品原始价格
 	keyFlashProductOriginPrice := utils.JoinStrings("flashID:", strconv.Itoa(int(form.EventId)), "pid", strconv.Itoa(int(form.ProductId)), ":", "originprice")
 	if _, errredis := global.App.Redis.Get(context.Background(), keyFlashProductOriginPrice).Result(); errredis != nil {
-		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductOriginPrice, result.FlashSaleEventProduct.OriginalPrice, 48*time.Hour).Err(); errsredis != nil {
+		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductOriginPrice, strconv.FormatFloat(result.FlashSaleEventProduct.OriginalPrice, 'f', -1, 64), 48*time.Hour).Err(); errsredis != nil {
 			global.SendLogs("error", "redis 设置秒杀活动商品原始价格报错", errredis)
 		}
 	}
 	// 商品打折后价格
 	keyFlashProductFsaleprice := utils.JoinStrings("flashID:", strconv.Itoa(int(form.EventId)), "pid", strconv.Itoa(int(form.ProductId)), ":", "flashprice")
 	if _, errredis := global.App.Redis.Get(context.Background(), keyFlashProductFsaleprice).Result(); errredis != nil {
-		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductFsaleprice, result.FlashSaleEventProduct.FlashSalePrice, 48*time.Hour).Err(); errsredis != nil {
+		if errsredis := global.App.Redis.Set(context.Background(), keyFlashProductFsaleprice, strconv.FormatFloat(result.FlashSaleEventProduct.FlashSalePrice, 'f', -1, 64), 48*time.Hour).Err(); errsredis != nil {
 			global.SendLogs("error", "redis 设置秒杀活动商品秒杀价格报错", errredis)
 		}
 	}

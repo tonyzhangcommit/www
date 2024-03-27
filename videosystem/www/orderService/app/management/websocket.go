@@ -1,6 +1,8 @@
 package management
 
 import (
+	"context"
+	"fmt"
 	"net/http"
 	"time"
 	"userservice/app/response"
@@ -101,10 +103,29 @@ func WebsocketHandler(c *gin.Context) {
 		return
 	}
 	defer ws.Close()
+
+	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Hour)
+	defer cancel()
+
 	services.WebSocketclients[userID] = ws
 	// 保持连接
 	for {
-
+		select {
+		case <-ctx.Done():
+			// 上下文超时或被取消，关闭WebSocket连接
+			services.ClientsLock.Lock()
+			delete(services.WebSocketclients, userID)
+			services.ClientsLock.Unlock()
+			return
+		default:
+			messageType, p, err := ws.ReadMessage()
+			if err != nil {
+				// 处理读取错误
+				global.SendLogs("error", fmt.Sprintf("读取消息报错：用户ID:%s", userID), err)
+				return
+			}
+			_ = messageType
+			_ = p
+		}
 	}
-
 }

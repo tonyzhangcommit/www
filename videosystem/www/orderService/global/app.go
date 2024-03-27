@@ -9,6 +9,7 @@ import (
 
 	"github.com/go-redis/redis/v8"
 	"github.com/rabbitmq/amqp091-go"
+	amqp "github.com/rabbitmq/amqp091-go"
 	"github.com/spf13/viper"
 	"go.uber.org/zap"
 	"gorm.io/gorm"
@@ -28,8 +29,9 @@ type Application struct {
 var App = new(Application)
 
 type RMQ struct {
-	Channel  *amqp091.Channel
+	Channel  *amqp.Channel
 	Exchange string
+	Conn     *amqp.Connection
 }
 
 var RabbitMQ = new(RMQ)
@@ -61,7 +63,7 @@ func (lm *LogMessage) SendInfoToRabbitMQ() {
 		},
 	)
 	if err != nil {
-		App.LocalLogger.Error(fmt.Sprintf("日志发送失败: %s", body))
+		App.LocalLogger.Error(fmt.Sprintf("日志发送失败: %s\n", body))
 		App.LocalLogger.Error(err.Error())
 	}
 }

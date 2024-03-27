@@ -27,6 +27,8 @@ rabbitmq:
   flasheventreqqueue: flasheventreqqueue  # 订单服务-秒杀-请求保存队列名
   flasheventreqbackupqueue: flasheventreqbackupqueue  # 订单服务-秒杀-请求保存备份队列名
   flasheventresqueue: flasheventresqueue  # 订单服务-秒杀-结果保存队列名
+  flasheventreadypayqueue: flasheventreadypayqueue  # 订单服务-秒杀-待支付订单队列
+  flasheventpayresqueue: flasheventpayresqueue  # 订单服务-秒杀-支付成功订单队列
 dealexchangeconfig:  # 这里是手动将消息发送到死信队列的配置，按需使用
   deadexchange: dealexchange_topic   # 死信队列交换机
   dealdefalutqueue: dealqueue        # 默认绑定死信交换机的队列

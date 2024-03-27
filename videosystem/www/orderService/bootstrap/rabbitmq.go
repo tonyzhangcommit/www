@@ -31,6 +31,7 @@ func InitializeRabbitMQ() {
 		global.App.LocalLogger.Error(err.Error())
 		return
 	}
+	global.RabbitMQ.Conn = conn
 	global.RabbitMQ.Channel = ch
 	global.RabbitMQ.Exchange = global.App.Config.RabbitMQ.ExchangeName
 	// 初始化秒杀活动reqMQ
@@ -39,6 +40,8 @@ func InitializeRabbitMQ() {
 	genFlashEventReqBackupMQ(ch)
 	// 定义订单请求处理结果MQ
 	genFlashEventResMQ(ch)
+	// 定义待支付订单MQ(主要服务于支付服务)
+	genFlashEventPayOrderMQ(ch)
 }
 
 /*
@@ -140,6 +143,38 @@ func genFlashEventResMQ(ch *amqp.Channel) {
 		nil,
 	); err != nil {
 		global.SendLogs("error", "绑定秒杀队列res失败", err)
+		return
+	}
+}
+
+// 定义生成订单后待支付MQ
+func genFlashEventPayOrderMQ(ch *amqp.Channel) {
+	args := amqp.Table{
+		"x-message-ttl": 12000000,    // 消息存活时间 (ms)
+		"x-max-length":  300000,      // 队列最大长度 （可优化为商品抢购的最大数量）
+		"x-overflow":    "drop-head", // 队列溢出行为
+	}
+	queue, err := ch.QueueDeclare(
+		global.App.Config.RabbitMQ.FlashEventReadyPayQueue,
+		true,  // 持久化
+		false, // 非排他性
+		false, // 自动删除
+		false, // 不等待
+		args,
+	)
+	if err != nil {
+		global.SendLogs("error", "创建秒杀活动支付订单MQ失败", err)
+		return
+	}
+	// 绑定交换机
+	if err := ch.QueueBind(
+		queue.Name,
+		"flashevent.pay.order.queue",
+		global.App.Config.RabbitMQ.ExchangeName,
+		false,
+		nil,
+	); err != nil {
+		global.SendLogs("error", "绑定秒杀活动支付订单MQ失败", err)
 		return
 	}
 }

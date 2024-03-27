@@ -203,7 +203,8 @@ func checkIslawful(userres response.UserVipType, eventres response.FlashEventRes
 		return
 	}
 	if !result {
-		err = errors.New("您已参加过活动了呦~~~")
+		// err = errors.New("您已参加过活动了呦~~~")
+		return
 	} else if now.Before(eventres.Data.StartTime) {
 		err = errors.New("活动未开始")
 	} else if now.After(eventres.Data.EndTime) {

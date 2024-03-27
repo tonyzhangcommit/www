@@ -27,3 +27,7 @@
 {"level":"error","timestamp":"2024-02-19 19:28:39.711","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
 {"level":"error","timestamp":"2024-02-19 19:36:43.981","caller":"global/app.go:60","msg":"日志发送失败: 这是一条测试日志！！！"}
 {"level":"error","timestamp":"2024-02-19 19:36:44.004","caller":"global/app.go:61","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-23 16:28:18.925","caller":"global/app.go:64","msg":"日志发送失败: 18510158905验证码：929669"}
+{"level":"error","timestamp":"2024-03-23 16:28:18.935","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-23 16:29:00.128","caller":"global/app.go:64","msg":"日志发送失败: 18510158905验证码：314199"}
+{"level":"error","timestamp":"2024-03-23 16:29:00.138","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}

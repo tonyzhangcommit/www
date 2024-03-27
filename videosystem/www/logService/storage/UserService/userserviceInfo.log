@@ -927,3 +927,26 @@
 {"level":"dev.info","timestamp":"2024-03-13 21:57:58.139","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-14 14:51:23.488","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-03-16 10:52:07.811","logger":"userService","caller":"bootstrap/rabbitmq.go:45","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-23 16:20:52.234","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-23 16:23:06.119","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-23 16:34:39.389","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-23 16:34:57.046","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158905验证码：119507"}
+{"level":"dev.info","timestamp":"2024-03-23 16:37:33.992","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：239531"}
+{"level":"dev.info","timestamp":"2024-03-23 16:38:47.110","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-23 16:39:01.813","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158905验证码：729851"}
+{"level":"dev.info","timestamp":"2024-03-23 16:42:49.627","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-23 16:43:05.564","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：093991"}
+{"level":"dev.info","timestamp":"2024-03-23 17:37:11.463","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 获取用户会员类型失败"}
+{"level":"dev.info","timestamp":"2024-03-25 13:03:40.650","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-25 13:04:47.489","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 获取用户会员类型失败"}
+{"level":"dev.info","timestamp":"2024-03-25 18:51:51.064","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：176949"}
+{"level":"dev.info","timestamp":"2024-03-25 18:59:17.245","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：973191"}
+{"level":"dev.info","timestamp":"2024-03-25 19:15:30.040","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：416291"}
+{"level":"dev.info","timestamp":"2024-03-25 21:50:40.920","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-25 21:56:10.468","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：686323"}
+{"level":"dev.info","timestamp":"2024-03-25 22:21:57.672","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：357200"}
+{"level":"dev.info","timestamp":"2024-03-25 22:26:30.227","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：461856"}
+{"level":"dev.info","timestamp":"2024-03-26 16:02:01.964","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-26 16:05:55.765","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：049612"}
+{"level":"dev.info","timestamp":"2024-03-26 16:06:39.032","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 获取用户会员类型失败"}
+{"level":"dev.info","timestamp":"2024-03-26 16:54:50.365","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510158913验证码：183876"}

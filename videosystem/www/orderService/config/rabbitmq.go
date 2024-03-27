@@ -21,4 +21,6 @@ type RabbitMQ struct {
 	FlashEventReqQueue       string `mapstructure:"flasheventreqqueue"`
 	FlashEventReqBackupQueue string `mapstructure:"flasheventreqbackupqueue"`
 	FlashEventResQueue       string `mapstructure:"flasheventresqueue"`
+	FlashEventReadyPayQueue  string `mapstructure:"flasheventreadypayqueue"`
+	FlashEventPayResQueue    string `mapstructure:"flasheventpayresqueue"`
 }
