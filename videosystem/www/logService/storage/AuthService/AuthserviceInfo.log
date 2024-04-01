@@ -210,3 +210,11 @@
 {"level":"dev.info","timestamp":"2024-03-26 18:35:52.868","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"定时任务执行检测iplimiter"}
 {"level":"dev.info","timestamp":"2024-03-26 19:05:52.871","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"定时任务执行检测iplimiter"}
 {"level":"dev.info","timestamp":"2024-03-26 19:05:52.920","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"定时任务执行删除iplimiter"}
+{"level":"dev.info","timestamp":"2024-03-27 21:21:26.408","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-27 21:44:27.804","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-28 10:37:06.449","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-28 10:37:14.469","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-28 10:56:39.942","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-30 15:07:06.718","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-30 18:53:27.709","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-03-31 15:16:29.764","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}

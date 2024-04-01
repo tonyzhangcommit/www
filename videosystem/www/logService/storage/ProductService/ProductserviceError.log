@@ -7,3 +7,5 @@
 {"level":"dev.error","timestamp":"2024-03-13 14:49:41.874","logger":"productService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-03-13 21:56:58.654","logger":"productService","caller":"bootstrap/rabbitmq.go:47","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
 {"level":"dev.error","timestamp":"2024-03-25 21:50:30.583","logger":"productService","caller":"bootstrap/rabbitmq.go:50","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-28 10:37:06.449","logger":"productService","caller":"bootstrap/rabbitmq.go:50","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}
+{"level":"dev.error","timestamp":"2024-03-30 14:58:01.004","logger":"productService","caller":"bootstrap/rabbitmq.go:50","msg":"redis 初始化错误 - 错误详情: dial tcp 127.0.0.1:6379: connect: connection refused"}

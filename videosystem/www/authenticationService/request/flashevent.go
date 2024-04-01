@@ -24,7 +24,7 @@ var FlashEvent = new(flashevent)
 // 用户信息预热
 func (f *flashevent) PreheatUserInfo(c *gin.Context) {
 	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.AdminUrl.Preheat)
-	GetRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
+	GetRequest(c, 10, remoteurl)
 }
 
 // 获取用户等级信息

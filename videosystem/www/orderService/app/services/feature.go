@@ -132,6 +132,7 @@ func TakeFlashOrder(form *request.TakeFlashOrder) (res string, err error) {
 // 订单预生成，将价格计算逻辑，订单入库sql
 func FlashEventCustomer(consumercount int) {
 	for cid := 1; cid < consumercount+1; cid++ {
+		fmt.Println("消费者启动....")
 		go func(consumerID int) {
 			// 初始化监听队列
 			ch, err := global.RabbitMQ.Conn.Channel()
@@ -164,10 +165,12 @@ func FlashEventCustomer(consumercount int) {
 					msg.Ack(false)
 					continue
 				}
+
 				// 首先判断此消息是否已经消费
 				ordercachekey := "flashevent:order:req:" + order.Uid
 				key := utils.JoinStrings("flashID:", strconv.Itoa(int(order.EventID)), "pid", strconv.Itoa(int(order.ProductID)), ":remainingquantity") // 商品库存键
 				if _, err := global.App.Redis.Get(context.Background(), ordercachekey).Result(); err != nil {
+
 					// 使用 Redis 的 DECRBY 命令原子减少商品数量
 					result, err := global.App.Redis.DecrBy(context.Background(), key, int64(order.Count)).Result()
 					if err != nil {
@@ -180,9 +183,14 @@ func FlashEventCustomer(consumercount int) {
 						// 库存不足，回滚
 						_, err := global.App.Redis.IncrBy(context.Background(), key, int64(order.Count)).Result()
 						if err != nil {
+							global.SendLogs("error", fmt.Sprintf("秒杀订单库存不足：Consumer %d,回滚失败", consumerID), err)
+
+							continue
+						} else {
 							global.SendLogs("error", fmt.Sprintf("秒杀订单库存不足：Consumer %d", consumerID), err)
 							go WebsocketSendMessage(msg.CorrelationId, "手慢一步，商品已经抢光了哦~")
 							continue
+
 						}
 					} else {
 
@@ -227,7 +235,7 @@ func FlashEventCustomer(consumercount int) {
 							OriginPrice:    originprice,
 							FlashSalePrice: flashprice,
 						}
-						fmt.Println("抢购后消息格式信息", resorder)
+						// fmt.Println("抢购后消息格式信息", resorder)
 						// 构建订单抢购后的消息体，用于生成订单
 						body, err := json.Marshal(resorder)
 						if err != nil {
@@ -267,9 +275,6 @@ func FlashEventCustomer(consumercount int) {
 							global.SendLogs("error", fmt.Sprintf("秒杀订单处理后添加缓存标记失败：Consumer %d", consumerID), err)
 						}
 					}
-				} else {
-					// 此消息已经被消费过了，直接废弃
-					msg.Ack(false)
 				}
 				msg.Ack(false)
 			}
@@ -358,7 +363,6 @@ func FlashEventsnapupresCustomer() {
 				// 开启事务
 				tx := global.App.DB.Begin()
 				// 插入订单
-				fmt.Println(orderres)
 				order := models.Order{
 					UserID:        orderres.UserID,
 					OrderType:     "秒杀订单",
@@ -371,6 +375,7 @@ func FlashEventsnapupresCustomer() {
 				}
 				if err := tx.Create(&order).Error; err != nil {
 					tx.Rollback() // 回滚事务
+					fmt.Println("生成订单失败，详情请联系客服。插入订单失败")
 					go WebsocketSendMessage(msg.CorrelationId, "生成订单失败，详情请联系客服。")
 					go global.SendLogs("error", fmt.Sprintf("mysql 事务创建订单失败，userid:%d,eventID:%d,productID:%d", orderres.UserID, orderres.EventID, orderres.ProductID))
 					// 丢弃消息
@@ -393,6 +398,7 @@ func FlashEventsnapupresCustomer() {
 
 				if err := tx.Create(&orderItem).Error; err != nil {
 					tx.Rollback() // 回滚事务
+					fmt.Println("生成订单失败，详情请联系客服。插入订单详情失败")
 					go WebsocketSendMessage(msg.CorrelationId, "生成订单失败，详情请联系客服。")
 					go global.SendLogs("error", fmt.Sprintf("mysql 事务创建订单详情失败，userid:%d,eventID:%d,productID:%d", orderres.UserID, orderres.EventID, orderres.ProductID))
 					// 丢弃消息
@@ -403,6 +409,7 @@ func FlashEventsnapupresCustomer() {
 				// 提交事务
 				if err := tx.Commit().Error; err != nil {
 					go WebsocketSendMessage(msg.CorrelationId, "生成订单失败，详情请联系客服。")
+					fmt.Println("生成订单失败，详情请联系客服。提交事务失败")
 					go global.SendLogs("error", fmt.Sprintf("mysql 事务提交失败，userid:%d,eventID:%d,productID:%d", orderres.UserID, orderres.EventID, orderres.ProductID))
 					// 丢弃消息
 					msg.Ack(false)
@@ -451,10 +458,12 @@ func FlashEventsnapupresCustomer() {
 				msg.Ack(false)
 			} else {
 				// 消息已经处理，丢弃
-				msg.Ack(false)
+				// msg.Ack(false)
 				continue
 			}
-			time.Sleep(50 * time.Millisecond) // 限制速率
+			time.Sleep(30 * time.Millisecond) // 限制速率
+			go WebsocketSendMessage(msg.CorrelationId, "close client")
+
 		}
 	}()
 }

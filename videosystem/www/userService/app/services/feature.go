@@ -36,9 +36,9 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 	rolenameslice := global.App.Config.Roles.NameList
 	rolename := ""
 	if len(rolenameslice) > 3 {
-		rolename = rolenameslice[2]
+		rolename = rolenameslice[3]
 	} else {
-		rolename = "regularUser"
+		rolename = "monthlyVip"
 	}
 	var role models.Role
 	if err = global.App.DB.Where("rolename = ?", rolename).First(&role).Error; err != nil {
@@ -121,10 +121,13 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.Lo
 	// 验证手机号
 	inputVCode := form.VerificationCode
 	realVCode := utils.GetVirifCode(form.Phonenumber)
-	if inputVCode != realVCode {
-		err = errors.New("验证码错误")
-		return
-	}
+	// 测试暂时关闭
+	// if inputVCode != realVCode {
+	// 	err = errors.New("验证码错误")
+	// 	return
+	// }
+	_ = inputVCode
+	_ = realVCode
 	var user models.User
 	err = global.App.DB.Preload("Roles").Where("phonenumber = ?", form.Phonenumber).First(&user).Error
 	if err != nil {

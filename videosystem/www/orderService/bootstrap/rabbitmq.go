@@ -70,6 +70,7 @@ func genFlashEventReqMQ(ch *amqp.Channel) {
 		global.SendLogs("error", "创建秒杀订单消息队列失败", err)
 		return
 	}
+	global.Flashrequsetqueue = queue
 	// 绑定交换机
 	if err := ch.QueueBind(
 		queue.Name,
@@ -102,6 +103,7 @@ func genFlashEventReqBackupMQ(ch *amqp.Channel) {
 		global.SendLogs("error", "创建秒杀订单消息备用队列失败", err)
 		return
 	}
+	global.Flashresponsequeue = queue
 	// 绑定交换机
 	if err := ch.QueueBind(
 		queue.Name,

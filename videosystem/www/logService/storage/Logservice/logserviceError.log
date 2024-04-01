@@ -29,3 +29,15 @@
 {"level":"dev.fatal","timestamp":"2024-03-15 14:49:17.290","logger":"localService","caller":"bootstrap/basefunc.go:83","msg":"Exception (503) Reason: \"unexpected command received\""}
 {"level":"dev.fatal","timestamp":"2024-03-16 10:51:29.969","logger":"localService","caller":"bootstrap/basefunc.go:83","msg":"Exception (503) Reason: \"unexpected command received\""}
 {"level":"dev.fatal","timestamp":"2024-03-25 21:50:25.435","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 10:35:07.455","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 17:06:30.457","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.error","timestamp":"2024-03-28 17:10:19.570","logger":"localService","caller":"bootstrap/basefunc.go:68","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 17:10:19.570","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.error","timestamp":"2024-03-28 17:38:54.144","logger":"localService","caller":"bootstrap/basefunc.go:68","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 17:38:54.144","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 17:40:55.105","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 17:41:11.636","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.error","timestamp":"2024-03-28 17:41:17.097","logger":"localService","caller":"bootstrap/basefunc.go:68","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-28 17:41:17.097","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-30 19:08:54.096","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-03-31 15:15:17.084","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}

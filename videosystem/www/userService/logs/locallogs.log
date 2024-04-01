@@ -31,3 +31,5 @@
 {"level":"error","timestamp":"2024-03-23 16:28:18.935","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
 {"level":"error","timestamp":"2024-03-23 16:29:00.128","caller":"global/app.go:64","msg":"日志发送失败: 18510158905验证码：314199"}
 {"level":"error","timestamp":"2024-03-23 16:29:00.138","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-30 19:34:03.445","caller":"global/app.go:64","msg":"日志发送失败: redis 获取用户会员类型失败"}
+{"level":"error","timestamp":"2024-03-30 19:34:03.466","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}

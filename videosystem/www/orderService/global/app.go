@@ -107,3 +107,7 @@ func (c *Cache) Get(key string) (interface{}, bool) {
 }
 
 var Store = new(Cache)
+
+// 测试队列长度
+var Flashrequsetqueue amqp.Queue
+var Flashresponsequeue amqp.Queue

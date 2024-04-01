@@ -1,0 +1,10 @@
+{"level":"error","timestamp":"2024-03-30 19:02:38.518","caller":"global/app.go:64","msg":"日志发送失败: mysql 查询活动报错 - 错误详情: dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"error","timestamp":"2024-03-30 19:02:38.835","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-30 19:02:38.521","caller":"global/app.go:64","msg":"日志发送失败: mysql 查询活动报错 - 错误详情: dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"error","timestamp":"2024-03-30 19:02:38.534","caller":"global/app.go:64","msg":"日志发送失败: mysql 查询活动报错 - 错误详情: dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"error","timestamp":"2024-03-30 19:02:38.534","caller":"global/app.go:64","msg":"日志发送失败: mysql 查询活动报错 - 错误详情: dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"error","timestamp":"2024-03-30 19:02:38.534","caller":"global/app.go:64","msg":"日志发送失败: mysql 查询活动报错 - 错误详情: dial tcp 127.0.0.1:3306: connect: connection refused"}
+{"level":"error","timestamp":"2024-03-30 19:02:38.835","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-30 19:02:38.835","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-30 19:02:38.836","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}
+{"level":"error","timestamp":"2024-03-30 19:02:38.836","caller":"global/app.go:65","msg":"Exception (504) Reason: \"channel/connection is not open\""}

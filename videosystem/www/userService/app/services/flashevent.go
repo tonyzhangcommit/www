@@ -5,6 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"time"
+	"fmt"
 	"userservice/app/request"
 	"userservice/global"
 	"userservice/models"
@@ -65,6 +66,7 @@ func (f *flashEvent) PreHeat() (err error) {
 		global.SendLogs("error", "mysql获取有效会员信息失败", err)
 		err = errors.New("未知错误")
 	} else {
+		fmt.Println("活动信息预热---用户管理",len(users))
 		for _, item := range users {
 			key := "flash:UserID:" + strconv.FormatUint(uint64(item.ID), 10)
 			value := item.TypeVip

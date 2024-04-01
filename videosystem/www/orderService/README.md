@@ -10,3 +10,80 @@
     2. 业务使用rabbitMQ进行消息削峰操作，并结合websocket进行异步通讯
     3. 认证服务中需要做到请求限流，请求过滤，订单服务只接收符合条件的请求并处理
     4. 系统完成部署后，需要进行压力测试
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	设置缓冲池大小
+
+	package main
+
+import (
+    "github.com/gorilla/websocket"
+    "sync"
+)
+
+// 定义一个实现了 websocket.BufferPool 接口的结构体
+type BufferPool struct {
+    pool sync.Pool
+}
+
+// NewBuffer 方法用于获取新的缓冲区
+func (p *BufferPool) Get() []byte {
+    return p.pool.Get().([]byte)
+}
+
+// Put 方法用于回收使用完的缓冲区
+func (p *BufferPool) Put(b []byte) {
+    p.pool.Put(b)
+}
+
+func main() {
+    // 初始化缓冲池
+    bufferPool := &BufferPool{
+        pool: sync.Pool{
+            New: func() interface{} {
+                // 指定缓冲区的大小，这里假设为1024字节
+                return make([]byte, 1024)
+            },
+        },
+    }
+
+    // 在 Upgrader 中使用自定义的缓冲池
+    var upgrader = websocket.Upgrader{
+        WriteBufferPool: bufferPool,
+        // 其他字段配置...
+    }
+
+    // 使用 upgrader 进行 WebSocket 握手和后续处理...
+}
+
+*/

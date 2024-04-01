@@ -18,53 +18,6 @@ import (
 	websocker 接口视图函数
 */
 
-/*
-	设置缓冲池大小
-
-	package main
-
-import (
-    "github.com/gorilla/websocket"
-    "sync"
-)
-
-// 定义一个实现了 websocket.BufferPool 接口的结构体
-type BufferPool struct {
-    pool sync.Pool
-}
-
-// NewBuffer 方法用于获取新的缓冲区
-func (p *BufferPool) Get() []byte {
-    return p.pool.Get().([]byte)
-}
-
-// Put 方法用于回收使用完的缓冲区
-func (p *BufferPool) Put(b []byte) {
-    p.pool.Put(b)
-}
-
-func main() {
-    // 初始化缓冲池
-    bufferPool := &BufferPool{
-        pool: sync.Pool{
-            New: func() interface{} {
-                // 指定缓冲区的大小，这里假设为1024字节
-                return make([]byte, 1024)
-            },
-        },
-    }
-
-    // 在 Upgrader 中使用自定义的缓冲池
-    var upgrader = websocket.Upgrader{
-        WriteBufferPool: bufferPool,
-        // 其他字段配置...
-    }
-
-    // 使用 upgrader 进行 WebSocket 握手和后续处理...
-}
-
-*/
-
 // 自定义jwt的claims，考虑到扩展性，这里只多存放用户角色信息
 type CustomClaims struct {
 	jwt.StandardClaims
@@ -114,18 +67,26 @@ func WebsocketHandler(c *gin.Context) {
 		case <-ctx.Done():
 			// 上下文超时或被取消，关闭WebSocket连接
 			services.ClientsLock.Lock()
+			services.WebSocketclients[userID].Close()
 			delete(services.WebSocketclients, userID)
 			services.ClientsLock.Unlock()
 			return
 		default:
-			messageType, p, err := ws.ReadMessage()
+			_, p, err := ws.ReadMessage()
 			if err != nil {
 				// 处理读取错误
 				global.SendLogs("error", fmt.Sprintf("读取消息报错：用户ID:%s", userID), err)
 				return
 			}
-			_ = messageType
-			_ = p
+			if string(p) == "close" {
+				fmt.Println("用户主动关闭连接")
+				services.ClientsLock.Lock()
+				services.WebSocketclients[userID].Close()
+				delete(services.WebSocketclients, userID)
+				services.ClientsLock.Unlock()
+				fmt.Println("关闭连接成功")
+				return
+			}
 		}
 	}
 }

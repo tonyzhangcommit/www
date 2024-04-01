@@ -28,7 +28,8 @@ func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
 			})
 		}
 	})
-	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath).Use(middleware.ServiceLimit("Client", 100, 150, 200))
+	// clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath).Use(middleware.ServiceLimit("Client", 100, 150, 200))
+	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath) // 暂时去掉限流机制
 	{
 		clientGroup.POST("/login", request.UserService.Login)
 		clientGroup.POST("/logout", request.UserService.Login)
