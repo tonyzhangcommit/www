@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"strconv"
 	"time"
 	"userservice/app/request"
@@ -117,7 +118,10 @@ func (f *flashEvent) GetFEventInfo(form *request.GetFlashEvent) (finfo response.
 			}
 		}
 	} else {
+		fmt.Println("---------->", val)
+		// 存在bug，eventID 为1的时候， 显示不对
 		err = json.Unmarshal([]byte(val), &finfo)
+		fmt.Println("---------->", finfo)
 		if err != nil {
 			global.SendLogs("error", "redis 活动基本信息序列化到结构体报错", errredis)
 			err = errors.New("内部错误")

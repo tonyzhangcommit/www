@@ -5,7 +5,6 @@ import (
 	"auth/response"
 	"auth/utils"
 	"errors"
-	"fmt"
 	"io"
 	"time"
 
@@ -20,7 +19,6 @@ func GetRequestBody(c *gin.Context) (body []byte, err error) {
 	}
 	// 读取请求体
 	body, err = io.ReadAll(c.Request.Body)
-	fmt.Println("body is ", body)
 	if err != nil {
 		return
 	}

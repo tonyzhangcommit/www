@@ -377,7 +377,7 @@ func FlashEventsnapupresCustomer() {
 					tx.Rollback() // 回滚事务
 					fmt.Println("生成订单失败，详情请联系客服。插入订单失败")
 					go WebsocketSendMessage(msg.CorrelationId, "生成订单失败，详情请联系客服。")
-					go global.SendLogs("error", fmt.Sprintf("mysql 事务创建订单失败，userid:%d,eventID:%d,productID:%d", orderres.UserID, orderres.EventID, orderres.ProductID))
+					go global.SendLogs("error", fmt.Sprintf("mysql 事务创建订单失败，userid:%d,eventID:%d,productID:%d", orderres.UserID, orderres.EventID, orderres.ProductID), err)
 					// 丢弃消息
 					msg.Ack(false)
 					continue
@@ -461,7 +461,7 @@ func FlashEventsnapupresCustomer() {
 				// msg.Ack(false)
 				continue
 			}
-			time.Sleep(30 * time.Millisecond) // 限制速率
+			time.Sleep(300 * time.Millisecond) // 限制速率
 			go WebsocketSendMessage(msg.CorrelationId, "close client")
 
 		}
