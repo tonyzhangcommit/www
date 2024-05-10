@@ -75,8 +75,62 @@
 - chan 应用场景
     1. 停止信号，利用nil类型接收数据阻塞的特点，注意避免死锁
     2. 任务定时，结合select case 语法， 结合time 包进行定时任务执行，eg: time.After  or Tick 方法，这两个方法
-    3. 生产者消费者模型，需要实现一个协程池************************
+    3. 生产者消费者模型，需要实现一个协程池
     4. 控制并发数，注意这里需要考虑并发同步的问题，使用sync.waitgroup实现，这里需要代码实现 ************************
+- 两种模式：阻塞模式和非阻塞模式，代码源码中也有体现
+在 Go 语言中，如果你尝试从一个未关闭的且当前为空的通道接收数据，行为会有所不同，具体取决于通道的阻塞或非阻塞状态：
+
+1. **阻塞模式（默认行为）**：
+   - 如果通道为空且未关闭，接收操作将**阻塞**，直到其他 goroutine 向通道发送数据或者通道被关闭。
+   - 在这种情况下，接收操作不会返回 `false`。它将一直等待，直到可以接收到数据或通道被关闭。如果通道被关闭并且没有更多的数据可接收，那么接收操作将返回通道类型的零值和 `false`。
+
+2. **非阻塞模式**：
+   - 你可以通过 `select` 语句与 `default` 分支来实现非阻塞接收，这种方式可以立即返回而不是等待数据可用。
+   - 如果通道为空，`select` 语句的 `case <-ch:` 分支不会执行，而是执行 `default` 分支。在这种情况下，`ok` 变量实际上并不会设置为 `false`，因为没有尝试直接的接收操作。
+
+下面是一个演示阻塞和非阻塞通道接收的例子：
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func main() {
+    ch := make(chan int)
+
+    // 启动一个goroutine发送数据
+    go func() {
+        time.Sleep(time.Second * 2) // 延时发送数据
+        ch <- 42
+        close(ch) // 发送完毕后关闭通道
+    }()
+
+    // 阻塞接收
+    result, ok := <-ch
+    fmt.Println("阻塞接收:", result, ok) // 输出: 42 true
+
+    result, ok = <-ch
+    fmt.Println("尝试从已关闭通道接收:", result, ok) // 输出: 0 false
+
+    // 非阻塞接收
+    select {
+    case result, ok = <-ch:
+        fmt.Println("非阻塞接收:", result, ok)
+    default:
+        fmt.Println("通道为空，非阻塞接收走 default 分支")
+    }
+}
+```
+
+在这个例子中：
+- 第一个接收操作是阻塞的，直到 goroutine 发送数据。
+- 第二个接收操作是从一个已经没有数据且已关闭的通道进行的，所以返回零值和 `false`。
+- 第三个接收操作是非阻塞的，如果没有数据，它不会等待数据到来，而是直接执行 `default` 分支。
+
+总之，只有在通道被关闭且没有更多数据可读时，从通道接收数据才会返回 `false`。如果通道仅仅是空的而且未关闭，接收操作将会阻塞，而不是返回 `false`。
 #### interface
 - 值接收者 指针接收者的区别，
 所谓值接收者，指针接收者都是面向方法的，他们都是给指定的实现方法添加了一个接收者，这里类似python 中的self 和js 中的this
@@ -554,23 +608,187 @@ GMP 模型是 Go 语言的调度模型，是一种复合的调度模型，结合
     GC 停顿时间：回收器会造成多长时间的停顿？目前的 GC 中需要考虑 STW 和 Mark Assist 两个部分可能造成的停顿。
     GC 停顿频率：回收器造成的停顿频率是怎样的？目前的 GC 中需要考虑 STW 和 Mark Assist 两个部分可能造成的停顿。
     GC 可扩展性：当堆内存变大时，垃圾回收器的性能如何？但大部分的程序可能并不一定关心这个问题。
-
-#### gin 常见知识点
-
-#### gorm 
-
-#### linux
-
-#### https ssh
-
 #### 限流算法
 - 令牌桶
 - nginx 配置
 - web 中间件配置
 
-#### redis
+#### select 关注点
+项目中常见使用方法：结合context 进行程序超时和取消功能
+### Go 的 `select` 语句
 
-#### nginx
-#### jwt
-#### restful
-#### 并发安全的map sync.Map store load delete range
+在 Go 语言中，`select` 语句让你可以同时等待多个通道操作。它类似于一种多路复用机制，可以处理不同的通道发送和接收操作。当多个 `case` 分支准备好执行时，`select` 会随机选择一个执行，保证公平性。
+
+#### 底层数据结构
+
+`select` 的实现依赖于 Go 运行时系统的调度和网络轮询机制。底层主要使用如下结构：
+
+1. **`hselect` 结构**：`select` 语句的运行时表示，包括所有参与的通道、对应的操作和指令。
+2. **`scase` 数组**：每个 `select` 语句都涉及一组可能的通道操作，这些操作在运行时通过一个 `scase` 类型的数组来表示，其中每个 `scase` 对象代表一个通道的发送或接收操作。
+
+每个 `scase` 包含：
+- 指向通道的指针
+- 发送或接收的数据
+- 操作类型（发送或接收）
+
+#### 特性
+
+- **非阻塞行为**：如果所有通道都不可用，`select` 可以通过一个默认情况（`default` 分支）立即执行，实现非阻塞操作。
+- **随机选择**：如果多个 `case` 同时满足，`select` 会随机选择一个执行，避免饿死（starvation）问题。
+- **同步点**：`select` 在多个通道操作中提供了一个同步点，只有当某个操作完成时，程序才会从 `select` 继续执行。
+
+### 在项目中的使用
+
+`select` 在处理异步通信和协程间的状态同步时非常有用。它广泛用于：
+
+1. **超时和取消操作**：通过 `select`，可以轻松实现超时和取消功能。
+2. **事件驱动的任务**：在需要从多个输入源（例如多个通道）中等待事件时，`select` 是理想的选择。
+
+#### Web 项目中的例子
+
+假设你有一个 Web 服务，需要从两个源并行获取数据（如两个不同的数据库或外部API），然后将这两个结果合并后响应给客户端。你可以使用 `select` 来实现超时控制，防止服务因为某个后端的延迟而完全无响应。
+
+```go
+package main
+
+import (
+    "fmt"
+    "net/http"
+    "time"
+)
+
+func fetchDataFromServiceA() <-chan string {
+    ch := make(chan string)
+    go func() {
+        time.Sleep(2 * time.Second) // 模拟延迟
+        ch <- "Data from service A"
+    }()
+    return ch
+}
+
+func fetchDataFromServiceB() <-chan string {
+    ch := make(chan string)
+    go func() {
+        time.Sleep(1 * time.Second) // 模拟较快的响应
+        ch <- "Data from service B"
+    }()
+    return ch
+}
+
+func handler(w http.ResponseWriter, r *http.Request) {
+    select {
+    case a := <-fetchDataFromServiceA():
+        fmt.Fprintf(w, "Received: %s", a)
+    case b := <-fetchDataFromServiceB():
+        fmt.Fprintf(w, "Received: %s", b)
+    case <-time.After(3 * time.Second):
+        fmt.Fprintf(w, "Request timed out")
+    }
+}
+
+func main() {
+    http.HandleFunc("/", handler)
+    http.ListenAndServe(":8080", nil)
+}
+```
+
+在这个例子中，我们为两个服务 `A` 和 `B` 各自开启了一个协程来获取数据，然后使用 `select` 来等待这两个操作的结果。同时，我们使用 `time.After` 设置了一个3秒的超时。这样，无论是服务A还是服务B能够更快返回数据，就将其返回给客户端，如果3秒内都没有返回，则报告
+
+超时。
+
+这种模式在构建响应时间要求严格的后端服务时非常有用，尤其是在依赖多个外部服务或资源的情况下。
+
+##### context
+
+在 Web 项目中，`context` 包提供的功能非常关键，尤其是在处理请求的生命周期、管理超时、传递请求范围的值以及处理取消信号等方面。`context` 是 Go 语言标准库中一个极其重要的部分，用于在进程和 API 之间传递 deadline、取消信号和其他请求范围的值。以下是一些具体的应用场景：
+
+### 1. **超时控制**，配合select一起使用
+在 Web 应用中，确保系统对外部调用（如数据库请求、HTTP 请求等）有明确的响应时间上限，是非常重要的。通过在 `context` 中设置超时，开发者可以防止系统在一个操作上花费过长时间，从而可能影响其他操作或导致资源不当占用。
+
+```go
+ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
+defer cancel()
+
+resp, err := http.GetWithContext(ctx, "http://example.com")
+if err != nil {
+    fmt.Println("Request failed:", err)
+    return
+}
+```
+
+### 2. **请求取消**
+在一些长时间运行的请求中，可能需要提供用户取消操作的能力。例如，如果用户发起了一个复杂查询但突然想要停止，使用 `context` 可以轻松传达取消信号。
+
+```go
+ctx, cancel := context.WithCancel(context.Background())
+
+go func() {
+    time.Sleep(10 * time.Second)
+    cancel() // 取消 context
+}()
+
+_, err := http.GetWithContext(ctx, "http://example.com")
+if err != nil {
+    fmt.Println("Request was canceled")
+}
+```
+
+### 3. **传递请求相关数据** 
+常用封装在中间件中，示例：系统所有接口都需要认证中间件认证后才能访问，在认证成功后，把一些基本信息写在context中作为参数往下传
+`context` 还常用于在处理一个请求的过程中传递数据，如用户身份信息、授权令牌等，而不需要通过函数的每一层手动传递这些数据。
+
+```go
+type key int
+
+const userKey key = 0
+
+func WithUser(ctx context.Context, user string) context.Context {
+    return context.WithValue(ctx, userKey, user)
+}
+
+func GetUser(ctx context.Context) string {
+    return ctx.Value(userKey).(string)
+}
+```
+
+### 4. **并发控制与资源同步**
+在面对高并发请求时，`context` 可以帮助同步资源访问，保证数据的一致性，尤其是在数据库事务处理时。
+
+```go
+func processRequest(ctx context.Context) {
+    tx, err := db.BeginTx(ctx, nil)
+    if err != nil {
+        // handle error
+    }
+    defer tx.Rollback()
+
+    // execute some database operations
+    tx.Commit()
+}
+```
+
+### 5. **链路追踪和监控**
+`context` 还常被用于在分布式系统中进行链路追踪和监控，通过在整个请求链中传递特定的跟踪 ID 或其他监控相关的数据。
+
+```go
+traceId := generateTraceID()
+ctx = context.WithValue(ctx, traceKey, traceId)
+
+// 下游服务可以从 ctx 中获取 traceId 用于日志记录和监控
+```
+
+这些示例显示了 `context` 在现代 Web 应用程序中的多样化应用，从基本的请求处理到复杂的系统级操作和服务间通信。在设计和实现 Web 服务时，合理使用 `context` 可以显著提高程序的性能、可维护性和用户体验。
+
+#### defer 使用场景：
+- 关闭文件
+- 关闭ch
+- 释放锁
+- 错误处理 结合recover 使用
+eg:
+    defer func() {
+        if r := recover();r != nil{
+            //// 异常处理函数
+        }
+    }()
+- 事务回滚
+- 资源释放  例如创建db conn
