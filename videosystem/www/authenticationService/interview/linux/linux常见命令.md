@@ -122,4 +122,15 @@ irectory  # 创建压缩包
 
 - `gzip` / `gunzip`：压缩和解压单个文件。
 
-这些是 Linux 系统管理中最常见和基本的命令，掌握它们可以帮助你有效地操作和管理 Linux 系统。每个命令都有丰富的选项和参数，通过阅读相应的手册页（使用 `man` 命令，例如 `man ls`）可以获取更详细的使用说明。
+### 查看端口占用
+- netstat/ss -tunlp | grep port
+
+
+- 修改root 用户密码  passwd  <user>
+- 创建用户   useradd username   
+- 切换用户   su - username
+
+
+#### 当前用户信息
+root   adminroot
+jony   jony
