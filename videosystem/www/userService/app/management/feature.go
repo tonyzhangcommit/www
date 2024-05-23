@@ -1,7 +1,6 @@
 package management
 
 import (
-	"fmt"
 	"time"
 	"userservice/app/request"
 	"userservice/app/response"
@@ -47,7 +46,6 @@ func LoginByNP(c *gin.Context) {
 // 登录 手机号-验证码
 func LoginByPVC(c *gin.Context) {
 	var form request.LoginPVC
-
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return
@@ -63,7 +61,6 @@ func LoginByPVC(c *gin.Context) {
 func GetPersonInfo(c *gin.Context) {
 	var form request.GetPersonInfo
 	if err := c.ShouldBindQuery(&form); err != nil {
-		fmt.Println("错误详情", err)
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return
 	}
@@ -78,7 +75,6 @@ func GetPersonInfo(c *gin.Context) {
 func InprovePersonInfo(c *gin.Context) {
 	var form request.InproveInfo
 	if err := c.ShouldBindJSON(&form); err != nil {
-		fmt.Println("参数验证错误", err)
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
 		return
 	}
@@ -103,8 +99,6 @@ func UpdatePwd(c *gin.Context) {
 func OpenVip(c *gin.Context) {
 
 }
-
-
 
 // 发送验证码
 func GetVirificationCode(c *gin.Context) {

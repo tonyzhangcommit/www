@@ -26,7 +26,6 @@ func setupRouter() *gin.Engine {
 	routers.SetManageGroupRouter(adminGroup)
 	// 秒杀活动
 	routers.SetFlashGroupRouter(flasshGroup)
-
 	return router
 }
 

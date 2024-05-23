@@ -1,9 +1,7 @@
 package routers
 
 import (
-	"net/http"
 	"userservice/app/management"
-	"userservice/global"
 
 	"github.com/gin-gonic/gin"
 )
@@ -19,11 +17,27 @@ func SetClientGroupRouter(router *gin.RouterGroup) {
 }
 
 // 管理端相关接口
+// 登录，登出，创建用户，创建管理员，删除用户，封禁用户，权限管理，
 func SetManageGroupRouter(router *gin.RouterGroup) {
-	router.GET("/test", func(c *gin.Context) {
-		c.String(http.StatusOK, "Welcome userService Server")
-		global.SendLogs("info", "这是一个测试日志。。。")
-	})
+	// 基础功能，登录，登出
+	router.POST("/login")
+	router.POST("/logout")
+	// 用户管理路由组
+	adminUserGroup := router.Group("/users")
+	{
+		adminUserGroup.GET("/")
+		adminUserGroup.POST("/")
+	}
+	adminRoleGroup := router.Group("/roles")
+	{
+		// 增删改查
+		adminRoleGroup.GET("/role")
+	}
+	adminPermissiGroup := router.Group("/permission")
+	{
+		// 增删改查,对用户增删改查
+		adminPermissiGroup.POST("/")
+	}
 }
 
 // 秒杀活动

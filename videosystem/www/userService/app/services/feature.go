@@ -26,12 +26,10 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 	inputVCode := form.VarifiCode
 	realVCode := utils.GetVirifCode(form.Phonenumber)
 	// 暂时去除验证码验证功能
-	_ = inputVCode
-	_ = realVCode
-	// if inputVCode != realVCode {
-	// 	err = errors.New("验证码错误")
-	// 	return
-	// }
+	if inputVCode != realVCode {
+		err = errors.New("验证码错误")
+		return
+	}
 	// 选定角色
 	rolenameslice := global.App.Config.Roles.NameList
 	rolename := ""

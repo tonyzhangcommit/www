@@ -21105,3 +21105,4 @@
 {"level":"dev.info","timestamp":"2024-04-10 16:50:10.062","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 获取用户会员类型失败"}
 {"level":"dev.info","timestamp":"2024-04-17 15:37:25.321","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-04-17 15:48:52.607","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-22 17:53:58.167","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}

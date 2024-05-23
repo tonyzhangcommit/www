@@ -54,3 +54,5 @@
 {"level":"dev.fatal","timestamp":"2024-04-09 15:26:14.447","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
 {"level":"dev.error","timestamp":"2024-04-17 15:34:54.245","logger":"localService","caller":"bootstrap/basefunc.go:68","msg":"Exception (503) Reason: \"unexpected command received\""}
 {"level":"dev.fatal","timestamp":"2024-04-17 15:34:54.245","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.error","timestamp":"2024-05-22 17:05:37.798","logger":"localService","caller":"bootstrap/basefunc.go:68","msg":"Exception (503) Reason: \"unexpected command received\""}
+{"level":"dev.fatal","timestamp":"2024-05-22 17:05:37.798","logger":"localService","caller":"bootstrap/basefunc.go:81","msg":"Exception (503) Reason: \"unexpected command received\""}
