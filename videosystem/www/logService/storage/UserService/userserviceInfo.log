@@ -21111,3 +21111,5 @@
 {"level":"dev.info","timestamp":"2024-05-23 16:20:55.674","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510100000验证码：449938"}
 {"level":"dev.info","timestamp":"2024-05-23 16:39:14.881","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-05-23 16:39:34.124","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510100000验证码：611077"}
+{"level":"dev.info","timestamp":"2024-05-23 18:24:49.034","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-23 18:25:59.609","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"18510100000验证码：292441"}

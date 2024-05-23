@@ -1,12 +1,13 @@
 package utils
 
 import (
-	"crypto/rand"
 	"crypto/sha256"
 	"encoding/base64"
 	"encoding/hex"
 	"log"
+	"math/rand"
 	"os"
+	"time"
 )
 
 // 创建文件夹
@@ -39,4 +40,15 @@ func Sha256(str []byte) string {
 	h := sha256.New()
 	h.Write(str)
 	return hex.EncodeToString(h.Sum(nil))
+}
+
+// 创建锁标识
+func RandString(len int) string {
+	r := rand.New(rand.NewSource(time.Now().UnixNano()))
+	bytes := make([]byte, len)
+	for i := 0; i < len; i++ {
+		b := r.Intn(26) + 65 // 生成 65 - 65 + 26 之间的随机整数，对应ascii为大写字母A-Z
+		bytes[i] = byte(b)
+	}
+	return string(bytes)
 }
