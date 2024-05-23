@@ -2,6 +2,7 @@ package request
 
 import (
 	"auth/global"
+	"auth/middleware"
 	"auth/response"
 	"auth/utils"
 	"bytes"
@@ -11,6 +12,7 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 )
 
@@ -83,6 +85,14 @@ func (UserService *uservice) Login(c *gin.Context) {
 	} else {
 		response.Success(c, commonres)
 	}
+}
+
+// 退出登录
+func (UserService *uservice) LoginOut(c *gin.Context) {
+	if err := middleware.JoinBlackList(c.Keys["token"].(*jwt.Token)); err != nil {
+		response.JwtTokenErrorFail(c, "登出错误，请联系管理员")
+	}
+	response.Success(c, nil)
 }
 
 // 获取验证码

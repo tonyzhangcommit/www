@@ -8,9 +8,8 @@ import (
 )
 
 /*
-	初始化 缓存
+初始化 缓存
 */
-
 func InitializeRedis() {
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     global.App.Config.Redis.Host + ":" + global.App.Config.Redis.Port,

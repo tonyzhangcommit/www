@@ -120,12 +120,10 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.Lo
 	inputVCode := form.VerificationCode
 	realVCode := utils.GetVirifCode(form.Phonenumber)
 	// 测试暂时关闭
-	// if inputVCode != realVCode {
-	// 	err = errors.New("验证码错误")
-	// 	return
-	// }
-	_ = inputVCode
-	_ = realVCode
+	if inputVCode != realVCode {
+		err = errors.New("验证码错误")
+		return
+	}
 	var user models.User
 	err = global.App.DB.Preload("Roles").Where("phonenumber = ?", form.Phonenumber).First(&user).Error
 	if err != nil {

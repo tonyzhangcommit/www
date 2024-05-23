@@ -2,7 +2,9 @@ package utils
 
 import (
 	"crypto/rand"
+	"crypto/sha256"
 	"encoding/base64"
+	"encoding/hex"
 	"log"
 	"os"
 )
@@ -27,8 +29,14 @@ func GenerateSecretKey(length int) (string, error) {
 	if err != nil {
 		return "", err
 	}
-
 	// Use Base64 encoding for ease of storage and use
 	secretKey := base64.URLEncoding.EncodeToString(key)
 	return secretKey, nil
+}
+
+// SHA256 加密处理字符串
+func Sha256(str []byte) string {
+	h := sha256.New()
+	h.Write(str)
+	return hex.EncodeToString(h.Sum(nil))
 }

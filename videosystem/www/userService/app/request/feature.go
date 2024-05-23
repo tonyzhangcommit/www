@@ -70,7 +70,7 @@ func (getpersoninfo GetPersonInfo) GetMessages() ValidatorMessages {
 }
 
 // 编辑个人信息
-// dev 暂时不用 binding:"idcard"
+// dev 暂时不用 binding:"idcard" 身份验证
 type InproveInfo struct {
 	UserID         uint   `form:"uid" json:"uid" binding:"required"`
 	Address        string `form:"address" json:"address" `

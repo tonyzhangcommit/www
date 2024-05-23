@@ -28,15 +28,13 @@ func SetUserServiceClientGroupRouter(router *gin.RouterGroup) {
 			})
 		}
 	})
-	// clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath).Use(middleware.ServiceLimit("Client", 100, 150, 200))
-	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath) // 暂时去掉限流机制
+	clientGroup := router.Group(global.App.Config.UserServiceApi.ClientPath).Use(middleware.ServiceLimit("Client", 100, 150, 200)) // 带有限流机制
 	{
 		clientGroup.POST("/login", request.UserService.Login)
-		clientGroup.POST("/logout", request.UserService.Login)
-		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(60), request.UserService.GetVerifiCode)
-		// clientGroup.POST("/getverifcode", request.UserService.GetVerifiCode)
+		clientGroup.POST("/logout", middleware.JWTAUTH("app"), request.UserService.LoginOut)
+		clientGroup.POST("/getverifcode", middleware.APIGetVerifCodeLimit(60), request.UserService.GetVerifiCode) // 限流设置
 		clientGroup.POST("/register", request.UserService.Register)
-		clientGroup.GET("/getuserinfo", request.UserService.GetUserinfo)
+		clientGroup.GET("/getuserinfo", middleware.JWTAUTH("app"), request.UserService.GetUserinfo)
 		clientGroup.POST("/inproveinfo", request.UserService.InproveInfo)
 	}
 }

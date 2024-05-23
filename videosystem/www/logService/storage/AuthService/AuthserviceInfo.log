@@ -225,3 +225,6 @@
 {"level":"dev.info","timestamp":"2024-04-10 16:25:00.165","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-04-17 15:38:27.704","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-04-17 15:49:35.987","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-23 16:20:50.631","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-23 16:31:04.166","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-23 16:37:51.604","logger":"authenticationService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
