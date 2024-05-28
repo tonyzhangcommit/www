@@ -21190,3 +21190,7 @@
 {"level":"dev.info","timestamp":"2024-05-28 17:05:24.354","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-05-28 17:07:57.844","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
 {"level":"dev.info","timestamp":"2024-05-28 17:10:52.090","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-28 18:00:35.639","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-28 18:04:50.165","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-28 18:12:05.947","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}
+{"level":"dev.info","timestamp":"2024-05-28 18:23:32.613","logger":"userService","caller":"bootstrap/rabbitmq.go:48","msg":"redis 初始化成功"}

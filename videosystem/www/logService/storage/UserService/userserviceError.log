@@ -6124,3 +6124,5 @@
 {"level":"dev.error","timestamp":"2024-05-28 17:05:53.480","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法查询目标用户 1 信息"}
 {"level":"dev.error","timestamp":"2024-05-28 17:11:32.165","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 3 非法操作目标用户 2 信息"}
 {"level":"dev.error","timestamp":"2024-05-28 17:11:41.917","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法操作目标用户 2 信息"}
+{"level":"dev.error","timestamp":"2024-05-28 18:05:18.134","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法获取角色信息"}
+{"level":"dev.error","timestamp":"2024-05-28 18:25:40.478","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法获取角色信息"}

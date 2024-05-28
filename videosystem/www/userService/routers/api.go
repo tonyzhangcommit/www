@@ -30,12 +30,16 @@ func SetManageGroupRouter(router *gin.RouterGroup) {
 	adminRoleGroup := router.Group("/roles")
 	{
 		// 增删改查,角色只能为超管
-		adminRoleGroup.GET("/")
+		adminRoleGroup.POST("/list", management.AdminFeature.GetRolesList)
+		adminRoleGroup.POST("/editroles")
+		adminRoleGroup.POST("/delrole")
 	}
 	adminPermissiGroup := router.Group("/permission")
 	{
 		// 权限的增删改查，角色只能为超管
-		adminPermissiGroup.POST("/")
+		adminPermissiGroup.POST("/list", management.AdminFeature.GetPermissionList)
+		adminPermissiGroup.POST("/editpermission",management.AdminFeature.EditPermission)
+		adminPermissiGroup.POST("/delpermission",management.AdminFeature.DelPermission)
 	}
 }
 

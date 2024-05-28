@@ -70,7 +70,7 @@ type Role struct {
 	RoleName    string       `json:"rolename" gorm:"unique;column:rolename;comment:角色名"`
 	Description string       `json:"desc" gorm:"column:desc;comment:描述信息"`
 	Users       []User       `json:"-" gorm:"many2many:user_roles;"`
-	Permissions []Permission `json:"-" gorm:"many2many:role_permissions;"`
+	Permissions []Permission `json:"permissions" gorm:"many2many:role_permissions;"`
 	CreatedAt   time.Time    `json:"createtime" gorm:"column:createat;autoCreateTime;comment:创建时间"`
 }
 

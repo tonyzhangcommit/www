@@ -436,3 +436,117 @@ func cutPageDeal(pagesize int64, currentpage int64, users []models.User) (upi re
 }
 
 // 超管操作角色权限信息
+// 获取所有角色
+func (m adminFeature) GetRolesList(form *request.GetRoles) (roles []models.Role, err error) {
+	var user models.User
+	if err = global.App.DB.Preload("Roles").First(&user, form.Uid).Error; err != nil {
+		return
+	}
+	if !isSuAdmin(user) {
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法获取角色信息", form.Uid), err)
+		err = errors.New("非法操作")
+		return
+	}
+	if form.Rid == 0 {
+		if err = global.App.DB.Preload("Permissions").Find(&roles).Error; err != nil {
+			return
+		}
+	} else {
+		var role models.Role
+		if err = global.App.DB.Preload("Permissions").First(&role, form.Rid).Error; err != nil {
+			return
+		}
+		roles = append(roles, role)
+	}
+	return
+}
+
+// 新增角色
+func (m adminFeature) AddRoles(form *request.AddRoles) (roles []models.Role, err error) {
+	return
+}
+
+// 删除角色
+func (m adminFeature) DelRoles(form *request.GetRoles) (err error) {
+	return
+}
+
+// 获取所有权限
+func (m adminFeature) GetPermissionList(form *request.GetPermissions) (permissions []models.Permission, err error) {
+	var user models.User
+	if err = global.App.DB.Preload("Roles").First(&user, form.Uid).Error; err != nil {
+		return
+	}
+	if !isSuAdmin(user) {
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法获取权限信息", form.Uid), err)
+		err = errors.New("非法操作")
+		return
+	}
+	if form.Pid == 0 {
+		if err = global.App.DB.Find(&permissions).Error; err != nil {
+			return
+		}
+	} else {
+		var permission models.Permission
+		if err = global.App.DB.First(&permission, form.Pid).Error; err != nil {
+			return
+		}
+		permissions = append(permissions, permission)
+	}
+	return
+}
+
+// 新增权限
+func (m adminFeature) EditPermission(form *request.EditPermissions) (err error) {
+	var user models.User
+	if err = global.App.DB.Preload("Roles").First(&user, form.Uid).Error; err != nil {
+		return
+	}
+	if !isSuAdmin(user) {
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法获取角色信息", form.Uid), err)
+		err = errors.New("非法操作")
+		return
+	}
+	var permission models.Permission
+	if form.Pid == 0 {
+		// 新增
+		permission.PermissionName = form.PermissionName
+		permission.Description = form.Description
+		err = global.App.DB.Create(&permission).Error
+	} else {
+		// 编辑
+		if err = global.App.DB.First(&permission, form.Pid).Error; err != nil {
+			return
+		}
+		permission.PermissionName = form.PermissionName
+		permission.Description = form.Description
+		err = global.App.DB.Save(&permission).Error
+	}
+	return
+}
+
+// 删除权限
+func (m adminFeature) DelPermission(form *request.GetPermissions) (err error) {
+	var user models.User
+	if err = global.App.DB.Preload("Roles").First(&user, form.Uid).Error; err != nil {
+		return
+	}
+	if !isSuAdmin(user) {
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法获取角色信息", form.Uid), err)
+		err = errors.New("非法操作")
+		return
+	}
+
+	// 此时pid 不一定存在，所以要检查
+	if form.Pid == 0 {
+		err = errors.New("缺少参数pid")
+	} else {
+		var permission models.Permission
+		if err = global.App.DB.First(&permission, form.Pid).Error; err != nil {
+			return
+		}
+		err = global.App.DB.Delete(&permission).Error
+	}
+
+	return
+}
