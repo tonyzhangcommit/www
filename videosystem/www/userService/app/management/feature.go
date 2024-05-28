@@ -12,11 +12,19 @@ import (
 )
 
 /*
-	视图函数
+	视图函数，这里主要用于参数验证
 */
 
+// 根据业务对方法进行区分
+type userFeature struct{}
+type adminFeature struct{}
+
+// 外部调用
+var UserFeature = new(userFeature)
+var AdminFeature = new(adminFeature)
+
 // 注册,用户名，手机号，密码，必填项
-func Register(c *gin.Context) {
+func (u userFeature) Register(c *gin.Context) {
 	var form request.Resister
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
@@ -30,7 +38,7 @@ func Register(c *gin.Context) {
 }
 
 // 登录 用户名-密码， 暂时弃用
-func LoginByNP(c *gin.Context) {
+func (u userFeature) LoginByNP(c *gin.Context) {
 	var form request.LoginNP
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
@@ -44,7 +52,7 @@ func LoginByNP(c *gin.Context) {
 }
 
 // 登录 手机号-验证码
-func LoginByPVC(c *gin.Context) {
+func (u userFeature) LoginByPVC(c *gin.Context) {
 	var form request.LoginPVC
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
@@ -58,7 +66,7 @@ func LoginByPVC(c *gin.Context) {
 }
 
 // 获取个人信息
-func GetPersonInfo(c *gin.Context) {
+func (u userFeature) GetPersonInfo(c *gin.Context) {
 	var form request.GetPersonInfo
 	if err := c.ShouldBindQuery(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
@@ -71,8 +79,8 @@ func GetPersonInfo(c *gin.Context) {
 	}
 }
 
-// 编辑个人信息
-func InprovePersonInfo(c *gin.Context) {
+// 编辑（完善）个人信息
+func (u userFeature) InprovePersonInfo(c *gin.Context) {
 	var form request.InproveInfo
 	if err := c.ShouldBindJSON(&form); err != nil {
 		response.ValidateFail(c, request.GetErrorMsg(form, err))
@@ -85,22 +93,17 @@ func InprovePersonInfo(c *gin.Context) {
 	}
 }
 
-// 退出登录
-func Logout(c *gin.Context) {
-
-}
-
 // 更新（忘记）密码
-func UpdatePwd(c *gin.Context) {
+func (u userFeature) UpdatePwd(c *gin.Context) {
 
 }
 
 // 开通会员,分为开通会员和升级会员
-func OpenVip(c *gin.Context) {
+func (u userFeature) OpenVip(c *gin.Context) {
 
 }
 
-// 发送验证码
+// 发送验证码（通用方法）
 func GetVirificationCode(c *gin.Context) {
 	var form request.GetVirifCode
 	if err := c.ShouldBindJSON(&form); err != nil {
@@ -114,3 +117,4 @@ func GetVirificationCode(c *gin.Context) {
 		response.Success(c, "验证码已发送")
 	}
 }
+

@@ -31,9 +31,7 @@ type lock struct {
 
 // lock 实现 Interface,获取锁
 func (l *lock) Get() bool {
-	fmt.Println("-------->")
 	fmt.Println(l.name, l.owner, time.Duration(l.seconds)*time.Second)
-	fmt.Println("-------->")
 	return App.Redis.SetNX(l.context, l.name, l.owner, time.Duration(l.seconds)*time.Second).Val()
 }
 

@@ -9,33 +9,32 @@ import (
 // 这里主要分为两个部分：管理端/客户端
 // 管理端路由组为/manage,客户端为/client
 func SetClientGroupRouter(router *gin.RouterGroup) {
-	router.POST("/register", management.Register)
-	router.POST("/loginbypvc", management.LoginByPVC)
+	router.POST("/register", management.UserFeature.Register)
+	router.POST("/loginbypvc", management.UserFeature.LoginByPVC)
 	router.POST("/getvarifcode", management.GetVirificationCode)
-	router.GET("/getuserinfo", management.GetPersonInfo)
-	router.POST("/inproveinfo", management.InprovePersonInfo)
+	router.GET("/getuserinfo", management.UserFeature.GetPersonInfo)
+	router.POST("/inproveinfo", management.UserFeature.InprovePersonInfo)
 }
 
 // 管理端相关接口
-// 登录，登出，创建用户，创建管理员，删除用户，封禁用户，权限管理，
+// 登录，登出，创建用户，创建管理员，删除用户，封禁用户，权限管理，角色管理等..
 func SetManageGroupRouter(router *gin.RouterGroup) {
 	// 基础功能，登录，登出
-	router.POST("/login")
-	router.POST("/logout")
-	// 用户管理路由组
-	adminUserGroup := router.Group("/users")
-	{
-		adminUserGroup.GET("/")
-		adminUserGroup.POST("/")
-	}
+	router.POST("/adminlogin", management.AdminFeature.AdminLoginByPN)
+	router.POST("/adminlogout", management.AdminFeature.AdminLogout)
+	router.POST("/createmanager", management.AdminFeature.AdminCreateManager)
+	router.POST("/deletemanager", management.AdminFeature.DeleteUser)
+	router.POST("/admingetuserlist", management.AdminFeature.AdminGetUserList)
+	router.POST("/admingetusrinfo", management.AdminFeature.AdminGetUserInfo)
+	router.POST("/adminedituserinfo", management.AdminFeature.AdminEditUserInfo)
 	adminRoleGroup := router.Group("/roles")
 	{
-		// 增删改查
-		adminRoleGroup.GET("/role")
+		// 增删改查,角色只能为超管
+		adminRoleGroup.GET("/")
 	}
 	adminPermissiGroup := router.Group("/permission")
 	{
-		// 增删改查,对用户增删改查
+		// 权限的增删改查，角色只能为超管
 		adminPermissiGroup.POST("/")
 	}
 }

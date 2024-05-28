@@ -17,27 +17,29 @@ import (
 */
 
 type feature struct{}
+type adminFeature struct{}
 
 var Feature = new(feature)
+var AdminFeature = new(adminFeature)
 
 // 普通用户注册，如果没有指定邀请码，则默认归为默认超级管理员名下
-func (Feature *feature) Register(form *request.Resister) (user models.User, err error) {
+func (f feature) Register(form *request.Resister) (user models.User, err error) {
 	// 验证手机号
-	inputVCode := form.VarifiCode
-	realVCode := utils.GetVirifCode(form.Phonenumber)
-	// 暂时去除验证码验证功能
-	if inputVCode != realVCode {
-		err = errors.New("验证码错误")
-		return
-	}
-	// 选定角色
+	// inputVCode := form.VarifiCode
+	// realVCode := utils.GetVirifCode(form.Phonenumber)
+	// if inputVCode != realVCode {
+	// 	err = errors.New("验证码错误")
+	// 	return
+	// }
+	// 选定角色, 这一块代码暂定不需要
 	rolenameslice := global.App.Config.Roles.NameList
 	rolename := ""
 	if len(rolenameslice) > 3 {
-		rolename = rolenameslice[3]
+		rolename = rolenameslice[2]
 	} else {
-		rolename = "monthlyVip"
+		rolename = "regularUser"
 	}
+	// 二次验证
 	var role models.Role
 	if err = global.App.DB.Where("rolename = ?", rolename).First(&role).Error; err != nil {
 		global.SendLogs("error", "注册失败，指定角色不存在（regularUser）", err)
@@ -49,15 +51,16 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 		err = errors.New("手机号已注册")
 		return
 	}
+	// 暂定允许用户名重复
 	if err = global.App.DB.Where("username = ?", form.Name).First(&models.User{}).Error; err == nil {
-		err = errors.New("用户名已注册")
+		err = errors.New("用户名已存在")
 		return
 	}
 	// 判断是否存在邀请码
 	manager := models.User{}
 	var useractivity models.UserActivity
 	if form.AgentCode != "" {
-		// 判断邀请码的正确性,这里已经加了参数验证，所以这里忽略
+		// 判断邀请码的正确性,上方已经加了参数验证，所以这里忽略
 		// agentcode 需要增加规则限制，避免SQL注入风险
 		if err = global.App.DB.Where("agentcode = ?", form.AgentCode).First(&manager).Error; err != nil {
 			err = errors.New("邀请码错误，注册失败")
@@ -82,7 +85,7 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 		}
 	} else {
 		if err = global.App.DB.Where("username = ?", "desupadmin").First(&manager).Error; err != nil {
-			global.SendLogs("error", "默认管理员不存在", err)
+			global.SendLogs("error", "超级管理员不存在", err)
 			err = errors.New("注册失败")
 			return
 		}
@@ -109,13 +112,13 @@ func (Feature *feature) Register(form *request.Resister) (user models.User, err 
 }
 
 // 用户名-密码登录,暂时弃用，数据库设计中允许用户名重复
-func (Feature *feature) LoginByNP(form *request.LoginNP) (user response.LoginRes, err error) {
+func (f feature) LoginByNP(form *request.LoginNP) (user response.LoginRes, err error) {
 
 	return
 }
 
 // 手机号-验证码 登录
-func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.LoginRes, err error) {
+func (f feature) LoginByPVC(form *request.LoginPVC) (loginRes response.LoginRes, err error) {
 	// 验证手机号
 	inputVCode := form.VerificationCode
 	realVCode := utils.GetVirifCode(form.Phonenumber)
@@ -152,14 +155,14 @@ func (Feature *feature) LoginByPVC(form *request.LoginPVC) (loginRes response.Lo
 }
 
 // 获取个人信息，请求参数为手机号或者用户名（目的是防止get请求被猜测）
-func (Feature *feature) GetPersonInfo(form *request.GetPersonInfo) (userinfo response.UserInfo, err error) {
-	if form.Name == "" && form.Phonenumber == "" {
+func (f feature) GetPersonInfo(form *request.GetPersonInfo) (userinfo response.UserInfo, err error) {
+	if form.Uid == "" && form.Phonenumber == "" {
 		err = errors.New("缺少参数")
 		return
 	}
 	var user = models.User{}
-	if form.Name != "" {
-		err = global.App.DB.Preload("Roles").Preload("Profile").Where("username=?", form.Name).First(&user).Error
+	if form.Uid != "" {
+		err = global.App.DB.Preload("Roles").Preload("Profile").First(&user, form.Uid).Error
 	} else {
 		err = global.App.DB.Preload("Roles").Preload("Profile").Where("phonenumber=?", form.Phonenumber).First(&user).Error
 	}
@@ -190,7 +193,7 @@ func (Feature *feature) GetPersonInfo(form *request.GetPersonInfo) (userinfo res
 }
 
 // 完善个人信息
-func (Feature *feature) InprovePersonInfo(form *request.InproveInfo) (err error) {
+func (f feature) InprovePersonInfo(form *request.InproveInfo) (err error) {
 	fmt.Println(form)
 	if err = global.App.DB.First(&models.User{}, form.UserID).Error; err != nil {
 		err = errors.New("用户不存在")
@@ -215,7 +218,7 @@ func (Feature *feature) InprovePersonInfo(form *request.InproveInfo) (err error)
 	return
 }
 
-// 退出登录
-func (Feature *feature) Logout(form *request.GetPersonInfo) (err error) {
+// 退出登录，这里在认证服务已实现，占位
+func (f feature) Logout(form *request.GetPersonInfo) (err error) {
 	return
 }

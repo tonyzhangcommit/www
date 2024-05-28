@@ -1,6 +1,9 @@
 package response
 
-import "time"
+import (
+	"time"
+	"userservice/models"
+)
 
 /*
 	保存非常规返回值格式
@@ -37,4 +40,12 @@ type UserInfo struct {
 
 type UserRoles struct {
 	Roles []string `json:"roles"`
+}
+
+// 分页返回结构体
+type UsersPagesInfo struct {
+	Users       []models.User
+	Total       int64
+	Pagesize    int64
+	CurrentPage int64
 }

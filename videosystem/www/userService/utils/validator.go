@@ -57,7 +57,7 @@ func ValidateAgentCode(fl validator.FieldLevel) bool {
 	if len(agentCode) == 0 {
 		return true
 	}
-	regexpPattern := `^[A-Za-z0-9]{6}$`
+	regexpPattern := `^[A-Za-z0-9]{6,8}$`
 	re, _ := regexp.Compile(regexpPattern)
 	return re.Match([]byte(agentCode))
 }

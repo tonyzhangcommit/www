@@ -26,7 +26,7 @@ type uservice struct {
 var UserService = new(uservice)
 
 // 登录
-func (UserService *uservice) Login(c *gin.Context) {
+func (UserService *uservice) Login(c *gin.Context, platform string) {
 	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.Login)
 	body, err := GetRequestBody(c)
 	if err != nil {
@@ -75,7 +75,7 @@ func (UserService *uservice) Login(c *gin.Context) {
 			response.UserserviceFail(c)
 			return
 		}
-		jwtout, err := response.JwtService.CreateJwtToken("app", strconv.Itoa(int(loginres.Data.ID)), loginres.Data.Roles)
+		jwtout, err := response.JwtService.CreateJwtToken(platform, strconv.Itoa(int(loginres.Data.ID)), loginres.Data.Roles)
 		if err != nil {
 			go global.SendLogs("error", "生成令牌出错", err)
 			response.LocalErrorFail(c, "生成令牌出错")
@@ -113,7 +113,7 @@ func (UserService *uservice) GetUserinfo(c *gin.Context) {
 	GetRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)
 }
 
-// 注册
+// 编辑个人信息
 func (UserService *uservice) InproveInfo(c *gin.Context) {
 	remoteurl := utils.JoinStrings(global.App.Config.UserServiceApi.BaseUrl, global.App.Config.UserServiceApi.ClientUrl.InproveInfo)
 	PostRequest(c, global.App.Config.UserServiceApi.Timeout, remoteurl)

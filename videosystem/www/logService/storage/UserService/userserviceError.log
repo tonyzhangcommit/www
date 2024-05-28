@@ -6108,3 +6108,19 @@
 {"level":"dev.error","timestamp":"2024-04-10 16:49:59.833","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"数据库查询错误 - 错误详情: redis: nil"}
 {"level":"dev.error","timestamp":"2024-04-10 16:49:59.833","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"数据库查询错误 - 错误详情: redis: nil"}
 {"level":"dev.error","timestamp":"2024-04-10 16:49:59.833","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"数据库查询错误 - 错误详情: redis: nil"}
+{"level":"dev.error","timestamp":"2024-05-24 15:43:14.959","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"入库用户行为失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-24 15:43:16.949","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"入库用户行为失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 11:16:38.886","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"非法创建管理员"}
+{"level":"dev.error","timestamp":"2024-05-27 11:19:19.851","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员2同步日志记录失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 11:29:47.569","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员3同步日志记录失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 11:33:26.730","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员4同步日志记录失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 11:33:35.864","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员5同步日志记录失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 11:33:45.198","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员6同步日志记录失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 11:37:28.044","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员9同步日志记录失败 - 错误详情: Error 1292 (22007): Incorrect datetime value: '0000-00-00' for column 'last_login_at' at row 1"}
+{"level":"dev.error","timestamp":"2024-05-27 14:32:56.091","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"超管1创建管理员10同步日志记录失败 - 错误详情: failed to set value time.Date(2024, time.May, 27, 14, 32, 56, 73000000, time.Local) to field OperateAt"}
+{"level":"dev.error","timestamp":"2024-05-28 15:46:19.899","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"设置usersinfo缓存失败： - 错误详情: 内部错误，请联系管理员"}
+{"level":"dev.error","timestamp":"2024-05-28 15:46:22.829","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"设置usersinfo缓存失败： - 错误详情: 内部错误，请联系管理员"}
+{"level":"dev.error","timestamp":"2024-05-28 15:46:56.458","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"设置usersinfo缓存失败： - 错误详情: redis: can't marshal []models.User (implement encoding.BinaryMarshaler)"}
+{"level":"dev.error","timestamp":"2024-05-28 17:05:53.480","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法查询目标用户 1 信息"}
+{"level":"dev.error","timestamp":"2024-05-28 17:11:32.165","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 3 非法操作目标用户 2 信息"}
+{"level":"dev.error","timestamp":"2024-05-28 17:11:41.917","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法操作目标用户 2 信息"}

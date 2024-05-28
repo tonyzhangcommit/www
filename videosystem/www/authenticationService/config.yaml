@@ -55,9 +55,9 @@ orderserviceapi:
   takefalshorder: /orderservice/takeflashorder
 jwt:
   secretkey: tb4hn_E72w9m0TKEDf4jSd8P5aW2x3XQAvVzE4w6Bis=
-  jwttil: 3000
+  jwttil: 3000000
   jwtBlacklistGracePeriod: 10
-  refreshGracePeriod: 600
+  refreshGracePeriod: 60
 
 # rateLimiting:    # 请求速率限制 -- DB & redis & config
 # requestPeaking:  # 请求峰值限制 -- MQ & config
