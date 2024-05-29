@@ -183,7 +183,7 @@ func (a *AdminGetUserinfo) GetMessages() ValidatorMessages {
 	}
 }
 
-// 超管管理权限角色
+// 超管管理权限角色/删除也用这个结构体
 type GetRoles struct {
 	Uid uint64 `form:"uid" json:"uid" binding:"required"`
 	Rid uint64 `form:"rid" json:"rid" `
@@ -195,33 +195,20 @@ func (g *GetRoles) GetMessages() ValidatorMessages {
 	}
 }
 
-// 增加角色
-type AddRoles struct {
-	Uid         uint64 `form:"uid" json:"uid" binding:"required"`
-	Rname       string `form:"rname" json:"rname" binding:"required"`
-	Description string `form:"desc"  json:"desc" `
-}
-
-func (g *AddRoles) AddRoles() ValidatorMessages {
-	return ValidatorMessages{
-		"uid.required":   "缺少 uid ",
-		"rname.required": "缺少 rname ",
-	}
-}
-
 // 新增/编辑角色,存在rid, 编辑，不存在则新增
 type EditRoles struct {
 	Uid            uint64   `form:"uid" json:"uid" binding:"required"`
 	Rid            uint64   `form:"rid" json:"rid"`
 	Rname          string   `form:"rname" json:"rname" binding:"required"`
 	Description    string   `form:"desc"  json:"desc" `
-	PermissionList []uint64 `form:"permissionlist"  json:"permissionlist" `
+	PermissionList []uint64 `form:"permissionlist"  json:"permissionlist" binding:"required"`
 }
 
-func (g *AddRoles) EditRoles() ValidatorMessages {
+func (g *EditRoles) GetMessages() ValidatorMessages {
 	return ValidatorMessages{
-		"uid.required":   "缺少 uid ",
-		"rname.required": "缺少 rname ",
+		"uid.required":            "缺少 uid ",
+		"rname.required":          "缺少 rname ",
+		"permissionlist.required": "缺少 permissionlist参数 ",
 	}
 }
 

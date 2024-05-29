@@ -146,13 +146,33 @@ func (m adminFeature) GetRolesList(c *gin.Context) {
 }
 
 // 新增角色,传入id如果不存在则是新增，如果存在就是编辑
-func (m adminFeature) AddRoles(c *gin.Context) {
-
+func (m adminFeature) EditRoles(c *gin.Context) {
+	var form request.EditRoles
+	if err := c.ShouldBindJSON(&form); err != nil {
+		response.ValidateFail(c, request.GetErrorMsg(form, err))
+		return
+	} else {
+		if err := services.AdminFeature.EditRoles(&form); err != nil {
+			response.BusinessFail(c, err.Error())
+		} else {
+			response.Success(c, nil)
+		}
+	}
 }
 
 // 删除角色
 func (m adminFeature) DelRoles(c *gin.Context) {
-
+	var form request.GetRoles
+	if err := c.ShouldBindJSON(&form); err != nil {
+		response.ValidateFail(c, request.GetErrorMsg(form, err))
+		return
+	} else {
+		if err := services.AdminFeature.DelRoles(&form); err != nil {
+			response.BusinessFail(c, err.Error())
+		} else {
+			response.Success(c, nil)
+		}
+	}
 }
 
 // 获取所有权限

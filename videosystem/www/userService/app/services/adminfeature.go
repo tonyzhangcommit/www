@@ -461,13 +461,83 @@ func (m adminFeature) GetRolesList(form *request.GetRoles) (roles []models.Role,
 	return
 }
 
-// 新增角色
-func (m adminFeature) AddRoles(form *request.AddRoles) (roles []models.Role, err error) {
+// 新增/编辑角色
+func (m adminFeature) EditRoles(form *request.EditRoles) (err error) {
+	var user models.User
+	if err = global.App.DB.Preload("Roles").First(&user, form.Uid).Error; err != nil {
+		return
+	}
+	if !isSuAdmin(user) {
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法操作角色信息", form.Uid), err)
+		err = errors.New("非法操作")
+		return
+	}
+	var permissionlist []models.Permission
+	for _, pid := range form.PermissionList {
+		var permission models.Permission
+		if err = global.App.DB.First(&permission, pid).Error; err != nil {
+			return
+		}
+		permissionlist = append(permissionlist, permission)
+	}
+	var role models.Role
+	if form.Rid == 0 {
+		// 新增
+		role.RoleName = form.Rname
+		role.Description = form.Description
+		role.Permissions = permissionlist
+		err = global.App.DB.Create(&role).Error
+
+	} else {
+		// 编辑,首先判断当前role 是否存在
+		if err = global.App.DB.First(&role, form.Rid).Error; err != nil {
+			return
+		}
+		if role.RoleName != form.Rname {
+			role.RoleName = form.Rname
+		}
+		role.Description = form.Description
+		role.Permissions = permissionlist
+		err = global.App.DB.Save(&role).Error
+	}
 	return
 }
 
 // 删除角色
 func (m adminFeature) DelRoles(form *request.GetRoles) (err error) {
+	var user models.User
+	if err = global.App.DB.Preload("Roles").First(&user, form.Uid).Error; err != nil {
+		return
+	}
+	if !isSuAdmin(user) {
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法删除角色信息", form.Uid), err)
+		err = errors.New("非法操作")
+		return
+	}
+	if form.Rid == 0 {
+		err = errors.New("缺少参数rid")
+		return
+	}
+	// 验证角色是否存在
+	var role models.Role
+	if err = global.App.DB.First(&role, form.Rid).Error; err != nil {
+		err = errors.New("rid 错误")
+	} else {
+		// 解除 与 user permission 之间的关系
+		if err = global.App.DB.Model(&role).Association("Users").Clear(); err != nil {
+			global.SendLogs("error", "解绑user关系失败", err)
+			return
+		}
+		if err = global.App.DB.Model(&role).Association("Permissions").Clear(); err != nil {
+			global.SendLogs("error", "解绑permission关系失败", err)
+			return
+		}
+		// 开始删除
+		if err = global.App.DB.Delete(&role).Error; err != nil {
+			global.SendLogs("error", "删除失败", err)
+			return
+		}
+	}
 	return
 }
 
@@ -503,7 +573,7 @@ func (m adminFeature) EditPermission(form *request.EditPermissions) (err error) 
 		return
 	}
 	if !isSuAdmin(user) {
-		global.SendLogs("error", fmt.Sprintf("用户 %d 非法获取角色信息", form.Uid), err)
+		global.SendLogs("error", fmt.Sprintf("用户 %d 非法操作权限信息", form.Uid), err)
 		err = errors.New("非法操作")
 		return
 	}

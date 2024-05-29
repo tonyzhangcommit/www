@@ -6126,3 +6126,16 @@
 {"level":"dev.error","timestamp":"2024-05-28 17:11:41.917","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法操作目标用户 2 信息"}
 {"level":"dev.error","timestamp":"2024-05-28 18:05:18.134","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法获取角色信息"}
 {"level":"dev.error","timestamp":"2024-05-28 18:25:40.478","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法获取角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 17:06:49.162","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法获取权限信息"}
+{"level":"dev.error","timestamp":"2024-05-29 17:07:14.315","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法获取角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 17:07:21.872","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法获取角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 17:08:08.899","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法操作权限信息"}
+{"level":"dev.error","timestamp":"2024-05-29 17:51:46.222","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 2 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:05:28.904","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:05:34.364","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:05:46.211","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:05:53.102","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:07:23.224","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:10:52.415","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:11:23.540","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"用户 1 非法操作角色信息"}
+{"level":"dev.error","timestamp":"2024-05-29 18:12:34.300","logger":"userService","caller":"bootstrap/rabbitmq.go:50","msg":"解绑user关系失败 - 错误详情: unsupported relations: User"}
